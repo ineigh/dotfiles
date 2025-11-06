@@ -7,6 +7,14 @@ syntax on
 set tabstop=4
 set shiftwidth=4
 
+"allow cursor to reach end of line in normal mode
+set virtualedit=onemore
+
+"enable ctrl+bs
+inoremap <C-h> <C-w>
+inoremap <C-?> <C-w>
+inoremap <C-BS> <C-w>
+
 "autoindent
 set autoindent
 set smartindent
