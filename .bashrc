@@ -8,11 +8,11 @@ alias n='neofetch'
 alias ls='ls -l --color=auto'
 alias lsa='ls -l -a --color=auto'
 alias grep='grep --color=auto'
-alias rc='vim /home/neighsayer/.bashrc'
-alias rb='exec bash'
-alias ki='vim /home/neighsayer/.config/kitty/kitty.conf'
-alias fo='vim /home/neighsayer/.config/foot/foot.ini'
-alias neoconf='vim /home/neighsayer/.config/neofetch/config.conf'
+alias rc='vim $HOME/.bashrc'
+alias rb='source ~/.bashrc'
+alias ki='vim $HOME/.config/kitty/kitty.conf'
+alias fo='vim $HOME/.config/foot/foot.ini'
+alias neoconf='vim $HOME/.config/neofetch/config.conf'
 alias ponysay='python3 -W ignore /usr/bin/ponysay -b round'
 alias vrc='vim .vimrc'
 alias ls='ls -l --color=auto'
@@ -27,19 +27,10 @@ alias lsrc='ls | grep "$@"'
 #$celebrated=0
 case $(date +%u) in
 	2) #tuesday
-		#if [ "$celebrated" -eq 0 ]; then	
 			ponysay -f trixielulamoon "It's Trixie Tuesday!"
-			#celebrated=1
-		#fi
 		;;
 	5) #friday
-		#if [ "$celebrated" -eq 0 ]; then	
 			ponysay -f fluttershy "It's Fluttershy Friday, yay!"
-			#celebrated=1
-		#fi
-		;;
-	*)
-		#celebrated=0;
 		;;
 esac
 
@@ -198,7 +189,7 @@ mlpep() {
 		e=$(( (RANDOM % 26) +1 ))
 	fi
 
-	en=$(jq -r ".\"$s\".\"$e\"" "~/.mlp.json")
+	en=$(jq -r ".\"$s\".\"$e\"" "$HOME/mlp.json")
 
 	ponysay +f fillystia "You should watch Episode $e, Season $s: \"$en\" of My Little Pony!"
 }
