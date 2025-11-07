@@ -1,3 +1,7 @@
+export EDITOR=vim
+export VISUAL=vim
+export SUDO_EDITOR=vim
+
 #BASH PROMPT
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
@@ -24,13 +28,12 @@ alias xtrct='tar -xvzf'
 alias lsrc='ls | grep "$@"'
 
 #FUNNY
-#$celebrated=0
 case $(date +%u) in
-	2) #tuesday
-			ponysay -f trixielulamoon "It's Trixie Tuesday!"
+	2)
+		ponysay -f trixielulamoon "It's Trixie Tuesday!"
 		;;
-	5) #friday
-			ponysay -f fluttershy "It's Fluttershy Friday, yay!"
+	5)
+		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
 		;;
 esac
 
