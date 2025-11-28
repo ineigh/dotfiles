@@ -38,7 +38,7 @@ set showmatch
 "set scrolloff=3
 
 "allow cursor to reach end of line in normal mode
-set virtualedit=onemore
+"set virtualedit=onemore
 
 "enable ctrl+bs
 inoremap <C-h> <C-w>

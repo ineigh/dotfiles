@@ -64,6 +64,9 @@ apt() {
 		"updg")
 			sudo apt update && sudo apt upgrade
 			;;
+        "all")
+            flatpak update -y && sudo apt update -y && sudo apt upgrade -y
+            ;;
 		*)
 			sudo apt "$@"
 			;;
