@@ -17,15 +17,16 @@ alias rb='source ~/.bashrc'
 alias ki='vim $HOME/.config/kitty/kitty.conf'
 alias fo='vim $HOME/.config/foot/foot.ini'
 alias neoconf='vim $HOME/.config/neofetch/config.conf'
-alias ponysay='python3 -W ignore /usr/bin/ponysay -b round'
+alias ponysay='flatpak run io.github.erkin.ponysay -b round'
 alias vrc='vim .vimrc'
 alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias mkpth='mkdir -p'
-alias xtrct='tar -xvzf'
+alias xtr='tar -xvf'
 alias lsrc='ls | grep "$@"'
+alias ff='fastfetch'
 
 #FUNNY
 case $(date +%u) in
@@ -64,14 +65,43 @@ apt() {
 		"updg")
 			sudo apt update && sudo apt upgrade
 			;;
-        "all")
-            flatpak update -y && sudo apt update -y && sudo apt upgrade -y
-            ;;
 		*)
 			sudo apt "$@"
 			;;
 	esac
 	
+	local status=$?
+
+    if [ $status -eq 0 ]; then
+        ponysay -f pinkie "Operation Successful! Yippie!"
+    else
+        ponysay -f pinkamena "Something went wrong..."
+		echo "Exit code: $status"
+    fi
+}
+
+fpak() {
+	case $1 in
+		"upd")
+			flatpak update -y
+			;;
+		"rem")
+			flatpak uninstall "${@:2}"
+			;;
+		"ins")
+			flatpak install "${@:2}"
+			;;
+		"src")
+			flatpak search "${@:2}"
+			;;
+		"rins")
+			flatpak repair "${@:2}"
+			;;
+		*)
+			flatpak "$@"
+			;;
+	esac
+
 	local status=$?
 
     if [ $status -eq 0 ]; then
