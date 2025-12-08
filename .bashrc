@@ -6,6 +6,7 @@ export SUDO_EDITOR=vim
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
+alias surc='sudo bash --rcfile ~/.bashrc -i'
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 alias n='neofetch'
@@ -113,15 +114,15 @@ fpak() {
 }
 
 ffconv() {
-	if [ ! -d ~/ffmpeg ]; then
-		mkdir ~/ffmpeg
+	if [ ! -d $HOME/Videos/ffmpeg ]; then
+		mkdir $HOME/Videos/ffmpeg
 	fi
 
 	if [ $3 = "-here" ] || [ $3 = "-h" ]; then
 		strippedpath="$(cd -- "$(dirname -- "$1")" && pwd)/"
 		outpath="${strippedpath}${2}"
 	else
-		outpath="$HOME/ffmpeg/$2"
+		outpath="$HOME/Videos/ffmpeg/$2"
 	fi
 
 	ffmpeg -i "$1" "$outpath"
