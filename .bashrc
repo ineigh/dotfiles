@@ -18,7 +18,8 @@ alias rb='source ~/.bashrc'
 alias ki='vim $HOME/.config/kitty/kitty.conf'
 alias fo='vim $HOME/.config/foot/foot.ini'
 alias neoconf='vim $HOME/.config/neofetch/config.conf'
-alias ponysay='flatpak run io.github.erkin.ponysay -b round'
+#alias ponysay='ponysay -b round'
+alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias vrc='vim .vimrc'
 alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
@@ -28,6 +29,9 @@ alias mkpth='mkdir -p'
 alias xtr='tar -xvf'
 alias lsrc='ls | grep "$@"'
 alias ff='fastfetch'
+alias v='vim'
+alias myserver='ssh horsefucker@192.168.1.130'
+alias sued='sudoedit'
 
 #FUNNY
 case $(date +%u) in
@@ -137,7 +141,7 @@ ffconv() {
 }
 
 dlp() {
-	yt-dlp -U
+	sudo yt-dlp -U
 
 	if [ ! -d $HOME/Videos/DLP ]; then
 		mkdir $HOME/Videos/DLP
@@ -226,7 +230,7 @@ mlpep() {
 		e=$(( (RANDOM % 26) +1 ))
 	fi
 
-	en=$(jq -r ".\"$s\".\"$e\"" "$HOME/mlp.json")
+	en=$(jq -r ".\"$s\".\"$e\"" "$HOME/Projects/dotfiles/.mlp.json")
 
 	ponysay +f fillystia "You should watch Episode $e, Season $s: \"$en\" of My Little Pony!"
 }
