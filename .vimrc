@@ -4,17 +4,17 @@ colorscheme aldmeris
 syntax on
 
 "fluttershy welcome message
-function! s:show_fluttershy()
-  if argc() == 0 && !exists("s:art_shown")
-    silent! enew
-    setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
-    call append(0, readfile(expand('~/.fluttershy.txt')))
-    setlocal nomodifiable
-    let s:art_shown = 1
-  endif
-endfunction
+"function! s:show_fluttershy()
+"  if argc() == 0 && !exists("s:art_shown")
+"    silent! enew
+"    setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
+"    call append(0, readfile(expand('~/.fluttershy.txt')))
+"    setlocal nomodifiable
+"    let s:art_shown = 1
+"  endif
+"endfunction
 
-autocmd VimEnter * call s:show_fluttershy()
+"autocmd VimEnter * call s:show_fluttershy()
 
 "tab spaces
 set tabstop=4

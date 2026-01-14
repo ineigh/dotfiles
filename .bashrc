@@ -18,7 +18,6 @@ alias rb='source ~/.bashrc'
 alias ki='vim $HOME/.config/kitty/kitty.conf'
 alias fo='vim $HOME/.config/foot/foot.ini'
 alias neoconf='vim $HOME/.config/neofetch/config.conf'
-#alias ponysay='ponysay -b round'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias vrc='vim .vimrc'
 alias ls='ls -l --color=auto'
@@ -30,8 +29,8 @@ alias xtr='tar -xvf'
 alias lsrc='ls | grep "$@"'
 alias ff='fastfetch'
 alias v='vim'
-alias myserver='ssh horsefucker@192.168.1.130'
 alias sued='sudoedit'
+alias q='exit'
 
 #FUNNY
 case $(date +%u) in
