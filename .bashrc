@@ -6,7 +6,11 @@ export SUDO_EDITOR=vim
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
+alias sued='sudoedit'
+alias c='cmus'
+alias f='fastfetch'
 alias surc='sudo bash --rcfile ~/.bashrc -i'
+alias cdot='cd ~/Projects/dotfiles'
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 alias n='neofetch'
@@ -20,16 +24,14 @@ alias fo='vim $HOME/.config/foot/foot.ini'
 alias neoconf='vim $HOME/.config/neofetch/config.conf'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias vrc='vim .vimrc'
-alias ls='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias mkpth='mkdir -p'
 alias xtr='tar -xvf'
-alias lsrc='ls | grep "$@"'
+alias hsrc='cat ~/.bash_history | grep "$@"'
 alias ff='fastfetch'
 alias v='vim'
-alias sued='sudoedit'
 alias q='exit'
 
 #FUNNY
@@ -146,7 +148,7 @@ dlp() {
 		mkdir $HOME/Videos/DLP
 	fi
 
-	yt-dlp --restrict-filenames --cookies-from-browser firefox -P $HOME/Videos/DLP "$@" 
+	yt-dlp --restrict-filenames --cookies-from-browser brave -P $HOME/Videos/DLP "$@" 
 
 	local status=$?
 
@@ -216,6 +218,14 @@ dol() {
 	fi
 }
 
+lssrc() {
+    if [ ! -d "$1" ]; then
+        ls -a | grep "$@"
+    else
+        ls -a "$1" | grep "$2"
+    fi
+}
+
 cdir() {
 	mkdir -p $1 && cd $1
 }
@@ -275,3 +285,5 @@ fi
 #    . /etc/bash_completion
 #  fi
 #fi
+. "/home/z/.deno/env"
+source /home/z/.local/share/bash-completion/completions/deno.bash

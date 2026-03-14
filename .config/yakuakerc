@@ -1,0 +1,14 @@
+[Appearance]
+Skin=plasma-oxygen-panel
+SkinInstalledWithKns=true
+
+[Desktop Entry]
+DefaultProfile=Oblivion.profile
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+Height=80
+KeepOpen=false
+Width=80

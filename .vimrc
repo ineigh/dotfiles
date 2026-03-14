@@ -42,8 +42,8 @@ set showmatch
 
 "enable ctrl+bs
 inoremap <C-h> <C-w>
-inoremap <C-?> <C-w>
-inoremap <C-BS> <C-w>
+"inoremap <C-?> <C-w>
+"inoremap <C-BS> <C-w>
 
 "autoindent
 set autoindent
