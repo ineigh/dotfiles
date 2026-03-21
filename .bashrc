@@ -34,6 +34,12 @@ alias ff='fastfetch'
 alias v='vim'
 alias q='exit'
 
+#VOID SERVICES
+alias allsv='ls /etc/sv'
+alias runsv='ls /var/service/'
+alias addsv='sudo ln -s "/etc/sv/$2" "/var/service/$2"'
+alias remsv='sudo rm "/var/service/$2"'
+
 #FUNNY
 case $(date +%u) in
 	2)
