@@ -86,6 +86,45 @@ apt() {
     fi
 }
 
+
+xp() {
+	case $1 in
+		"upd")
+			sudo xbps-install -Su
+			;;
+		"rem")
+			sudo xbps-remove "${@:2}"
+			;;
+		"cln")
+			sudo xbps-remove -o
+			;;
+		"ins")
+			sudo xbps-install "${@:2}"
+			;;
+		"lcl")
+			sudo xbps-query "${@:2}"  
+			;;
+		"src")
+			sudo xbps-query -R "${@:2}"
+			;;
+		"reconf")
+			sudo xbps-reconfigure "${@:2}"
+			;;
+		*)
+			sudo "xbps-$2" "${@:3}"
+			;;
+	esac
+	
+	local status=$?
+
+    if [ $status -eq 0 ]; then
+        ponysay -f pinkie "Operation Successful! Yippie!"
+    else
+        ponysay -f pinkamena "Something went wrong..."
+		echo "Exit code: $status"
+    fi
+}
+
 fpak() {
 	case $1 in
 		"upd")

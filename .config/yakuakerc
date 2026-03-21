@@ -1,5 +1,5 @@
 [Appearance]
-Skin=plasma-oxygen-panel
+Skin=yakuake-breeze_perfect_dark-2.0
 SkinInstalledWithKns=true
 
 [Desktop Entry]
@@ -9,6 +9,6 @@ DefaultProfile=Oblivion.profile
 FirstRun=false
 
 [Window]
-Height=80
+Height=81
 KeepOpen=false
 Width=80

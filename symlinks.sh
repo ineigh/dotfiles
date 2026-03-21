@@ -6,6 +6,10 @@ mv ~/.config/konsolerc ~/.config/konsolerc.bak
 mv ~/.config/yakuakerc ~/.config/yakuakerc.bak
 mv ~/.config/cmus/autosave ~/.config/cmus/autosave.bak
 
+#create directories not created by default
+mkdir -p ~/.vim/colors
+mkdir -p ~/.config/cmus
+
 #create symlinks
 ln -s ~/Projects/dotfiles/.bashrc ~/.bashrc
 ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
