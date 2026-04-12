@@ -1,18 +1,19 @@
-export EDITOR=vim
-export VISUAL=vim
-export SUDO_EDITOR=vim
+export EDITOR=vim-huge
+export VISUAL=vim-huge
+export SUDO_EDITOR=vim-huge
 
 #BASH PROMPT
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
+alias vim='vim-huge'
 alias sued='sudoedit'
 alias c='cmus'
 alias f='fastfetch'
 alias surc='sudo bash --rcfile ~/.bashrc -i'
 alias cdot='cd ~/Projects/dotfiles'
-alias reboot='systemctl reboot'
-alias shutdown='systemctl poweroff'
+#alias reboot='systemctl reboot'
+#alias shutdown='systemctl poweroff'
 alias n='neofetch'
 alias ls='ls -l --color=auto'
 alias lsa='ls -l -a --color=auto'
@@ -31,14 +32,51 @@ alias mkpth='mkdir -p'
 alias xtr='tar -xvf'
 alias hsrc='cat ~/.bash_history | grep "$@"'
 alias ff='fastfetch'
-alias v='vim'
 alias q='exit'
+
+#OBS STUDIO
+alias obsrcrd='obs-cmd recording start'
+alias obsstop='obs-cmd recording stop'
+
+startrecordat() { 
+    if [[ -z "$1" ]]; then
+        echo "Usage: startclassat <time>"
+        return 1
+    fi
+        
+    echo "obs-cmd recording start" | at -M $1
+}
+
+stoprecordat() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: stopclassat <time>"
+        return 1
+    fi
+        
+    echo "obs-cmd recording stop" | at -M $1
+}
 
 #VOID SERVICES
 alias allsv='ls /etc/sv'
 alias runsv='ls /var/service/'
-alias addsv='sudo ln -s "/etc/sv/$2" "/var/service/$2"'
-alias remsv='sudo rm "/var/service/$2"'
+
+newsv() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: addsv <service>"
+        return 1
+    fi
+
+    sudo ln -s "/etc/sv/$1" "/var/service/$1"
+}
+
+delsv() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: remsv <service>"
+        return 1
+    fi
+
+    sudo rm "/var/service/$1"
+}
 
 #FUNNY
 case $(date +%u) in
@@ -111,13 +149,13 @@ xp() {
 			sudo xbps-query "${@:2}"  
 			;;
 		"src")
-			sudo xbps-query -R "${@:2}"
+			sudo xbps-query -Rs "${@:2}"
 			;;
 		"reconf")
 			sudo xbps-reconfigure "${@:2}"
 			;;
 		*)
-			sudo "xbps-$2" "${@:3}"
+			sudo "xbps-$1" "${@:3}"
 			;;
 	esac
 	
@@ -193,7 +231,7 @@ dlp() {
 		mkdir $HOME/Videos/DLP
 	fi
 
-	yt-dlp --restrict-filenames --cookies-from-browser brave -P $HOME/Videos/DLP "$@" 
+	yt-dlp --restrict-filenames --cookies-from-browser firefox -P $HOME/Videos/DLP "$@" 
 
 	local status=$?
 

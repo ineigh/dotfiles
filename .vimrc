@@ -54,7 +54,7 @@ set relativenumber
 set number
 
 "yank and paste using the system clipboard
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 "search
 set ignorecase          "disable case sensitivity when searching
