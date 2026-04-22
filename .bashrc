@@ -33,6 +33,7 @@ alias xtr='tar -xvf'
 alias hsrc='cat ~/.bash_history | grep "$@"'
 alias ff='fastfetch'
 alias q='exit'
+alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 
 #OBS STUDIO
 alias obsrcrd='obs-cmd recording start'
@@ -79,14 +80,46 @@ delsv() {
 }
 
 #FUNNY
-case $(date +%u) in
-	2)
-		ponysay -f trixielulamoon "It's Trixie Tuesday!"
-		;;
-	5)
-		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
-		;;
-esac
+#case $(date +%u) in
+#	2)
+#		ponysay -f trixielulamoon "It's Trixie Tuesday!"
+#		;;
+#	5)
+#		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
+#		;;
+#esac
+
+if [ "$(date)" != "$(cat $HOME/.lastdate)" ]; then
+    if [ "$(cat $HOME/.pony)" != 1 ]; then
+        case $(date +%u) in
+            1)
+                ponysay -f applejack "It's AJ Monday! Yeehaw!"
+                ;;
+            2)
+                ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
+                ;;
+            3)
+                ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
+                ;;
+            4)
+                ponysay -f twilight "It's Twilight Thursday!"
+                ;;
+            5)
+                ponysay -f fluttershy "It's Fluttershy Friday, yay!"
+                ;;
+            6)
+                ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
+                ;;
+            7)
+                ponysay -f rarity "It's Rarity Sunday! Wahaha!"
+                ;;
+        esac
+        echo "1" > $HOME/.pony
+        echo "$(date)" > $HOME/.lastdate
+    else
+        echo "0" > $HOME/.pony
+    fi
+fi
 
 #WRAPPERS
 apt() {

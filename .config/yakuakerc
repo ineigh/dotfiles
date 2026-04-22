@@ -10,9 +10,9 @@ FirstRun=false
 
 [Shortcuts]
 close-session=Ctrl+Shift+Backspace
-new-session=Ctrl+Backspace
+new-session=Ctrl+T
 
 [Window]
-Height=81
+Height=91
 KeepOpen=false
 Width=80
