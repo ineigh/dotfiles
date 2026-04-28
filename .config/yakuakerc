@@ -13,6 +13,6 @@ close-session=Ctrl+Shift+Backspace
 new-session=Ctrl+T
 
 [Window]
-Height=91
+Height=98
 KeepOpen=false
 Width=80
