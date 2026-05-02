@@ -33,6 +33,8 @@ alias ff='fastfetch'
 alias q='exit'
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias tt='ttyper'
+alias vserver='ssh z@192.168.1.130'
+alias sibab2='mariadb -u user -p -h localhost sigab2'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
