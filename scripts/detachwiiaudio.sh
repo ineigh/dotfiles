@@ -18,11 +18,9 @@ sleep 1
 
 export=PIPEWIRE_LATENCY=128/48000
 
+notify-send -a "PipeWire" -i audio-card "UGREEN Capture Card" "UGREEN capture card audio is now active!"
+
 exec pw-loopback \
   --capture-props="node.target=$UGREEN_NODE audio.rate=48000 audio.channels=2 dont-reconnect=true" \
-  --playback-props="audio.rate=48000 audio.channels=2" &
+  --playback-props="audio.rate=48000 audio.channels=2"
 
-echo $! > $HOME/.wiiaudiopid
-cat $HOME/.wiiaudiopid
-
-notify-send -a "PipeWire" -i audio-card "UGREEN Capture Card" "UGREEN capture card audio is now active!"

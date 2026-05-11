@@ -9,8 +9,9 @@ DefaultProfile=Oblivion.profile
 FirstRun=false
 
 [Shortcuts]
-close-session=Ctrl+Shift+Backspace
+close-session=;\s
 new-session=Ctrl+T
+toggle-window-state=Ctrl+Backspace
 
 [Window]
 Height=98
