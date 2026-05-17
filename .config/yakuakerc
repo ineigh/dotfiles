@@ -1,3 +1,6 @@
+[Animation]
+Frames=0
+
 [Appearance]
 Skin=yakuake-breeze_perfect_dark-2.0
 SkinInstalledWithKns=true
@@ -14,6 +17,6 @@ new-session=Ctrl+T
 toggle-window-state=Ctrl+Backspace
 
 [Window]
-Height=98
+Height=94
 KeepOpen=false
 Width=80

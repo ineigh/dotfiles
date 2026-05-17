@@ -2,10 +2,10 @@
 Color=0,0,0
 
 [BackgroundFaint]
-Color=40,44,52
+Color=0,0,0
 
 [BackgroundIntense]
-Color=40,44,52
+Color=0,0,0
 
 [Color0]
 Color=40,44,52
@@ -80,7 +80,7 @@ Color=220,223,228
 Color=220,223,228
 
 [Foreground]
-Color=238,243,255
+Color=255,255,255
 
 [ForegroundFaint]
 Color=255,255,255
@@ -94,7 +94,7 @@ Blur=false
 ColorRandomization=false
 Description=Sweet
 FillStyle=Tile
-Opacity=0.8
+Opacity=0.85
 Wallpaper=
 WallpaperFlipType=NoFlip
 WallpaperOpacity=1

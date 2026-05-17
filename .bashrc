@@ -8,7 +8,7 @@ PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\
 #ALIASES
 alias vim='vim-huge'
 alias sued='sudoedit'
-alias c='cp ~/.config/cmus/playlists/* ~/.config/cmus/backup-pl/ && cmus'
+alias c='cmus'
 alias f='fastfetch'
 alias surc='sudo bash --rcfile ~/.bashrc -i'
 alias cdot='cd ~/Projects/dotfiles'
