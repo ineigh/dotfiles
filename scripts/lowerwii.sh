@@ -10,4 +10,4 @@ fi
 
 pactl set-source-volume "$SOURCE" "$LOWERED_VOL%"
 
-qdbus org.kde.plasmashell /org/kde/osdService org.kde.osdService.volumeChanged "$LOWERED_VOL"
+# qdbus org.kde.plasmashell /org/kde/osdService org.kde.osdService.volumeChanged "$LOWERED_VOL"

@@ -1,41 +1,36 @@
-export EDITOR=vim-huge
-export VISUAL=vim-huge
-export SUDO_EDITOR=vim-huge
+set -o vi
+bind -f ~/.inputrc
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
 
 #BASH PROMPT
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
+# PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
 alias vim='vim-huge'
+alias nv='nvim'
 alias sued='sudoedit'
 alias c='cmus'
 alias f='fastfetch'
-alias surc='sudo bash --rcfile ~/.bashrc -i'
 alias cdot='cd ~/Projects/dotfiles'
-alias n='neofetch'
 alias ls='ls -l --color=auto'
 alias lsa='ls -l -a --color=auto'
 alias grep='grep --color=auto'
-alias rc='vim $HOME/.bashrc'
+alias rc='nvim $HOME/.bashrc'
 alias rb='source ~/.bashrc'
-alias ki='vim $HOME/.config/kitty/kitty.conf'
-alias fo='vim $HOME/.config/foot/foot.ini'
-alias neoconf='vim $HOME/.config/neofetch/config.conf'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias vrc='vim .vimrc'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias mkpth='mkdir -p'
-alias xtr='tar -xvf'
 alias hsrc='cat ~/.bash_history | grep "$@"'
 alias ff='fastfetch'
-alias q='exit'
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
 alias tt='ttyper'
 alias vserver='ssh z@192.168.1.130'
-alias sibab2='mariadb -u user -p -h localhost sigab2'
+alias sigab2='mariadb -u user -p -h localhost sigab2'
+alias q='exit'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
@@ -170,7 +165,10 @@ xp() {
 			sudo xbps-query "${@:2}"  
 			;;
 		"src")
-			sudo xbps-query -Rs "${@:2}"
+			sudo xbps-query -Rs ""${@:2}""
+			;;
+		"ls")
+			sudo xbps-query -l
 			;;
 		"reconf")
 			sudo xbps-reconfigure "${@:2}"
@@ -304,11 +302,11 @@ twtgif() {
 
 
 #FUNCTIONS
-dol() {
+ne() {
 	if [ -z "$1" ]; then
 		ponysay -f silverspoon "Opening $PWD for you."
 		sleep 1
-		nohup dolphin "$PWD" >/dev/null 2>&1 &
+		nohup nemo "$PWD" >/dev/null 2>&1 &
 		disown
 	else
 		if [ ! -d "$1" ]; then
@@ -316,7 +314,7 @@ dol() {
 		else
 			ponysay -f diamondtiara "Opening $1 for you."
 			sleep 1
-			nohup dolphin $1 >/dev/null 2>&1 &
+			nohup nemo $1 >/dev/null 2>&1 &
 			disown
 		fi
 	fi

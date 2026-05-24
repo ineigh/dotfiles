@@ -1,1 +1,3 @@
+#!/bin/bash
+
 setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps

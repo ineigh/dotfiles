@@ -23,4 +23,4 @@ next_sink=${sinks[$next_index]}
 pactl set-default-sink "$next_sink"
 
 # Send a desktop notification so you know which device is active
-# notify-send "Audio Output Changed" "Switched to: $next_sink" --icon=audio-speakers
+notify-send -u low -t 1 "Audio Output Switched" "Now using:\n$next_sink" -i audio-speakers
