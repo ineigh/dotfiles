@@ -6,7 +6,6 @@ export SUDO_EDITOR=nvim
 
 #BASH PROMPT
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
-# PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
 alias vim='vim-huge'
@@ -14,210 +13,208 @@ alias nv='nvim'
 alias sued='sudoedit'
 alias c='cmus'
 alias f='fastfetch'
-alias cdot='cd ~/Projects/dotfiles'
 alias ls='ls -l --color=auto'
+alias lsls='ls -l --color=auto | grep'
 alias lsa='ls -l -a --color=auto'
+alias lsals='ls -l -a --color=auto | grep'
 alias grep='grep --color=auto'
 alias rc='nvim $HOME/.bashrc'
 alias rb='source ~/.bashrc'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
-alias vrc='vim .vimrc'
 alias grep='grep --color=auto'
-alias hsrc='cat ~/.bash_history | grep "$@"'
-alias ff='fastfetch'
+alias hls='cat ~/.bash_history | grep "$@"'
+alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
-alias tt='ttyper'
-alias vserver='ssh z@192.168.1.130'
+alias voidsv='ssh z@192.168.1.130'
 alias sigab2='mariadb -u user -p -h localhost sigab2'
+alias t='tmux'
 alias q='exit'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
-    case $(date +%u) in
-        1)
-            ponysay -f applejack "It's AJ Monday! Yeehaw!"
-            ;;
-        2)
-            ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
-            ;;
-        3)
-            ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
-            ;;
-        4)
-            ponysay -f twilight "It's Twilight Thursday!"
-            ;;
-        5)
-            ponysay -f fluttershy "It's Fluttershy Friday, yay!"
-            ;;
-        6)
-            ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
-            ;;
-        7)
-            ponysay -f rarity "It's Rarity Sunday! Wahaha!"
-            ;;
-    esac
-    echo "$(date +%D)" > $HOME/.lastdate
+	case $(date +%u) in
+	1)
+		ponysay -f applejack "It's AJ Monday! Yeehaw!"
+		;;
+	2)
+		ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
+		;;
+	3)
+		ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
+		;;
+	4)
+		ponysay -f twilight "It's Twilight Thursday!"
+		;;
+	5)
+		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
+		;;
+	6)
+		ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
+		;;
+	7)
+		ponysay -f rarity "It's Rarity Sunday! Wahaha!"
+		;;
+	esac
+	echo "$(date +%D)" >$HOME/.lastdate
 fi
 
 #OBS STUDIO
 alias obsrcrd='obs-cmd recording start'
 alias obsstop='obs-cmd recording stop'
 
-startrecordat() { 
-    if [[ -z "$1" ]]; then
-        echo "Usage: startclassat <time>"
-        return 1
-    fi
-        
-    echo "obs-cmd recording start" | at -M $1
+startrecordat() {
+	if [[ -z "$1" ]]; then
+		echo "Usage: startclassat <time>"
+		return 1
+	fi
+
+	echo "obs-cmd recording start" | at -M $1
 }
 
 stoprecordat() {
-    if [[ -z "$1" ]]; then
-        echo "Usage: stopclassat <time>"
-        return 1
-    fi
-        
-    echo "obs-cmd recording stop" | at -M $1
+	if [[ -z "$1" ]]; then
+		echo "Usage: stopclassat <time>"
+		return 1
+	fi
+
+	echo "obs-cmd recording stop" | at -M $1
 }
 
 #VOID SERVICES
 alias allsv='ls /etc/sv'
 alias runsv='ls /var/service/'
 
-newsv() {
-    if [[ -z "$1" ]]; then
-        echo "Usage: addsv <service>"
-        return 1
-    fi
+addsv() {
+	if [[ -z "$1" ]]; then
+		echo "Usage: addsv <service>"
+		return 1
+	fi
 
-    sudo ln -s "/etc/sv/$1" "/var/service/$1"
+	sudo ln -s "/etc/sv/$1" "/var/service/$1"
 }
 
-delsv() {
-    if [[ -z "$1" ]]; then
-        echo "Usage: remsv <service>"
-        return 1
-    fi
+remsv() {
+	if [[ -z "$1" ]]; then
+		echo "Usage: remsv <service>"
+		return 1
+	fi
 
-    sudo rm "/var/service/$1"
+	sudo rm "/var/service/$1"
 }
 
 #WRAPPERS
 apt() {
 	case $1 in
-		"upd")
-			sudo apt update
-			;;
-		"rem")
-			sudo apt remove "${@:2}"
-			;;
-		"cln")
-			sudo apt autoremove
-			;;
-		"ins")
-			sudo apt install "${@:2}"
-			;;
-		"upg")
-			sudo apt upgrade
-			;;
-		"src")
-			sudo apt search "${@:2}"
-			;;
-		"rins")
-			sudo apt reinstall "${@:2}"
-			;;
-		"updg")
-			sudo apt update && sudo apt upgrade
-			;;
-		*)
-			sudo apt "$@"
-			;;
+	"upd")
+		sudo apt update
+		;;
+	"rem")
+		sudo apt remove "${@:2}"
+		;;
+	"cln")
+		sudo apt autoremove
+		;;
+	"ins")
+		sudo apt install "${@:2}"
+		;;
+	"upg")
+		sudo apt upgrade
+		;;
+	"src")
+		sudo apt search "${@:2}"
+		;;
+	"rins")
+		sudo apt reinstall "${@:2}"
+		;;
+	"updg")
+		sudo apt update && sudo apt upgrade
+		;;
+	*)
+		sudo apt "$@"
+		;;
 	esac
-	
+
 	local status=$?
 
-    if [ $status -eq 0 ]; then
-        ponysay -f pinkie "Operation Successful! Yippie!"
-    else
-        ponysay -f pinkamena "Something went wrong..."
+	if [ $status -eq 0 ]; then
+		ponysay -f pinkie "Operation Successful! Yippie!"
+	else
+		ponysay -f pinkamena "Something went wrong..."
 		echo "Exit code: $status"
-    fi
+	fi
 }
-
 
 xp() {
 	case $1 in
-		"upd")
-			sudo xbps-install -Su
-			;;
-		"rem")
-			sudo xbps-remove "${@:2}"
-			;;
-		"cln")
-			sudo xbps-remove -o
-			;;
-		"ins")
-			sudo xbps-install "${@:2}"
-			;;
-		"lcl")
-			sudo xbps-query "${@:2}"  
-			;;
-		"src")
-			sudo xbps-query -Rs ""${@:2}""
-			;;
-		"ls")
-			sudo xbps-query -l
-			;;
-		"reconf")
-			sudo xbps-reconfigure "${@:2}"
-			;;
-		*)
-			sudo "xbps-$1" "${@:3}"
-			;;
+	"upd")
+		sudo xbps-install -Su
+		;;
+	"rem")
+		sudo xbps-remove "${@:2}"
+		;;
+	"cln")
+		sudo xbps-remove -o
+		;;
+	"ins")
+		sudo xbps-install "${@:2}"
+		;;
+	"ls")
+		sudo xbps-query "${@:2}"
+		;;
+	"src")
+		sudo xbps-query -Rs "${@:2}"
+		;;
+	"reconf")
+		sudo xbps-reconfigure "${@:2}"
+		;;
+	*)
+		sudo "xbps-$1" "${@:3}"
+		;;
 	esac
-	
+
 	local status=$?
 
-    if [ $status -eq 0 ]; then
-        ponysay -f pinkie "Operation Successful! Yippie!"
-    else
-        ponysay -f pinkamena "Something went wrong..."
+	if [ $status -eq 0 ]; then
+		if [ $1 != "src" ]; then
+			ponysay -f derpybags "Free muffin delivery spectacular!"
+		fi
+	else
+		ponysay -f derpysad "I just don't know what went wrong..."
 		echo "Exit code: $status"
-    fi
+	fi
 }
 
 fpak() {
 	case $1 in
-		"upd")
-			flatpak update -y
-			;;
-		"rem")
-			flatpak uninstall "${@:2}"
-			;;
-		"ins")
-			flatpak install "${@:2}"
-			;;
-		"src")
-			flatpak search "${@:2}"
-			;;
-		"rins")
-			flatpak repair "${@:2}"
-			;;
-		*)
-			flatpak "$@"
-			;;
+	"upd")
+		flatpak update -y
+		;;
+	"rem")
+		flatpak uninstall "${@:2}"
+		;;
+	"ins")
+		flatpak install "${@:2}"
+		;;
+	"src")
+		flatpak search "${@:2}"
+		;;
+	"rins")
+		flatpak repair "${@:2}"
+		;;
+	*)
+		flatpak "$@"
+		;;
 	esac
 
 	local status=$?
 
-    if [ $status -eq 0 ]; then
-        ponysay -f pinkie "Operation Successful! Yippie!"
-    else
-        ponysay -f pinkamena "Something went wrong..."
+	if [ $status -eq 0 ]; then
+		ponysay -f pinkie "Operation Successful! Yippie!"
+	else
+		ponysay -f pinkamena "Something went wrong..."
 		echo "Exit code: $status"
-    fi
+	fi
 }
 
 ffconv() {
@@ -250,7 +247,7 @@ dlp() {
 		mkdir $HOME/Videos/DLP
 	fi
 
-	yt-dlp --restrict-filenames --cookies-from-browser firefox -P $HOME/Videos/DLP "$@" 
+	yt-dlp --restrict-filenames --cookies-from-browser firefox -P $HOME/Videos/DLP "$@"
 
 	local status=$?
 
@@ -281,13 +278,19 @@ twtgif() {
 
 	ffmpeg -v error -y -i "$filepath" \
 		-vf "fps=15,scale=480:-2:flags=lanczos,palettegen" \
-		"$palette" || { echo "Palettegen error"; return 1; }
-	
+		"$palette" || {
+		echo "Palettegen error"
+		return 1
+	}
+
 	ffmpeg -v error -y -i "$filepath" -i "$palette" \
 		-lavfi "fps=15,scale=480:-2:flags=lanczos [x]; [x][1:v] paletteuse" \
 		-loop 0 \
-		"$output" || { echo "Conversion error"; return 1; }
-	
+		"$output" || {
+		echo "Conversion error"
+		return 1
+	}
+
 	rm "$filepath"
 
 	local status=$?
@@ -299,7 +302,6 @@ twtgif() {
 
 	ponysay -f lyrabonbon "$msg"
 }
-
 
 #FUNCTIONS
 ne() {
@@ -321,11 +323,11 @@ ne() {
 }
 
 lssrc() {
-    if [ ! -d "$1" ]; then
-        ls -a | grep "$@"
-    else
-        ls -a "$1" | grep "$2"
-    fi
+	if [ ! -d "$1" ]; then
+		ls -a | grep "$@"
+	else
+		ls -a "$1" | grep "$2"
+	fi
 }
 
 cdir() {
@@ -333,12 +335,12 @@ cdir() {
 }
 
 mlpep() {
-	s=$(( (RANDOM % 9) + 1 ))
+	s=$(((RANDOM % 9) + 1))
 
 	if [ $s -eq 3 ]; then
-		e=$(( (RANDOM % 13) + 1 ))
+		e=$(((RANDOM % 13) + 1))
 	else
-		e=$(( (RANDOM % 26) +1 ))
+		e=$(((RANDOM % 26) + 1))
 	fi
 
 	en=$(jq -r ".\"$s\".\"$e\"" "$HOME/Projects/dotfiles/.mlp.json")
@@ -350,8 +352,8 @@ mlpep() {
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -370,7 +372,7 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # ~/.bash_aliases, instead of adding them here directly.
@@ -389,3 +391,7 @@ fi
 #fi
 . "/home/z/.deno/env"
 source /home/z/.local/share/bash-completion/completions/deno.bash
+
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
