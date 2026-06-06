@@ -1,0 +1,37 @@
+[general]
+import = [
+	"~/.config/alacritty/alabaster_dark.toml"
+]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+dimensions = { columns = 110, lines = 35 }
+opacity = 0.7
+resize_increments = true
+
+[scrolling]
+history = 100000
+multiplier = 1
+
+[font]
+normal = { family = "JetBrainsMono", style = "Bold" }
+bold = { family = "JetBrainsMono", style = "Bold" }
+italic = { family = "JetBrainsMono", style = "Bold" }
+bold_italic = { family = "JetBrainsMono", style = "Bold" }
+size = 13
+
+[bell]
+animation = "Linear"
+duration = 100 
+color = "#000000"
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+vi_mode_style = { shape = "Block", blinking = "Always" }
+blink_interval = 450
+
+[mouse]
+hide_when_typing = true
+

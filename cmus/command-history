@@ -1,0 +1,211 @@
+pl-rename braindance
+q
+bind -f common \ set auto_hide_playlists_panel=false
+bind -f common ~ set auto_hide_playlists_panel=true
+bind -f common ` set auto_hide_playlists_panel=true
+bind -f common ~ vol -0 -1%
+set auto_hide_playlists_panel=true
+bind -f common left seek -30
+bind -f common m toggle aaa_mode
+bind -f common left seek -10
+bind -f common mouse_scroll_down_bar seek -5m
+bind -f common mouse_scroll_down_bar seek -1m
+save ~/idm.m3u
+pl-create idm
+save ~/idkwhatever.m3u
+save ~/nu.m3u
+pl-rename nü
+bind -f common L win-top
+bind -f common H win-bottom
+bind -f common K win-page-up
+bind -f common J win-page-down
+bind -f common ^J win-bottom
+bind -f common  win-top
+bind -f common J win-bottom
+bind -f common K win-top
+bind -f common ^K win-top
+pl-rename idkwhatever
+set color_win_inactive_cur_sel_fg=35
+set color_win_fg=255
+set color_win_fg=200
+set color_win_cur_sel_fg=default
+set color_win_cur_sel_fg=35
+set color_trackwin_album_fg=default
+set color_trackwin_album_fg=36
+set color_titleline_fg=23
+set color_titleline_fg=25
+set color_win_bg=default
+set color_win_cur_attr=35
+set color_win_title_fg=231
+set color_win_title_fg=230
+set color_win_sel_bg=36
+set color_win_inactive_sel_bg=23
+set color_win_inactive_sel_bg=25
+set color_win_inactive_cur_sel_fg=30
+set color_win_inactive_cur_sel_fg=36
+set color_win_dir=43
+set color_win_dir=40
+set color_win_cur=35
+set color_win_cur=34
+set color_win_cur=33
+set color_win_cur=36
+set color_win_cur=38
+set color_win_cur=37
+set color_win_cur=40
+set color_separator=-1
+set color_separator=clear
+set color_separator=black
+set color_separator=default
+set color_separator=40
+set color_trackwin_album_bg=35
+set color_trackwin_album_bg=34
+set color_win_title_bg=36
+set color_win_title_bg=35
+set color_win_title_bg=34
+set color_win_sel_bg=35
+set color_win_inactive_sel_bg=234
+set color_win_inactive_sel_bg=20
+set color_win_cur_sel_bg=35
+set color_win_cur_sel_bg=34
+set color_win_cur_sel_bg=33
+set color_win_cur_sel_bg=32
+set color_win_cur_sel_bg=43
+set color_win_cur_sel_bg=default
+set auto_hide_playlists_panel=false
+set auto_reshuffle=
+set auto_expand_albums_selcur=false
+set auto_expand_albums_selcur=tru
+set auto_expand_albums_search=false
+set auto_expand_albums_follow=false
+set color_win_cur_sel_bg=47
+pl-create gym
+pl-create ambient
+pl-rename rock
+set color_win_cur_sel_bg=36
+set color_win_sel_fg=default
+set color_win_sel_fg=36
+set color_win_inactive_cur_sel_fg=default
+colorscheme groove-grove
+colorscheme srcery
+colorscheme pantheon
+colorscheme illyria-dark
+add ~/Desktop/rock.m3u
+pl-delete rocknstuff
+update-cache 
+refresh 
+bind -f common c player-next
+bind -f common x player-pause
+seek 5m
+pl-rename rocknstuff
+save ~/Desktop/rock.m3u
+export ~/Desktop/oldrock.m3u
+pl-rename oldrock
+add ~/Desktop/oldrock.m3u
+load ~/Desktop/oldrock.m3u
+source ~/Desktop/oldrock.m3u
+pl-delete Default
+bind -f common ^A shell ~/Projects/dotfiles/scripts/backuppl.sh
+shell ~/backuppl.sh
+run 'cp ~/.config/cmus/playlists/* ~/.config/cmus/backup-pl/'
+she
+shell 'cp ~/.config/cmus/playlists/* ~/.config/cmus/backup-pl/
+shell 'cp ~/.config/cmus/playlists/* ~/.config/cmus/backup-pl/'
+seek 16:30
+bind common ^A add ~/Music/Sorted
+bind -f common ^B win-page-up
+colorscheme jellybeans
+colorscheme gruvbox-warm
+colorscheme gruvbox-alt
+colorscheme gruvbox
+colorscheme green-mono-88
+colorscheme green
+colorscheme gray-88
+colorscheme dracula
+colorscheme default
+colorscheme cyan
+save Desktop/oldrock.m3u
+add ~/Music/Sorted/
+pl-delete idm
+pl-delete 
+colorscheme amazon
+live-filter 
+live-filter LL
+seek 16:00
+player-play ~/Music/Unsorted/Duran Duran/06 - Come Undone.flac
+seek 15:50
+add Music/Sorted/Scatman John/Scatmans World/04 - Quiet Desperation.flac
+undo
+filter 
+set color_win_inactive_cur_sel_fg=233
+set color_win_inactive_cur_sel_bg=47
+set color_win_cur_sel_bg=239
+set color_trackwin_album_fg=232
+set color_trackwin_album_bg=47
+set color_trackwin_album_bg=233
+set color_cmdline_attr=233
+add Music/Sorted/
+live-filter KJ;LKJ;
+pl-delete oldrock
+set format_playlist_va= %-21%A %t%= %d
+set format_playlist= %-21%a %t%= %d
+set format_playlist= %-21%a %t= %d
+set format_playlist= %-21%a %t %d
+set format_playlist= %-21%a %t %d%
+set format_playlist= %-21%a %t d%
+set format_playlist= %-21%a %t {duration}%
+set format_playlist= %-21%a %t %{duration}
+set format_playlist_va= %-21%A %t
+set format_playlist_va= %-21%A
+update-cache
+set format_playlist= %-21%a %t
+set format_playlist= %-21%a %-21%t
+set format_playlist= %-21%a %-21%t =%t
+set format_playlist= %-21%a %-21%t =t
+set format_playlist= %-21%a %-21%t %-21%l
+set format_playlist= %-21%a %-21%t %l%
+set format_playlist= %-21%a %-21% %t
+add sad old rock 🥌.m3u
+pl-create oldrock
+pl-delete oldrockstuff
+set format_playlist= %-21%a %=21%t
+set format_playlist= %-21%a %=21%t=
+set format_playlist= %-21%a %t%=
+set format_playlist= %-21%%a %t%=
+set format_playlist= %a %t%=
+set format_playlist= %-21%a %t%= %y 
+set format_playlist= %-21%a %t%= %y %d
+pl-rename oldrockstuff
+pl-rename sadOldRock oldrockstuff
+pl-delete test
+add a.m3u
+pl-create test
+set format_playlist= %-21%a %t%= %y %d %{?X!=0?%3X ?    }
+set format_current= %a - %t%= %l (%y) 
+set format_current= %a - %l%! - %t%= %l (%y) 
+set format_current= %a - %l%! - %t%=  %y 
+set format_current= %a - %l%! - %n. %t%=  %y 
+set format_current= %a - %l%! - %n.  %y 
+set format_title=%a - %l - %t (%y)
+set format_title=%a - %l - (%y)
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}%{?bpm>0?at %{bpm} BPM }%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%= %{?repeat_current?repeat current?%{?play_library?%{?playlist_mode!="all"?%{playlist_mode} from }%{?play_sorted?sorted }library?playlist}} | %{?volume>=0?%{?lvolume!=rvolume?%{lvolume}%% %{rvolume}?%{volume}}%% | }%1{continue}%1{repeat}%1{shuffle}%1{follow} 
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}%{?bpm>0?at %{bpm} BPM }%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%= %{?repeat_current?repeat current?%{?play_library?%{?playlist_mode!="all"?%{playlist_mode} from }%{?play_sorted?sorted }library?playlist}} | %{?volume>=0?%{?lvolume!=rvolume?%{lvolume}%% %{rvolume}?%{volume}}%% | }%1{continue}%1{follow}%1{repeat}%1{shuffle}%1{follow} 
+bind -f common o view settings
+bind -f common i view playlist
+bind -f common u view tree
+bind -f common 7 view sorted
+bind -f common 3 view settings
+bind -f common 2 view playlist
+bind -f common 3 view sorted
+set pl_sort=artist
+set pl-sort=artist
+load sad old rock 🥌.m3u
+pl-create sadOldRock
+colorscheme spotify
+seek 1:00
+seek 17:00
+set softvol=true
+bind -f common l win-next
+bind -f common ' seek +5
+bind -f common ; win-activate
+set status_display_program=cmusfm
+bind -f common right ' +5

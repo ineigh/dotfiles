@@ -1,23 +1,11 @@
 #!/bin/bash
 
-#create backups of files
-mv ~/.bashrc ~/.bashrc.bak
-mv ~/.config/konsolerc ~/.config/konsolerc.bak
-mv ~/.config/yakuakerc ~/.config/yakuakerc.bak
-mv ~/.config/cmus/autosave ~/.config/cmus/autosave.bak
-
-#create directories not created by default
-mkdir -p ~/.vim/colors
-mkdir -p ~/.config/cmus
-
-#create symlinks
-ln -s ~/Projects/dotfiles/.bashrc ~/.bashrc
-ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
-ln -s ~/Projects/dotfiles/.config/konsolerc ~/.config/konsolerc
-ln -s ~/Projects/dotfiles/.config/yakuakerc ~/.config/yakuakerc
-ln -s ~/Projects/dotfiles/.config/cmus/autosave ~/.config/cmus/autosave
-ln -s ~/Projects/dotfiles/.local/share/konsole/Oblivion.profile ~/.local/share/konsole/Oblivion.profile
-ln -s ~/Projects/dotfiles/.local/share/konsole/Sweet.colorscheme ~/.local/share/konsole/Sweet.colorscheme
-ln -s ~/Projects/dotfiles/.vim/colors/aldmeris.vim ~/.vim/colors/aldmeris.vim
+ln -s ~/Projects/dotfiles/alacritty ~/.config/alacritty
+ln -s ~/Projects/dotfiles/cmus ~/.config/cmus
+ln -s ~/Projects/dotfiles/nvim ~/.config/nvim
+ln -s ~/Projects/dotfiles/.bashrc ~/.config/.bashrc
+ln -s ~/Projects/dotfiles/.inputrc ~/.config/.inputrc
+ln -s ~/Projects/dotfiles/fastfetch ~/.config/fastfetch
+ln -s ~/Projects/dotfiles/ttyper ~/.config/ttyper
 
 ponysay -f twilight "All done!"
