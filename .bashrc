@@ -23,13 +23,14 @@ alias rb='source ~/.bashrc'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias grep='grep --color=auto'
 alias hls='cat ~/.bash_history | grep "$@"'
-alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
+# alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
 alias voidsv='ssh z@192.168.1.130'
 alias sigab2='mariadb -u user -p -h localhost sigab2'
-alias t='tmux'
 alias q='exit'
+alias compilar='gcc -lm -o final ~/c_romberg/romberg.c'
+alias notas='bat ~/c_romberg/notas.txt'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
@@ -185,36 +186,24 @@ xp() {
 	fi
 }
 
-fpak() {
+tm() {
 	case $1 in
-	"upd")
-		flatpak update -y
+	"ls")
+		tmux list-sessions
 		;;
-	"rem")
-		flatpak uninstall "${@:2}"
+	"at")
+		tmux attach-session -t "${@:2}"
 		;;
-	"ins")
-		flatpak install "${@:2}"
+	"rm")
+		tmux kill-session -t "${@:2}"
 		;;
-	"src")
-		flatpak search "${@:2}"
-		;;
-	"rins")
-		flatpak repair "${@:2}"
+	"cm")
+		tmux list-commands
 		;;
 	*)
-		flatpak "$@"
+		tmux "${@:1}"
 		;;
 	esac
-
-	local status=$?
-
-	if [ $status -eq 0 ]; then
-		ponysay -f pinkie "Operation Successful! Yippie!"
-	else
-		ponysay -f pinkamena "Something went wrong..."
-		echo "Exit code: $status"
-	fi
 }
 
 ffconv() {
