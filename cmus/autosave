@@ -57,7 +57,7 @@ set device=/dev/cdrom
 set display_artist_sort_name=false
 set dsp.alsa.device=default
 set dsp.jack.server_name=
-set follow=true
+set follow=false
 set format_clipped_text=…
 set format_current= %a - %t%= %l (%y) 
 set format_heading_album=%a - %l%= %y %{duration}
@@ -93,7 +93,7 @@ set passwd=
 set pause_on_output_change=false
 set pl_env_vars=
 set pl_sort=artist
-set play_library=false
+set play_library=true
 set play_sorted=true
 set progress_bar=line
 set repeat=true
