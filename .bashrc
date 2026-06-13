@@ -8,6 +8,8 @@ export SUDO_EDITOR=nvim
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
+alias vpm='vpm --color=true'
+alias fuz='fuzzypkg'
 alias vim='vim-huge'
 alias nv='nvim'
 alias sued='sudoedit'
@@ -23,7 +25,7 @@ alias rb='source ~/.bashrc'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias grep='grep --color=auto'
 alias hls='cat ~/.bash_history | grep "$@"'
-# alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
+alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
 alias voidsv='ssh z@192.168.1.130'
@@ -60,28 +62,6 @@ if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
 	echo "$(date +%D)" >$HOME/.lastdate
 fi
 
-#OBS STUDIO
-alias obsrcrd='obs-cmd recording start'
-alias obsstop='obs-cmd recording stop'
-
-startrecordat() {
-	if [[ -z "$1" ]]; then
-		echo "Usage: startclassat <time>"
-		return 1
-	fi
-
-	echo "obs-cmd recording start" | at -M $1
-}
-
-stoprecordat() {
-	if [[ -z "$1" ]]; then
-		echo "Usage: stopclassat <time>"
-		return 1
-	fi
-
-	echo "obs-cmd recording stop" | at -M $1
-}
-
 #VOID SERVICES
 alias allsv='ls /etc/sv'
 alias runsv='ls /var/service/'
@@ -105,86 +85,45 @@ remsv() {
 }
 
 #WRAPPERS
-apt() {
-	case $1 in
-	"upd")
-		sudo apt update
-		;;
-	"rem")
-		sudo apt remove "${@:2}"
-		;;
-	"cln")
-		sudo apt autoremove
-		;;
-	"ins")
-		sudo apt install "${@:2}"
-		;;
-	"upg")
-		sudo apt upgrade
-		;;
-	"src")
-		sudo apt search "${@:2}"
-		;;
-	"rins")
-		sudo apt reinstall "${@:2}"
-		;;
-	"updg")
-		sudo apt update && sudo apt upgrade
-		;;
-	*)
-		sudo apt "$@"
-		;;
-	esac
-
-	local status=$?
-
-	if [ $status -eq 0 ]; then
-		ponysay -f pinkie "Operation Successful! Yippie!"
-	else
-		ponysay -f pinkamena "Something went wrong..."
-		echo "Exit code: $status"
-	fi
-}
-
-xp() {
-	case $1 in
-	"upd")
-		sudo xbps-install -Su
-		;;
-	"rem")
-		sudo xbps-remove "${@:2}"
-		;;
-	"cln")
-		sudo xbps-remove -o
-		;;
-	"ins")
-		sudo xbps-install "${@:2}"
-		;;
-	"ls")
-		sudo xbps-query "${@:2}"
-		;;
-	"src")
-		sudo xbps-query -Rs "${@:2}"
-		;;
-	"reconf")
-		sudo xbps-reconfigure "${@:2}"
-		;;
-	*)
-		sudo "xbps-$1" "${@:3}"
-		;;
-	esac
-
-	local status=$?
-
-	if [ $status -eq 0 ]; then
-		if [ $1 != "src" ]; then
-			ponysay -f derpybags "Free muffin delivery spectacular!"
-		fi
-	else
-		ponysay -f derpysad "I just don't know what went wrong..."
-		echo "Exit code: $status"
-	fi
-}
+# xp() {
+# 	case $1 in
+# 	"upd")
+# 		sudo xbps-install -Su
+# 		;;
+# 	"rem")
+# 		sudo xbps-remove "${@:2}"
+# 		;;
+# 	"cln")
+# 		sudo xbps-remove -o
+# 		;;
+# 	"ins")
+# 		sudo xbps-install "${@:2}"
+# 		;;
+# 	"ls")
+# 		sudo xbps-query "${@:2}"
+# 		;;
+# 	"src")
+# 		sudo xbps-query -Rs "${@:2}"
+# 		;;
+# 	"reconf")
+# 		sudo xbps-reconfigure "${@:2}"
+# 		;;
+# 	*)
+# 		sudo "xbps-$1" "${@:3}"
+# 		;;
+# 	esac
+#
+# 	local status=$?
+#
+# 	if [ $status -eq 0 ]; then
+# 		if [ $1 != "src" ]; then
+# 			ponysay -f derpybags "Free muffin delivery spectacular!"
+# 		fi
+# 	else
+# 		ponysay -f derpysad "I just don't know what went wrong..."
+# 		echo "Exit code: $status"
+# 	fi
+# }
 
 tm() {
 	case $1 in
@@ -293,11 +232,11 @@ twtgif() {
 }
 
 #FUNCTIONS
-ne() {
+thu() {
 	if [ -z "$1" ]; then
 		ponysay -f silverspoon "Opening $PWD for you."
 		sleep 1
-		nohup nemo "$PWD" >/dev/null 2>&1 &
+		nohup thunar "$PWD" >/dev/null 2>&1 &
 		disown
 	else
 		if [ ! -d "$1" ]; then
@@ -305,7 +244,7 @@ ne() {
 		else
 			ponysay -f diamondtiara "Opening $1 for you."
 			sleep 1
-			nohup nemo $1 >/dev/null 2>&1 &
+			nohup thunar $1 >/dev/null 2>&1 &
 			disown
 		fi
 	fi
