@@ -8,7 +8,7 @@ export SUDO_EDITOR=nvim
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
-alias vpm='vpm --color=true'
+alias vpm='sudo vpm --color=true'
 alias fuz='fuzzypkg'
 alias vim='vim-huge'
 alias nv='nvim'
@@ -25,7 +25,7 @@ alias rb='source ~/.bashrc'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias grep='grep --color=auto'
 alias hls='cat ~/.bash_history | grep "$@"'
-alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
+# alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
 alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
 alias voidsv='ssh z@192.168.1.130'
@@ -318,7 +318,7 @@ fi
 #  fi
 #fi
 . "/home/z/.deno/env"
-source /home/z/.local/share/bash-completion/completions/deno.bash
+# source /home/z/.local/share/bash-completion/completions/deno.bash
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
