@@ -13,6 +13,7 @@ return {
 					"html",
 					"cssls",
 					"jsonls",
+					"intelephense",
 				},
 			})
 

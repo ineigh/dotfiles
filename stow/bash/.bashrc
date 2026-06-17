@@ -26,13 +26,10 @@ alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias grep='grep --color=auto'
 alias hls='cat ~/.bash_history | grep "$@"'
 # alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
-alias wii='/home/z/Projects/dotfiles/scripts/./wiiaudio.sh'
+alias wii='/home/z/dotfiles/bourneagain/./wiiaudio.sh'
 alias killwii='kill $(cat ~/.wiiaudiopid)'
 alias voidsv='ssh z@192.168.1.130'
-alias sigab2='mariadb -u user -p -h localhost sigab2'
 alias q='exit'
-alias compilar='gcc -lm -o final ~/c_romberg/romberg.c'
-alias notas='bat ~/c_romberg/notas.txt'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
@@ -232,11 +229,11 @@ twtgif() {
 }
 
 #FUNCTIONS
-thu() {
+dol() {
 	if [ -z "$1" ]; then
 		ponysay -f silverspoon "Opening $PWD for you."
 		sleep 1
-		nohup thunar "$PWD" >/dev/null 2>&1 &
+		nohup dolphin "$PWD" >/dev/null 2>&1 &
 		disown
 	else
 		if [ ! -d "$1" ]; then
@@ -244,7 +241,7 @@ thu() {
 		else
 			ponysay -f diamondtiara "Opening $1 for you."
 			sleep 1
-			nohup thunar $1 >/dev/null 2>&1 &
+			nohup dolphin $1 >/dev/null 2>&1 &
 			disown
 		fi
 	fi

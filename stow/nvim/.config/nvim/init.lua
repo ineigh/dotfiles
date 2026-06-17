@@ -81,6 +81,7 @@ require("lazy").setup({
 				rust = { "rustfmt" },
 				sh = { "shfmt" },
 				bash = { "shfmt" },
+				php = { "php_cs_fixer" },
 			},
 		},
 	},

@@ -35,7 +35,7 @@ set color_win_cur=35
 set color_win_cur_attr=default
 set color_win_cur_sel_attr=default
 set color_win_cur_sel_bg=35
-set color_win_cur_sel_fg=default
+set color_win_cur_sel_fg=255
 set color_win_dir=43
 set color_win_fg=255
 set color_win_inactive_cur_sel_attr=default
@@ -46,7 +46,7 @@ set color_win_inactive_sel_bg=23
 set color_win_inactive_sel_fg=255
 set color_win_sel_attr=bold
 set color_win_sel_bg=36
-set color_win_sel_fg=default
+set color_win_sel_fg=255
 set color_win_title_attr=default
 set color_win_title_bg=36
 set color_win_title_fg=231
@@ -164,7 +164,7 @@ bind common Z player-prev-album
 bind common [ vol +1% +0
 bind common \ set auto_hide_playlists_panel=false
 bind common ] vol +0 +1%
-bind common ^A shell ~/Projects/dotfiles/scripts/backuppl.sh
+bind common ^A shell ~/dotfiles/bourneagain/backuppl.sh
 bind common ^B win-page-up
 bind common ^C echo Type :quit<enter> to exit cmus.
 bind common ^D win-half-page-down

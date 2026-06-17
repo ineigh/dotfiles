@@ -1,0 +1,9 @@
+q
+wq
+w
+bind -f common ^A shell ~/dotfiles/bourneagain/backuppl.sh
+set color_win_cur_sel_fg=255
+set color_win_sel_fg=255
+set color_win_sel_fg=white
+set color_win_sel_bg=36
+set color_win_sel_bg=default
