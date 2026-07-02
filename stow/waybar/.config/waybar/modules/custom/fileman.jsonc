@@ -1,0 +1,9 @@
+{
+  "custom/fileman": {
+    "format": "",
+    "on-click": "thunar",
+    "tooltip": false,
+    "icon-size": 32
+  }
+}
+

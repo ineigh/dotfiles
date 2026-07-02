@@ -1,0 +1,8 @@
+{
+  "backlight": {
+    "format": "<span size='14000'>{icon}</span>",
+    "format-icons": ["", "", "", "", "", "", "", "", "󰖙"],
+    "tooltip": true
+  }
+}
+

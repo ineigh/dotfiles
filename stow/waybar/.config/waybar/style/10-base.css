@@ -1,0 +1,48 @@
+* {
+	border: none;
+	border-radius: 0px;
+	font-family: JetBrainsMono;
+	font-size: 14px;
+	font-weight: bold;
+	min-height: 0;
+}
+
+/* Tooltips */
+tooltip {
+	background-color: @tooltips_bg;
+	border-radius: 4px;
+	border: 2px solid transparent;
+	border-color: #808080;
+	padding: 6px 6px;
+}
+
+tooltip label {
+	font-weight: bold;
+	color: #ffffff;
+}
+
+/* Waybar window */
+window#waybar {
+	background-color: @window_main;
+	border-radius: 0px;
+	border-bottom: 2px solid #1a1d21;
+	color: #ffffff;
+	transition-property: background-color;
+	transition-duration: .5s;
+}
+
+window#waybar.hidden {
+	background-color: @window_main;
+}
+
+window#waybar.empty {
+	background-color: @window_main;
+}
+
+window#waybar.solo {
+	background-color: @window_main;
+}
+
+label:focus {
+	background-color: #ffffff;
+}

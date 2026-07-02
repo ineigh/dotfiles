@@ -1,0 +1,8 @@
+{
+  "custom/virtmanager": {
+    "format": "",
+    "on-click": "virt-manager",
+    "tooltip": false,
+    "icon-size": 32
+  }
+}

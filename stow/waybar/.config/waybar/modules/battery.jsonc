@@ -1,0 +1,22 @@
+{
+  "battery": {
+    "states": {
+      "warning": 70,
+      "critical": 20
+
+    },
+    "format": "<span rise='2000'>{icon} </span>{capacity}",
+    "format-charging": "<span rise='2000'>󰂄 </span>{capacity}",
+    "format-plugged": "<span rise ='1300'> </span>{capacity}",
+    "format-warning": "<span rise='2000'>{icon} </span>{capacity}",
+    "format-critical": "<span rise='2000'>{icon} </span>{capacity}", 
+    "format-icons": [
+      "󰂎","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
+    ],
+    "events": {
+		"on-discharging-critical": "notify-send -u critical 'Battery Critial (20%)'",
+		"on-charging-100": "notify-send 'Battery Full (100%)'"
+    }
+  }
+}
+

@@ -1,0 +1,207 @@
+# Things to run once after sway starts, among other preferences
+exec pipewire
+exec swaync
+seat seat0 xcursor_theme ModernXP2 32
+default_border none
+output * bg /home/z/Pictures/wallpapers/appa.png fill
+workspace_layout tabbed
+focus_wrapping workspace
+
+### Variables
+# Use Mod4 for Meta
+set $mod Mod1
+set $left j
+set $down h
+set $up l
+set $right k
+set $term alacritty
+set $menu rofi -show drun -theme ~/.config/rofi/launcher.rasi -hover-select
+set $fm thunar 
+set $meta Mod4
+set $cc alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo
+
+### Monitors
+output DP-1 resolution 2560x1440 position 0,0
+output eDP-1 resolution 1920x1200 position 2560,120
+bindsym $mod+n output DP-1 toggle
+bindsym $mod+m output eDP-1 toggle
+bindsym $mod+Shift+n output DP-1 enable ; output eDP-1 disable
+bindsym $mod+Shift+m output DP-1 disable ; output eDP-1 enable 
+# You can get the names of your outputs by running: swaymsg -t get_outputs 
+
+# Alttabbing
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
+
+### Workspaces
+# workspace 'Home'
+exec_always /home/z/checkmonitor.sh
+exec firefox --class 'Home'
+exec /home/z/AppImages/Equibop-3.2.1.AppImage --ozone-platform=wayland --class 'Home'
+
+### Idle
+exec swayidle -w \
+timeout 600 'swaylock -f -c 000000' \
+timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+before-sleep 'swaylock -f -c 000000'
+
+### Key bindings
+bindsym $mod+Return exec $term
+bindsym $mod+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+z exec $fm
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
+
+### Moving around:
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Focus output relative to your current location
+bindsym $mod+Control+$right focus output right
+bindsym $mod+Control+$left focus output left
+bindsym $mod+Control+$down focus output down
+bindsym $mod+Control+$up focus output up
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Workspaces:
+# Switch to workspace
+bindsym $mod+space workspace 'Home'
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+space move container to workspace 'Home'
+bindsym $mod+Shift+1 move container to workspace number 1 
+bindsym $mod+Shift+2 move container to workspace number 2 
+bindsym $mod+Shift+3 move container to workspace number 3 
+bindsym $mod+Shift+4 move container to workspace number 4 
+bindsym $mod+Shift+5 move container to workspace number 5 
+bindsym $mod+Shift+6 move container to workspace number 6 
+bindsym $mod+Shift+7 move container to workspace number 7 
+bindsym $mod+Shift+8 move container to workspace number 8 
+bindsym $mod+Shift+9 move container to workspace number 9 
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Move focused container to workspace and switch to that workspace
+bindsym $mod+Control+space move container to workspace 'Home' ; workspace 'Home'
+bindsym $mod+Control+1 move container to workspace number 1 ; workspace number 1
+bindsym $mod+Control+2 move container to workspace number 2 ; workspace number 2
+bindsym $mod+Control+3 move container to workspace number 3 ; workspace number 3
+bindsym $mod+Control+4 move container to workspace number 4 ; workspace number 4
+bindsym $mod+Control+5 move container to workspace number 5 ; workspace number 5
+bindsym $mod+Control+6 move container to workspace number 6 ; workspace number 6
+bindsym $mod+Control+7 move container to workspace number 7 ; workspace number 7
+bindsym $mod+Control+8 move container to workspace number 8 ; workspace number 8
+bindsym $mod+Control+9 move container to workspace number 9 ; workspace number 9
+bindsym $mod+Control+0 move container to workspace number 10 ; workspace number 10
+
+# Move current workspace to monitor
+bindsym $mod+Control+Shift+$right move workspace to output right
+bindsym $mod+Control+Shift+$left move workspace to output left
+bindsym $mod+Control+Shift+$down move workspace to output down
+bindsym $mod+Control+Shift+$up move workspace to output up
+
+# Enter fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+Control+space floating toggle
+
+# Move focus to the parent container
+bindsym $mod+p focus parent
+
+### Scratchpad:
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+### Resizing containers:
+mode "resize" {
+bindsym $left resize shrink width 10px
+bindsym $down resize grow height 10px
+bindsym $up resize shrink height 10px
+bindsym $right resize grow width 10px
+
+bindsym Left resize shrink width 10px
+bindsym Down resize grow height 10px
+bindsym Up resize shrink height 10px
+bindsym Right resize grow width 10px
+
+# Return to default mode
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Audio, brightness and screenshots
+# Cycle audio output devices
+bindsym $mod+a exec /home/z/dotfiles/bourneagain/cycleaudio.sh
+
+# SwayOSD volume controls
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 120
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 120
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+
+# Capture Card stuff
+bindsym Shift+XF86AudioRaiseVolume exec swayosd-client --input-volume 5 --device $cc --max-volume 85
+bindsym Shift+XF86AudioLowerVolume exec swayosd-client --input-volume -5 --device $cc --max-volume 85
+
+# Brightness
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness +10
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
+
+# Capslock (If you don't want to use the backend)
+# bindsym --release Caps_Lock exec swayosd-client --caps-lock
+# Capslock but specific LED name (/sys/class/leds/)
+# bindsym --release Caps_Lock exec swayosd-client --caps-lock-led input19::capslock
+
+# Special key to take a screenshot with grim
+bindsym $mod+Shift+s exec grimshot copy area
+bindsym $mod+Shift+d exec grimshot copy screen 
+bindsym $mod+Shift+a exec grimshot copy active
+
+# CMUS shortcuts
+bindsym $meta+z exec cmus-remote -C player-prev
+bindsym $meta+x exec cmus-remote -C player-pause
+bindsym $meta+c exec cmus-remote -C player-next
+
+bar {
+    swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
+include /home/z/.config/sway/input
+set $XDG_CURRENT_DESKTOP sway
+set $XDG_SESSION_TYPE wayland
+exec {
+    sleep 1 
+    swayosd-server
+    dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    /usr/libexec/xdg-desktop-portal-wlr &
+    /usr/libexec/xdg-desktop-portal &
+}

@@ -1,0 +1,25 @@
+configuration {
+    show-icons: false;
+    click-to-exit: true;
+}
+
+window {
+    width: 40%;
+    location: center;
+    anchor: center;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+listview {
+    lines: 10;
+    spacing: 6px;
+}
+
+element {
+    padding: 6px;
+}
+
+element selected {
+    background-color: @accent;
+}

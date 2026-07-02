@@ -7,9 +7,10 @@ import = [
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-dimensions = { columns = 110, lines = 35 }
+dimensions = { columns = 115, lines = 40 }
 opacity = 0.7
 resize_increments = true
+dynamic_title = false
 
 [scrolling]
 history = 100000
@@ -20,7 +21,7 @@ normal = { family = "JetBrainsMono", style = "Bold" }
 bold = { family = "JetBrainsMono", style = "Bold" }
 italic = { family = "JetBrainsMono", style = "Bold" }
 bold_italic = { family = "JetBrainsMono", style = "Bold" }
-size = 13
+size = 20
 
 [bell]
 animation = "Linear"

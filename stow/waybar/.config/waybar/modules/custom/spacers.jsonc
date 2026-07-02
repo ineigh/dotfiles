@@ -1,0 +1,25 @@
+{
+	"custom/spacer": {
+		"format": " ",
+		"tooltip": false
+	},
+	"custom/rightend": {
+		"format": "  ",
+		"tooltip": false
+	},
+	"custom/leftend": {
+		"format": "  ",
+		"tooltip": false
+	},
+	"custom/emptyspacer": {
+		"format": "  ",
+		"tooltip": false
+	},
+	"custom/np-spacer": {
+		"exec-if": "playerctl status >/dev/null 2>&1",
+		"exec": "echo '   '",
+		"interval": 2,
+		"format": "{}",
+		"tooltip": false
+	}
+}

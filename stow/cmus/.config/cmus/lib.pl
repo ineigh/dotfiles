@@ -2765,6 +2765,19 @@ cue:///home/z/Music/Sorted/Bogdan Raczynski/Bogdan Raczynski - Thinking Of You (
 /home/z/Music/Sorted/Serj Tankian/Elect the Dead/CD 01/Serj Tankian - Elect the Dead - 10 - Praise the Lord and Pass the Ammunition.flac
 /home/z/Music/Sorted/Serj Tankian/Elect the Dead/CD 01/Serj Tankian - Elect the Dead - 11 - Beethoven’s Cunt.flac
 /home/z/Music/Sorted/Serj Tankian/Elect the Dead/CD 01/Serj Tankian - Elect the Dead - 12 - Elect the Dead.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 01 Bird Tutorial.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 02 Sin Triangle.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 03 Good Magicians.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 04 Sophisticated Space.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 05 I'm Filled With Steak, and Cannot Dance.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 06 Where The Sidewalk Ends.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 07 Mouth Log.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 08 I Eat Salads Now.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 09 Rat Of The City.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 10 Not But For You, Bunny.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 11 Persephone.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 12 Impostor Syndrome.flac
+/home/z/Music/Sorted/Sidney Gish/Sidney Gish - No Dogs Allowed/Sidney Gish - No Dogs Allowed - 13 New Recording 180 (New Year's Eve).flac
 /home/z/Music/Sorted/Simply Red/[1991] Stars/01 - Something Got Me Started.flac
 /home/z/Music/Sorted/Simply Red/[1991] Stars/02 - Stars.flac
 /home/z/Music/Sorted/Simply Red/[1991] Stars/03 - Thrill Me.flac

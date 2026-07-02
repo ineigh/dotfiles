@@ -1,0 +1,88 @@
+{
+	"include": [
+		"~/.config/waybar/modules/hypr/window.jsonc",
+		"~/.config/waybar/modules/hypr/workspaces.jsonc",
+		"~/.config/waybar/modules/custom/arch.jsonc",
+		"~/.config/waybar/modules/custom/browser.jsonc",
+		"~/.config/waybar/modules/custom/fileman.jsonc",
+		"~/.config/waybar/modules/custom/terminal.jsonc",
+		"~/.config/waybar/modules/custom/virtmanager.jsonc",
+		"~/.config/waybar/modules/custom/nvim.jsonc",
+		"~/.config/waybar/modules/custom/nowplaying.jsonc",
+		"~/.config/waybar/modules/custom/updates.jsonc",
+		"~/.config/waybar/modules/custom/launcher.jsonc",
+		"~/.config/waybar/modules/custom/spacers.jsonc",
+		"~/.config/waybar/modules/custom/system.jsonc",
+		"~/.config/waybar/modules/bluetooth.jsonc",
+		"~/.config/waybar/modules/custom/vpn.jsonc",
+		"~/.config/waybar/modules/pulseaudio.jsonc",
+		"~/.config/waybar/modules/backlight.jsonc",
+		"~/.config/waybar/modules/battery.jsonc",
+		"~/.config/waybar/modules/clock.jsonc",
+		"~/.config/waybar/modules/cpu.jsonc",
+		"~/.config/waybar/modules/idle_inhibitor.jsonc",
+		"~/.config/waybar/modules/memory.jsonc",
+		"~/.config/waybar/modules/network.jsonc",
+		"~/.config/waybar/modules/temperature.jsonc",
+		"~/.config/waybar/modules/tray.jsonc"
+	],
+	"position": "top",
+	"modules-left": [
+		"custom/system",
+		// "custom/launcher",
+		"custom/spacer",
+		"power-profiles-daemon",
+		"custom/spacer",
+		"keyboard-state"
+		// "custom/browser",
+		// "custom/fileman",
+		// "custom/terminal"
+		// "custom/virtmanager",
+		// "custom/nowplaying"
+	],
+	"modules-center": [
+		"sway/workspaces"
+	],
+	"modules-right": [
+		"tray",
+		// "custom/updates",
+		// "idle_inhibitor",
+		"custom/spacer",
+		"pulseaudio",
+		"custom/spacer",
+		"bluetooth",
+		"custom/spacer",
+		// "custom/vpn",
+		// "custom/spacer",
+		"network",
+		"custom/spacer",
+		// "memory",
+		// "custom/spacer",
+		// "cpu",
+		// "custom/spacer",
+		// "temperature",
+		// "custom/spacer",
+		"battery",
+		"clock"
+	],
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	},
+	"keyboard-state": {
+		"numlock": false,
+		"capslock": true,
+		"format": "{icon}",
+		"format-icons": {
+			"locked": "🢁",
+			"unlocked": ""
+		}
+	}
+}

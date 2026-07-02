@@ -1,0 +1,8 @@
+{
+	"custom/nowplaying": {
+		"exec": "playerctl metadata --format '{{title}}' 2>/dev/null | sed -e 's/&/&amp;/g' -e 's/</&lt;/g' -e 's/>/&gt;/g' | awk '{print \"<span rise=\\\"-1500\\\" size=\\\"14000\\\">󰝚</span> \" $0}'",
+		"interval": 2,
+		"max-length": 20,
+		"tooltip": false
+	}
+}

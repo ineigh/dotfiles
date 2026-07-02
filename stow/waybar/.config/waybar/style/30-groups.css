@@ -1,0 +1,53 @@
+#battery,
+#disk,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#memory,
+#temperature,
+#cpu,
+#idle_inhibitor,
+#bluetooth,
+#custom-vpn,
+#custom-logout,
+#custom-spacer,
+#custom-rightend,
+#custom-updates,
+#custom-leftend,
+#custom-system,
+#custom-arch,
+#custom-launcher,
+#custom-nowplaying {
+	margin: 0;
+	border-radius: 0;
+	background-color: @trayc;
+	border-bottom: 2px solid #1a1d21;
+}
+
+#custom-browser,
+#custom-fileman,
+#custom-terminal,
+#custom-discord,
+#custom-nvim,
+#custom-launcher,
+#custom-virtmanager {
+	margin: 0;
+	padding: 4px 9px;
+	font-size: 16px;
+	border-radius: 0;
+	background-color: @trayc;
+	border-bottom: 2px solid #1a1d21;
+}
+
+#custom-browser:hover,
+#custom-fileman:hover,
+#custom-terminal:hover,
+#custom-discord:hover,
+#custom-nvim:hover,
+#custom-launcher:hover,
+#custom-virtmanager:hover {
+	border-radius: 0;
+	text-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
+}

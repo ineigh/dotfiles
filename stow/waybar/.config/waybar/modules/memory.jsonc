@@ -1,0 +1,12 @@
+{
+  "memory": {
+    "format": "<span rise = '1200' size = '11000'>{icon}</span>{percentage}",
+    "tooltip-format": "Memory Used: {used:0.0f}/{total:0.0f} GB",
+    "format-icons": "󰘚 ",
+    "states": {
+	    "warning": 75,
+	    "critical": 90
+    },
+  }
+}
+

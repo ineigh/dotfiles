@@ -9,8 +9,8 @@ PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\
 
 #ALIASES
 alias vpm='sudo vpm --color=true'
+alias vsv='sudo vsv'
 alias fuz='fuzzypkg'
-alias vim='vim-huge'
 alias nv='nvim'
 alias sued='sudoedit'
 alias c='cmus'
@@ -25,11 +25,11 @@ alias rb='source ~/.bashrc'
 alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
 alias grep='grep --color=auto'
 alias hls='cat ~/.bash_history | grep "$@"'
-# alias ctrlcaps="setxkbmap -device "$(xinput list --id-only 'AT Translated Set 2 keyboard')" -option ctrl:swapcaps"
-alias wii='/home/z/dotfiles/bourneagain/./wiiaudio.sh'
-alias killwii='kill $(cat ~/.wiiaudiopid)'
+alias wiiaudio="tmux new-session -d -s 'WiiAudio' && tmux send-keys -t 'WiiAudio' '$HOME/dotfiles/bourneagain/wiiaudio.sh' C-m"
+alias killwii='tmux kill-session -t "WiiAudio"'
 alias voidsv='ssh z@192.168.1.130'
 alias q='exit'
+alias rootfind='sudo find / -type s -name'
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
@@ -60,68 +60,49 @@ if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
 fi
 
 #VOID SERVICES
-alias allsv='ls /etc/sv'
-alias runsv='ls /var/service/'
-
-addsv() {
-	if [[ -z "$1" ]]; then
-		echo "Usage: addsv <service>"
-		return 1
-	fi
-
-	sudo ln -s "/etc/sv/$1" "/var/service/$1"
-}
-
-remsv() {
-	if [[ -z "$1" ]]; then
-		echo "Usage: remsv <service>"
-		return 1
-	fi
-
-	sudo rm "/var/service/$1"
+ser() {
+	case "$1" in
+	"ln")
+		if [[ -d "/etc/sv/$2" ]]; then
+			sudo ln -s "/etc/sv/$2" "/var/service/$2"
+		else
+			echo "That service does not exist."
+		fi
+		;;
+	"rm")
+		if [[ -d "/var/service/$2" ]]; then
+			sudo rm "/var/service/$2"
+		else
+			echo "That service has not been enabled in /var/service/ or does not exist."
+		fi
+		;;
+	"st")
+		if [[ -d "/var/service/$2" ]]; then
+			sudo sv status "$2"
+		else
+			echo "That service has not been enabled in /var/service/ or does not exist."
+		fi
+		;;
+	"ls")
+		case "$2" in
+		"all" | "a")
+			ls /etc/sv/
+			;;
+		"run" | "r")
+			ls /var/service/
+			;;
+		*)
+			echo "Options: all/a, run/r."
+			;;
+		esac
+		;;
+	*)
+		echo "Options: ln, rm, st, ls (a/r)"
+		;;
+	esac
 }
 
 #WRAPPERS
-# xp() {
-# 	case $1 in
-# 	"upd")
-# 		sudo xbps-install -Su
-# 		;;
-# 	"rem")
-# 		sudo xbps-remove "${@:2}"
-# 		;;
-# 	"cln")
-# 		sudo xbps-remove -o
-# 		;;
-# 	"ins")
-# 		sudo xbps-install "${@:2}"
-# 		;;
-# 	"ls")
-# 		sudo xbps-query "${@:2}"
-# 		;;
-# 	"src")
-# 		sudo xbps-query -Rs "${@:2}"
-# 		;;
-# 	"reconf")
-# 		sudo xbps-reconfigure "${@:2}"
-# 		;;
-# 	*)
-# 		sudo "xbps-$1" "${@:3}"
-# 		;;
-# 	esac
-#
-# 	local status=$?
-#
-# 	if [ $status -eq 0 ]; then
-# 		if [ $1 != "src" ]; then
-# 			ponysay -f derpybags "Free muffin delivery spectacular!"
-# 		fi
-# 	else
-# 		ponysay -f derpysad "I just don't know what went wrong..."
-# 		echo "Exit code: $status"
-# 	fi
-# }
-
 tm() {
 	case $1 in
 	"ls")
@@ -229,11 +210,11 @@ twtgif() {
 }
 
 #FUNCTIONS
-dol() {
+thu() {
 	if [ -z "$1" ]; then
 		ponysay -f silverspoon "Opening $PWD for you."
 		sleep 1
-		nohup dolphin "$PWD" >/dev/null 2>&1 &
+		nohup thunar "$PWD" >/dev/null 2>&1 &
 		disown
 	else
 		if [ ! -d "$1" ]; then
@@ -241,7 +222,7 @@ dol() {
 		else
 			ponysay -f diamondtiara "Opening $1 for you."
 			sleep 1
-			nohup dolphin $1 >/dev/null 2>&1 &
+			nohup thunar $1 >/dev/null 2>&1 &
 			disown
 		fi
 	fi
@@ -253,10 +234,6 @@ lssrc() {
 	else
 		ls -a "$1" | grep "$2"
 	fi
-}
-
-cdir() {
-	mkdir -p $1 && cd $1
 }
 
 mlpep() {

@@ -1,0 +1,22 @@
+{
+	"network": {
+		"format-wifi": "<span rise='1300' size='11000'>{icon}</span> {signalStrength}",
+		"format-ethernet": "<span rise ='2000'> </span>",
+		"format-linked": "{ifname} (No IP)  ",
+		"format-disconnected": "<span rise ='1300' size='12000'>󰤮 </span>",
+		"on-click": "~/.config/waybar/scripts/networkmenu.sh",
+		"format-icons": [
+			"󰤯",
+			"󰤟",
+			"󰤢",
+			"󰤥",
+			"󰤨"
+		],
+		//"tooltip": false
+		"tooltip-format": "<b>Gateway</b>: {gwaddr}",
+		"tooltip-format-ethernet": "<b>Interface</b>: {ifname}\n<b>IP Addr</b>: {ipaddr}/{cidr}",
+		"tooltip-format-wifi": "<b>Network</b>: {essid}\n<b>IP Addr</b>: {ipaddr}/{cidr}\n<b>Strength</b>: {signalStrength}%\n<b>Frequency</b>: {frequency} GHz",
+		"tooltip-format-disconnected": "Wi-Fi Disconnected",
+		"tooltip-format-disabled": "Wi-Fi Disabled"
+	}
+}

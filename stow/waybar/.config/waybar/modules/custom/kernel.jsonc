@@ -1,0 +1,10 @@
+{
+  "custom/kernel": {
+    "exec": "uname -r | cut -d'-' -f1",
+    "interval": 3600,
+    "format": "<span rise='500' size='12000'></span> {}",
+    "tooltip": false,
+    "on-click": "~/.config/scripts/sysinfo.sh"
+  }
+}
+

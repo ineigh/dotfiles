@@ -1,0 +1,8 @@
+{
+	"custom/browser": {
+		"format": "",
+		"on-click": "firefox",
+		"tooltip": false,
+		"icon-size": 32
+	}
+}

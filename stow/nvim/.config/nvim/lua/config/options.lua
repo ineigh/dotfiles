@@ -1,5 +1,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.diagnostic.config({
 	virtual_text = {

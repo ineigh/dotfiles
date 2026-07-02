@@ -1,0 +1,14 @@
+{
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",	  
+    "interval": 2,
+    "warning-threshold": 80,
+    "critical-threshold": 95, 
+    "format": "<span rise = '2000'>{icon} </span>{temperatureC}",
+    "format-warning": "<span rise = '2000'>{icon}</span> {temperatureC}",
+    "format-critical": "<span rise = '2000'>{icon}</span> {temperatureC}",
+    "format-icons": "",
+    "tooltip": false
+  }
+}
+

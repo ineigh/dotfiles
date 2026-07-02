@@ -1,0 +1,7 @@
+{
+	"custom/arch": {
+		"format": "   ",
+		"tooltip": false,
+		"on-click": "~/.config/scripts/left-side-plaunch.sh"
+	}
+}

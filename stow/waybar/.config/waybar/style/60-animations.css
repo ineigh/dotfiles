@@ -1,0 +1,38 @@
+@keyframes blink {
+	to {
+		background-color: transparent;
+		color: #ffffff;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: #f53c3c;
+	color: #ffffff;
+	border-bottom: 2px solid #ffffff;
+	animation-name: blink;
+	animation-duration: 0.75s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	border-radius: 3px;
+}
+
+#workspaces button.urgent {
+	color: #ff5555;
+	animation: workspace-urgent-pulse 2.5s infinite;
+	font-size: 22px;
+}
+
+@keyframes workspace-urgent-pulse {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.35;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

@@ -1,0 +1,111 @@
+#custom-system {
+  color: #1793d1;
+  padding-right: 8px;
+  padding-left: 6px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(23, 147, 206, 0.8);
+}
+
+#custom-system:hover {
+  text-shadow: 0 0 6px rgba(3, 127, 186, 0.5);
+}
+
+#custom-arch {
+  color: #1793d1;
+  transition:
+    background-color 600ms ease,
+    border 600ms ease,
+    box-shadow 600ms ease;
+}
+
+#custom-arch:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  text-shadow: 0 0 6px rgba(23, 147, 186, 0.5);
+  border-bottom: 2px solid currentColor;
+}
+
+#custom-launcher {
+  color: #9e9e9e;
+  padding-left: 2px;
+}
+
+#custom-browser {
+  color: #ff631c;
+  padding-left: 6px;
+}
+
+#custom-fileman {
+  color: #1e83fa;
+}
+
+#custom-terminal {
+  color: #39ff14;
+}
+
+#custom-discord {
+  color: #738adb;
+  padding-right: 12px;
+}
+
+#custom-nvim {
+  color: #9e9e9e;
+  padding-left: 6px;
+}
+
+#custom-virtmanager {
+  color: #1efaed;
+  padding-left: 0;
+  padding-right: 15px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+#custom-spacer {
+  padding-left: 8px;
+}
+
+#custom-emptyspacer {
+  padding-left: 8px;
+  background: transparent;
+}
+
+#custom-leftend {
+  padding-left: 2px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+#custom-rightend {
+  padding-left: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+#custom-vpn {
+  color: @vpn_fg;
+  border-bottom: 1px solid currentColor;
+}
+
+#custom-nowplaying {
+  color: #7f8796;
+  font-style: italic;
+  padding-left: 4px;
+}
+
+#custom-updates {
+  padding-left: 10px;
+  padding-right: 12px;
+  border-radius: 2px;
+  padding-top: 2px;
+  font-size: 16;
+}
+
+#custom-updates.medium {
+  color: @warn_fg;
+}
+
+#custom-updates.high {
+  color: @crit_fg;
+}

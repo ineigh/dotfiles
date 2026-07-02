@@ -1,3 +1,8 @@
+vim.opt.tabstop = 4 -- Visual width of a actual tab character
+vim.opt.shiftwidth = 4 -- Size of an indent (when using >>, <<, etc.)
+vim.opt.softtabstop = 4 -- Number of spaces inserted/deleted for a tab
+-- vim.opt.expandtab = true -- Convert all tabs into spaces
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.clipboard = "unnamedplus"
@@ -78,9 +83,10 @@ require("lazy").setup({
 				css = { "prettier" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
-				rust = { "rustfmt" },
+				-- rust = { "rustfmt" },
 				sh = { "shfmt" },
 				bash = { "shfmt" },
+				kdl = { "kdlfmt" },
 				php = { "php_cs_fixer" },
 			},
 		},

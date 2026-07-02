@@ -1,4 +1,5 @@
 q
+set mpris=false
 wq
 w
 bind -f common ^A shell ~/dotfiles/bourneagain/backuppl.sh

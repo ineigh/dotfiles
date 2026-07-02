@@ -1,0 +1,151 @@
+#temperature,
+#memory,
+#cpu,
+#pulseaudio,
+#network,
+#backlight,
+#disk,
+#battery,
+#power-profiles-daemon,
+#bluetooth {
+  border-bottom: 1px solid currentColor;
+}
+
+#temperature {
+  color: @temp_cool;
+}
+
+#memory,
+#cpu {
+  color: @cpu_fg;
+}
+
+#temperature.warning,
+#memory.warning,
+#cpu.warning {
+  color: @warn_fg;
+}
+
+#temperature.critical,
+#memory.critical,
+#cpu.critical {
+  color: @crit_fg;
+}
+
+#pulseaudio {
+  color: @vol_fg;
+  padding-right: 5px;
+}
+
+#pulseaudio.muted {
+  color: @vol_fg_muted;
+  padding-right: 5px;
+}
+
+#network {
+  color: @net_fg;
+}
+
+#network.disconnected {
+  color: @crit_fg;
+}
+
+#backlight {
+  color: @backlight_fg;
+  padding-right: 6px;
+}
+
+#disk {
+  color: @disk_fg;
+}
+
+#tray {
+  padding-left: 10px;
+  padding-right: 8px;
+  border-radius: 2px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#battery {
+  color: @bat_good;
+}
+
+#battery.charging.warning,
+#battery.plugged.warning {
+  color: @bat_good;
+}
+
+#battery.warning {
+  color: @bat_norm;
+}
+
+#clock {
+  background-color: transparent;
+  font-size: 18px;
+  padding-bottom: 4px;
+  padding-left: 14px;
+  padding-right: 10px;
+  text-shadow: 2px 2px 4px black;
+  color: #ffffff;
+}
+
+#bluetooth {
+  font-size: 17px;
+  padding: 0 2px;
+  padding-left: 0;
+  margin: 0;
+  color: @bt_on;
+}
+
+#bluetooth.connected {
+  color: @bt_connected;
+}
+
+#bluetooth.disabled {
+  color: @bt_off;
+}
+
+#idle_inhibitor {
+  padding-left: 8px;
+  padding-top: 3px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+}
+
+#idle_inhibitor.activated {
+  color: #ff0000;
+  /* color: #4aff00; */
+}
+
+#bluetooth:hover,
+#pulseaudio:hover,
+#network:hover,
+#idle_inhibitor:hover {
+  border-radius: 0;
+  text-shadow: 0 0 9px rgba(0, 0, 0, 0.9);
+}
+
+#power-profiles-daemon {
+  padding-right: 8px;
+}
+
+#power-profiles-daemon.performance {
+  color: #f53c3c;
+  padding-right: 2px;
+}
+
+#power-profiles-daemon.balanced {
+  color: #2980b9;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #2ecc71;
+}
