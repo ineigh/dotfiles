@@ -5,7 +5,7 @@ exec_always wl-paste --watch cliphist store
 exec kdeconnectd
 seat seat0 xcursor_theme ModernXP2 32
 default_border none
-output * bg /home/z/Pictures/wallpapers/appa.png fill
+output * bg $HOME/Pictures/wallpapers/appa.png fill
 workspace_layout tabbed
 focus_wrapping workspace
 exec echo "$(date +%D)" > $HOME/.lastdate
