@@ -1,11 +1,14 @@
 # Things to run once after sway starts, among other preferences
 exec pipewire
 exec swaync
+exec_always wl-paste --watch cliphist store
+exec kdeconnectd
 seat seat0 xcursor_theme ModernXP2 32
 default_border none
 output * bg /home/z/Pictures/wallpapers/appa.png fill
 workspace_layout tabbed
 focus_wrapping workspace
+exec echo "$(date +%D)" > $HOME/.lastdate
 
 ### Variables
 # Use Mod4 for Meta
@@ -23,10 +26,10 @@ set $cc alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stere
 ### Monitors
 output DP-1 resolution 2560x1440 position 0,0
 output eDP-1 resolution 1920x1200 position 2560,120
-bindsym $mod+n output DP-1 toggle
-bindsym $mod+m output eDP-1 toggle
-bindsym $mod+Shift+n output DP-1 enable ; output eDP-1 disable
-bindsym $mod+Shift+m output DP-1 disable ; output eDP-1 enable 
+bindsym $mod+Shift+n output DP-1 toggle
+bindsym $mod+Shift+m output eDP-1 toggle
+bindsym $mod+Control+Shift+n output DP-1 enable ; output eDP-1 disable
+bindsym $mod+Control+Shift+m output DP-1 disable ; output eDP-1 enable 
 # You can get the names of your outputs by running: swaymsg -t get_outputs 
 
 # Alttabbing
@@ -35,12 +38,12 @@ bindsym $mod+Shift+Tab focus left
 
 ### Workspaces
 # workspace 'Home'
-exec_always /home/z/checkmonitor.sh
+exec_always /home/z/dotfiles/bourneagain/./swaycheckmonitor.sh
 exec firefox --class 'Home'
 exec /home/z/AppImages/Equibop-3.2.1.AppImage --ozone-platform=wayland --class 'Home'
 
 ### Idle
-exec swayidle -w \
+exec_always swayidle -w \
 timeout 600 'swaylock -f -c 000000' \
 timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 before-sleep 'swaylock -f -c 000000'
@@ -66,10 +69,10 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 # Focus output relative to your current location
-bindsym $mod+Control+$right focus output right
-bindsym $mod+Control+$left focus output left
-bindsym $mod+Control+$down focus output down
-bindsym $mod+Control+$up focus output up
+bindsym $meta+Control+$right focus output right
+bindsym $meta+Control+$left focus output left
+bindsym $meta+Control+$down focus output down
+bindsym $meta+Control+$up focus output up
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
@@ -122,10 +125,19 @@ bindsym $mod+Control+9 move container to workspace number 9 ; workspace number 9
 bindsym $mod+Control+0 move container to workspace number 10 ; workspace number 10
 
 # Move current workspace to monitor
+bindsym $mod+Control+$right move container to output right ; focus output right
+bindsym $mod+Control+$left move container to output left ; focus output left
+bindsym $mod+Control+$down move container to output down ; focus output down
+bindsym $mod+Control+$up move container to output up ; focus output up
+
+# Move current workspace to monitor
 bindsym $mod+Control+Shift+$right move workspace to output right
 bindsym $mod+Control+Shift+$left move workspace to output left
 bindsym $mod+Control+Shift+$down move workspace to output down
 bindsym $mod+Control+Shift+$up move workspace to output up
+
+# Lock
+bindsym $mod+Control+Shift+period exec swaylock -f -c 000000
 
 # Enter fullscreen
 bindsym $mod+f fullscreen
@@ -133,12 +145,18 @@ bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+Control+space floating toggle
 
+# Floating apps 
+for_window [app_id="thunar"] floating enable
+for_window [app_id="blueman"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="xfce4-settings-manager"] floating enable
+
 # Move focus to the parent container
 bindsym $mod+p focus parent
 
 ### Scratchpad:
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+Escape move scratchpad
+bindsym $mod+Escape scratchpad show
 
 ### Resizing containers:
 mode "resize" {
@@ -163,8 +181,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+a exec /home/z/dotfiles/bourneagain/cycleaudio.sh
 
 # SwayOSD volume controls
-bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 120
-bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 120
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 130
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 130
 bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
 
 # Capture Card stuff
@@ -175,25 +193,29 @@ bindsym Shift+XF86AudioLowerVolume exec swayosd-client --input-volume -5 --devic
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness +10
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
 
-# Capslock (If you don't want to use the backend)
-# bindsym --release Caps_Lock exec swayosd-client --caps-lock
-# Capslock but specific LED name (/sys/class/leds/)
-# bindsym --release Caps_Lock exec swayosd-client --caps-lock-led input19::capslock
-
 # Special key to take a screenshot with grim
 bindsym $mod+Shift+s exec grimshot copy area
 bindsym $mod+Shift+d exec grimshot copy screen 
 bindsym $mod+Shift+a exec grimshot copy active
 
 # CMUS shortcuts
-bindsym $meta+z exec cmus-remote -C player-prev
-bindsym $meta+x exec cmus-remote -C player-pause
-bindsym $meta+c exec cmus-remote -C player-next
+bindsym $meta+z exec cmus-remote -C "player-prev"
+bindsym $meta+x exec cmus-remote -C "player-pause"
+bindsym $meta+c exec cmus-remote -C "player-next"
+bindsym $meta+j exec cmus-remote -C "win-down"
+bindsym $meta+k exec cmus-remote -C "win-up"
+bindsym $meta+l exec cmus-remote -C "win-next"
+bindsym $meta+semicolon exec cmus-remote -C "win-activate"
+bindsym $meta+u exec cmus-remote -C "view tree"
+bindsym $meta+i exec cmus-remote -C "view playlist"
+bindsym $meta+o exec cmus-remote -C "view settings"
+# bindsym $meta+ exec cmus-remote -C 
 
 bar {
     swaybar_command waybar
 }
 
+include /home/z/.config/sway/clipboard
 include /etc/sway/config.d/*
 include /home/z/.config/sway/input
 set $XDG_CURRENT_DESKTOP sway
@@ -205,3 +227,4 @@ exec {
     /usr/libexec/xdg-desktop-portal-wlr &
     /usr/libexec/xdg-desktop-portal &
 }
+

@@ -1722,6 +1722,18 @@ cue:///home/z/Music/Sorted/Bogdan Raczynski/Bogdan Raczynski - Thinking Of You (
 /home/z/Music/Sorted/Fugazi/Instrument Soundtrack/16 Swingset.flac
 /home/z/Music/Sorted/Fugazi/Instrument Soundtrack/17 Shaken All Over.flac
 /home/z/Music/Sorted/Fugazi/Instrument Soundtrack/18 Slo Crostic.flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/1. Panda Hero (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/2. Telepsychola Theatric -Engeki Terepushikora- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/3. Rinne (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/4. God and Apple candy -Kamisama to Ringoame- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/5. Musunde Hiraite Rasetsu to Mukuro (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/6. Sajyo no Yumekui Syoujyo (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/7. Ward Room 305 -Byoutou 305 Goushitsu- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/8. Vertigo Phone　-Memai Denwa- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/9. Matoryoshka (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/10. Idiocy　-Hakuchi- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/11. Wanderland and the Sheep's song -Wandarland to Hitsuji no uta- (ORIGINAL).flac
+/home/z/Music/Sorted/hachi/HACHI & Kenshi Yonezu - OFFICIAL ORANGE (FLAC) [16-Bit 44.1-kHz]/12. Yuenshigai (ORIGINAL).flac
 /home/z/Music/Sorted/Hole/Live Through This/01 Violet.flac
 /home/z/Music/Sorted/Hole/Live Through This/02 Miss World.flac
 /home/z/Music/Sorted/Hole/Live Through This/03 Plump.flac
@@ -1936,6 +1948,31 @@ cue:///home/z/Music/Sorted/Bogdan Raczynski/Bogdan Raczynski - Thinking Of You (
 /home/z/Music/Sorted/Korn/Korn - 2007 - Untitled (Declipped)/12. Hushabye.flac
 /home/z/Music/Sorted/Korn/Korn - 2007 - Untitled (Declipped)/13. I Will Protect You.flac
 /home/z/Music/Sorted/Korn/Korn - 2007 - Untitled (Declipped)/14. Sing Sorrow.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/01 - 1.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/02 - Yuugen Jikkou.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/03 - Triple Baka.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/04 - Lost Angel.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/05 - Strawberry (Album ver.).flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/06 - Denwa ni Denwa.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/07 - PoPiPo.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/08 - Me ga Sametara.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/09 - Nostalgia.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/10 - Love in this Small World (Album ver.).flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/11 - Egao ni Sasete.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/12 - Tsuyogari (OwataP - piano arr.).flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/13 - X-Mark.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/14 - Hatsune Honpou Kyoku longver..flac
+/home/z/Music/Sorted/LamazeP/LamazeP - EXIT TUNES PRESENTS THE! COMPLETE BEST OF LamazeP (2009) [FLAC] {QWCE-10022}/15 - continued 〜LamazeEdition〜.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/01. LamazeP - 愛の詩.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/02. LamazeP - デレ化現象100%.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/03. LamazeP - I say love.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/04. LamazeP - Aquaculture.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/05. LamazeP - Nothing.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/06. LamazeP - 銀河系から徒歩5分以内で.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/07. LamazeP - Refugium.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/08. LamazeP - トキメキ.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/09. LamazeP - くるくるぱぁ.flac
+/home/z/Music/Sorted/LamazeP/LamazeP - I say love/10. LamazeP - WAVEFILE_V3ver.flac
 /home/z/Music/Sorted/Lamp/Lamp Genso (ランプ幻想)/01. Hakanaki Haru No Ichimaku (儚き春の一幕).flac
 /home/z/Music/Sorted/Lamp/Lamp Genso (ランプ幻想)/02. Hisoyakani (密やかに).flac
 /home/z/Music/Sorted/Lamp/Lamp Genso (ランプ幻想)/03. Yugure (夕暮れ).flac
@@ -3868,3 +3905,40 @@ cue:///home/z/Music/Sorted/Bogdan Raczynski/Bogdan Raczynski - Thinking Of You (
 /home/z/Music/Sorted/µ-Ziq/Tango N' Vectif (1993 - Remastered - 2001)/CD2 - 11 - Driving Is Easy.flac
 /home/z/Music/Sorted/µ-Ziq/Tango N' Vectif (1993 - Remastered - 2001)/CD2 - 12 - Methyl Albion.flac
 /home/z/Music/Sorted/µ-Ziq/Tango N' Vectif (1993 - Remastered - 2001)/CD2 - 13 - Glink.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/01 - ピノキオピー - 愛されなくても君がいる.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/02 - ピノキオピー - すきなことだけでいいです.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/03 - ピノキオピー - おばけのウケねらい.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/04 - ピノキオピー - ニナ.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/05 - ピノキオピー - すろぉもぉしょん.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/06 - ピノキオピー - アップルドットコム.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/07 - ピノキオピー - からっぽのまにまに.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/08 - ピノキオピー - モチベーションが死んでる.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/09 - ピノキオピー - 頓珍漢の宴 -MV edit-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/10 - ピノキオピー - マッシュルームマザー.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/11 - ピノキオピー - きみも悪い人でよかった.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/12 - ピノキオピー - ぼくらはみんな意味不明.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/13 - ピノキオピー - 10年後のボーカロイドのうた.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/14 - ピノキオピー - セカイはまだ始まってすらいない.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/15 - ピノキオピー - はじめまして地球人さん.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/16 - ピノキオピー - ありふれたせかいせいふく.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/17 - ピノキオピー - 腐れ外道とチョコレゐト.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/18 - ピノキオピー - 空想しょうもない日々 -MV edit-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/19 - ピノキオピー - 内臓ありますか.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/20 - ピノキオピー - ボカロはダサい.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/21 - ピノキオピー - 祭りだヘイカモン -MV edit-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/22 - ピノキオピー - ゴージャスビッグ対談.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/23 - ピノキオピー - アンテナ -re-rec-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/24 - ピノキオピー - ラブソングを殺さないで.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/25 - ピノキオピー - eight hundred.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/26 - ピノキオピー - 君が生きてなくてよかった.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/27 - ZANIO - マッシュルームマザー -ZANIO & PinocchioP live remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/28 - ピノキオピー - ニナ -Jumping remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/29 - ピノキオピー - ラブソングを殺さないで -JAPAN EXPO remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/30 - DECO-27 - すきなことだけでいいです -DECO-27 & TeddyLoid remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/31 - 鬱P - ぼくらはみんな意味不明 -nu metal remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/32 - ARuFa - アップルドットコム -Sickness remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/33 - ササノマリイ - ヨヅリナ -doze off remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/34 - 梨本うい - 祭りだヘイカモン -姦し remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/35 - 椎名もた - はじめまして地球人さん -nakatagai remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/36 - ATOLS - 内臓ありますか -ATOLS remix-.flac
+/home/z/Music/Sorted/PinocchioP/ピノキオピー - PINOCCHIOP BEST ALBUM 2009-2020 寿/37 - sasakure.UK - すろぉもぉしょん -sasakure.UK remix-.flac

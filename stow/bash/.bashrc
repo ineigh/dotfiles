@@ -8,28 +8,28 @@ export SUDO_EDITOR=nvim
 PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] [ \w\[\e[0;34m\] ]\[\e[0;90m\] \n\[\e[1;31m\]Ω\[\e[0;33m\] \$\[\e[0m\] '
 
 #ALIASES
-alias vpm='sudo vpm --color=true'
-alias vsv='sudo vsv'
-alias fuz='fuzzypkg'
-alias nv='nvim'
-alias sued='sudoedit'
-alias c='cmus'
-alias f='fastfetch'
-alias ls='ls -l --color=auto'
-alias lsls='ls -l --color=auto | grep'
-alias lsa='ls -l -a --color=auto'
-alias lsals='ls -l -a --color=auto | grep'
-alias grep='grep --color=auto'
-alias rc='nvim $HOME/.bashrc'
-alias rb='source ~/.bashrc'
-alias ponysay='PYTHONWARNINGS="ignore" ponysay -b round'
-alias grep='grep --color=auto'
-alias hls='cat ~/.bash_history | grep "$@"'
+alias vpm="sudo vpm --color=true"
+alias vsv="sudo vsv"
+alias fuz="fuzzypkg"
+alias nv="nvim"
+alias sued="sudoedit"
+alias stow="stow -d ~/dotfiles/stow -t ~"
+alias c="cmus"
+alias f="fastfetch"
+alias ls="ls -l --color=auto"
+alias lsls="ls -l --color=auto | grep"
+alias lsa="ls -l -a --color=auto"
+alias lsals="ls -l -a --color=auto | grep"
+alias grep="grep --color=auto"
+alias rc="nvim $HOME/.bashrc"
+alias rb="source ~/.bashrc"
+alias ponysay="PYTHONWARNINGS="ignore" ponysay -b round"
+alias grep="grep --color=auto"
+alias hls="cat ~/.bash_history | grep "$@""
 alias wiiaudio="tmux new-session -d -s 'WiiAudio' && tmux send-keys -t 'WiiAudio' '$HOME/dotfiles/bourneagain/wiiaudio.sh' C-m"
-alias killwii='tmux kill-session -t "WiiAudio"'
-alias voidsv='ssh z@192.168.1.130'
-alias q='exit'
-alias rootfind='sudo find / -type s -name'
+alias killwii="tmux kill-session -t "WiiAudio""
+alias voidsv="ssh z@192.168.1.130"
+alias q="exit"
 
 #FUNNY
 if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
@@ -56,7 +56,6 @@ if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
 		ponysay -f rarity "It's Rarity Sunday! Wahaha!"
 		;;
 	esac
-	echo "$(date +%D)" >$HOME/.lastdate
 fi
 
 #VOID SERVICES
@@ -89,7 +88,8 @@ ser() {
 			ls /etc/sv/
 			;;
 		"run" | "r")
-			ls /var/service/
+			# ls /var/service/
+			vsv
 			;;
 		*)
 			echo "Options: all/a, run/r."
@@ -123,6 +123,23 @@ tm() {
 	esac
 }
 
+dot() {
+	if [[ -z $1 ]]; then
+		nv $HOME/dotfiles/stow/
+	else
+		if [[ ! -d $HOME/dotfiles/stow/$1 ]]; then
+			echo "Not in your dotfiles dude."
+			ls $HOME/dotfiles/stow/
+		else
+			if [[ -d $HOME/dotfiles/stow/$1/.config/$1 ]]; then
+				nv $HOME/dotfiles/stow/$1/.config/$1
+			else
+				nv $HOME/dotfiles/stow/$1
+			fi
+		fi
+	fi
+}
+
 ffconv() {
 	if [ ! -d $HOME/Videos/ffmpeg ]; then
 		mkdir $HOME/Videos/ffmpeg
@@ -153,7 +170,7 @@ dlp() {
 		mkdir $HOME/Videos/DLP
 	fi
 
-	yt-dlp --restrict-filenames --cookies-from-browser firefox -P $HOME/Videos/DLP "$@"
+	yt-dlp --restrict-filenames --cookies-from-browser firefox --merge-output-format mp4 -P $HOME/Videos/DLP "$@"
 
 	local status=$?
 

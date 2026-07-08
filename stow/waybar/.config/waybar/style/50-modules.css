@@ -33,7 +33,8 @@
 }
 
 #pulseaudio {
-  color: @vol_fg;
+  /* color: @vol_fg; */
+  color: #ffffff;
   padding-right: 5px;
 }
 
@@ -43,7 +44,8 @@
 }
 
 #network {
-  color: @net_fg;
+  /* color: @net_fg; */
+  color: #ffffff;
 }
 
 #network.disconnected {
@@ -102,7 +104,8 @@
   padding: 0 2px;
   padding-left: 0;
   margin: 0;
-  color: @bt_on;
+  /* color: @bt_on; */
+  color: #ffffff;
 }
 
 #bluetooth.connected {
@@ -138,14 +141,17 @@
 }
 
 #power-profiles-daemon.performance {
-  color: #f53c3c;
+  /* color: #f53c3c; */
+  color: #ffffff;
   padding-right: 2px;
 }
 
 #power-profiles-daemon.balanced {
-  color: #2980b9;
+  /* color: #2980b9; */
+  color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
-  color: #2ecc71;
+  /* color: #2ecc71; */
+  color: #ffffff;
 }
