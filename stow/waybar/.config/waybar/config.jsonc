@@ -29,12 +29,13 @@
 	],
 	"position": "top",
 	"modules-left": [
+		"spacer",
 		"custom/system",
+		"tray",
 		// "custom/launcher",
 		// "custom/spacer",
 		// "custom/clipboard",
-		"custom/spacer",
-		"keyboard-state"
+		"custom/spacer"
 		// "custom/browser",
 		// "custom/fileman",
 		// "custom/terminal"
@@ -45,9 +46,9 @@
 		"sway/workspaces"
 	],
 	"modules-right": [
-		"tray",
 		// "custom/updates",
 		// "idle_inhibitor",
+		"keyboard-state",
 		"custom/spacer",
 		"pulseaudio",
 		"custom/spacer",

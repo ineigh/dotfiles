@@ -1,14 +1,17 @@
 # Things to run once after sway starts, among other preferences
 exec pipewire
 exec swaync
-exec_always wl-paste --watch cliphist store
+exec copyq --start-server
 exec kdeconnectd
 seat seat0 xcursor_theme ModernXP2 32
 default_border none
-output * bg $HOME/Pictures/wallpapers/appa.png fill
+output * bg $HOME/Pictures/wallpapers/themoon.png fill
 workspace_layout tabbed
+client.focused          #ffffff #222222 #ffffff #285577     
+client.unfocused        #333333 #222222 #ffffff #292d30
+client.focused_inactive #333333 #ffffff #222222 #484e50
 focus_wrapping workspace
-exec echo "$(date +%D)" > $HOME/.lastdate
+exec tmux new-session -d -s "cmus" && tmux send-keys -t "cmus" "cmus" C-m
 
 ### Variables
 # Use Mod4 for Meta
@@ -22,6 +25,7 @@ set $menu rofi -show drun -theme ~/.config/rofi/launcher.rasi -hover-select
 set $fm thunar 
 set $meta Mod4
 set $cc alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo
+set $lock swaylock -e -f -i $HOME/Pictures/wallpapers/themoonlock.png
 
 ### Monitors
 output DP-1 resolution 2560x1440 position 0,0
@@ -37,16 +41,16 @@ bindsym $mod+Tab focus right
 bindsym $mod+Shift+Tab focus left
 
 ### Workspaces
-# workspace 'Home'
-exec_always /home/z/dotfiles/bourneagain/./swaycheckmonitor.sh
+exec_always $HOME/dotfiles/bourneagain/./swaycheckmonitor.sh
 exec firefox --class 'Home'
-exec /home/z/AppImages/Equibop-3.2.1.AppImage --ozone-platform=wayland --class 'Home'
+exec $HOME/AppImages/Equibop-3.2.1.AppImage --ozone-platform=wayland --class 'Home'
 
 ### Idle
 exec_always swayidle -w \
-timeout 600 'swaylock -f -c 000000' \
-timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-before-sleep 'swaylock -f -c 000000'
+timeout 900 '$lock' \
+timeout 1020 'swaymsg "output * dpms off"' \
+resume 'swaymsg "output * dpms on"' \
+timeout 1620 'loginctl suspend'
 
 ### Key bindings
 bindsym $mod+Return exec $term
@@ -69,10 +73,10 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 # Focus output relative to your current location
-bindsym $meta+Control+$right focus output right
-bindsym $meta+Control+$left focus output left
-bindsym $meta+Control+$down focus output down
-bindsym $meta+Control+$up focus output up
+bindsym $meta+$right focus output right
+bindsym $meta+$left focus output left
+bindsym $meta+$down focus output down
+bindsym $meta+$up focus output up
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
@@ -137,28 +141,32 @@ bindsym $mod+Control+Shift+$down move workspace to output down
 bindsym $mod+Control+Shift+$up move workspace to output up
 
 # Lock
-bindsym $mod+Control+Shift+period exec swaylock -f -c 000000
+bindsym $mod+Control+Shift+period exec $lock
 
 # Enter fullscreen
 bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+Control+space floating toggle
+for_window [floating] resize set 1300 900 
 
 # Floating apps 
 for_window [app_id="thunar"] floating enable
 for_window [app_id="blueman"] floating enable
 for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="xfce4-settings-manager"] floating enable
+for_window [app_id="copyq"] floating enable
+for_window [app_id="qbittorrent"] floating enable
+for_window [app_id="com.network.manager"] floating enable
+for_window [title="cmus"] floating enable
 
 # Move focus to the parent container
 bindsym $mod+p focus parent
 
-### Scratchpad:
+### Scratchpad
 bindsym $mod+Shift+Escape move scratchpad
 bindsym $mod+Escape scratchpad show
 
-### Resizing containers:
+### Resizing containers
 mode "resize" {
 bindsym $left resize shrink width 10px
 bindsym $down resize grow height 10px
@@ -178,7 +186,7 @@ bindsym $mod+r mode "resize"
 
 ### Audio, brightness and screenshots
 # Cycle audio output devices
-bindsym $mod+a exec /home/z/dotfiles/bourneagain/cycleaudio.sh
+bindsym $mod+a exec $HOME/dotfiles/bourneagain/cycleaudio.sh
 
 # SwayOSD volume controls
 bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 130
@@ -186,38 +194,45 @@ bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume
 bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
 
 # Capture Card stuff
-bindsym Shift+XF86AudioRaiseVolume exec swayosd-client --input-volume 5 --device $cc --max-volume 85
-bindsym Shift+XF86AudioLowerVolume exec swayosd-client --input-volume -5 --device $cc --max-volume 85
+bindsym Shift+XF86AudioRaiseVolume exec swayosd-client --input-volume 5 --device $cc --max-volume 100
+bindsym Shift+XF86AudioLowerVolume exec swayosd-client --input-volume -5 --device $cc --max-volume 100
 
 # Brightness
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness +10
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness -10
 
-# Special key to take a screenshot with grim
+# Grimshot
 bindsym $mod+Shift+s exec grimshot copy area
 bindsym $mod+Shift+d exec grimshot copy screen 
 bindsym $mod+Shift+a exec grimshot copy active
 
+# CopyQ
+bindsym $mod+backspace exec copyq toggle
+
+# Shutdown/Reboot/Suspend
+bindsym XF86PowerOff exec swaynag -m "What would you like to do?" -B "Shutdown" "loginctl poweroff" -B "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend && $lock"
+
 # CMUS shortcuts
+bindsym $meta+backspace exec $HOME/dotfiles/bourneagain/./swaycheckcmus.sh
 bindsym $meta+z exec cmus-remote -C "player-prev"
 bindsym $meta+x exec cmus-remote -C "player-pause"
 bindsym $meta+c exec cmus-remote -C "player-next"
-bindsym $meta+j exec cmus-remote -C "win-down"
-bindsym $meta+k exec cmus-remote -C "win-up"
-bindsym $meta+l exec cmus-remote -C "win-next"
-bindsym $meta+semicolon exec cmus-remote -C "win-activate"
-bindsym $meta+u exec cmus-remote -C "view tree"
-bindsym $meta+i exec cmus-remote -C "view playlist"
-bindsym $meta+o exec cmus-remote -C "view settings"
+# bindsym $meta+j exec cmus-remote -C "win-down"
+# bindsym $meta+k exec cmus-remote -C "win-up"
+# bindsym $meta+l exec cmus-remote -C "win-next"
+# bindsym $meta+semicolon exec cmus-remote -C "win-activate"
+# bindsym $meta+u exec cmus-remote -C "view tree"
+# bindsym $meta+i exec cmus-remote -C "view playlist"
+# bindsym $meta+o exec cmus-remote -C "view settings"
 # bindsym $meta+ exec cmus-remote -C 
 
 bar {
     swaybar_command waybar
 }
 
-include /home/z/.config/sway/clipboard
+include $HOME/.config/sway/clipboard
 include /etc/sway/config.d/*
-include /home/z/.config/sway/input
+include $HOME/.config/sway/input
 set $XDG_CURRENT_DESKTOP sway
 set $XDG_SESSION_TYPE wayland
 exec {

@@ -9,12 +9,13 @@ configuration {
 
   bg:           #0f1115;
   bg-alt:       #151922;
-  panel:        rgba(21, 25, 33, 0.95);
+  panel:        rgba(0, 0, 0, 0.95);
   tile:         #0f1115;
   text:         #e7e7e7;
   text-dim:     #b7bcc6;
   bg-alt:       #151922;
-  accent:       #1793d1;
+  // accent:       #1793d1;
+  accent:       #ffffff;
   border:       rgba(42,49,64,0.92);
 
   spacing: 10;
@@ -27,7 +28,7 @@ window {
   x-offset: 0px;
   y-offset: 0px;
 
-  width: 700px;
+  width: 650px;
 
   background-color: @panel;
   border: 2px;
@@ -37,7 +38,7 @@ window {
 
 mainbox {
   orientation: horizontal;
-  children: [ "powerside", "message" ];
+  children: [ "message" ];
   padding: 10px 10px 10px 10px;
   background-color: transparent;
 }

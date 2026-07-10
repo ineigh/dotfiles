@@ -1,4 +1,6 @@
 q
+pl-create vocaloid
+set mouse=true
 set mpris=false
 wq
 w

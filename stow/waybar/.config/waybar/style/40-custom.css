@@ -1,11 +1,12 @@
 #custom-system {
   /* color: #1793d1; */
   color: #ffffff;
-  padding-right: 8px;
-  padding-left: 6px;
+  padding-right: 0px;
+  padding-left: 3px;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 10px rgba(23, 147, 206, 0.8);
+  /* letter-spacing: 0.5px; */
+  /* text-shadow: 0 0 10px rgba(23, 147, 206, 0.8); */
+  border-bottom: 1px solid currentColor;
 }
 
 #custom-system:hover {

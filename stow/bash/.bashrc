@@ -29,34 +29,35 @@ alias hls="cat ~/.bash_history | grep "$@""
 alias wiiaudio="tmux new-session -d -s 'WiiAudio' && tmux send-keys -t 'WiiAudio' '$HOME/dotfiles/bourneagain/wiiaudio.sh' C-m"
 alias killwii="tmux kill-session -t "WiiAudio""
 alias voidsv="ssh z@192.168.1.130"
+alias scr="nvim $HOME/dotfiles/bourneagain/"
 alias q="exit"
 
 #FUNNY
-if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
-	case $(date +%u) in
-	1)
-		ponysay -f applejack "It's AJ Monday! Yeehaw!"
-		;;
-	2)
-		ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
-		;;
-	3)
-		ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
-		;;
-	4)
-		ponysay -f twilight "It's Twilight Thursday!"
-		;;
-	5)
-		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
-		;;
-	6)
-		ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
-		;;
-	7)
-		ponysay -f rarity "It's Rarity Sunday! Wahaha!"
-		;;
-	esac
-fi
+# if [ "$(date +%D)" != "$(cat $HOME/.lastdate)" ]; then
+# 	case $(date +%u) in
+# 	1)
+# 		ponysay -f applejack "It's AJ Monday! Yeehaw!"
+# 		;;
+# 	2)
+# 		ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
+# 		;;
+# 	3)
+# 		ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
+# 		;;
+# 	4)
+# 		ponysay -f twilight "It's Twilight Thursday!"
+# 		;;
+# 	5)
+# 		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
+# 		;;
+# 	6)
+# 		ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
+# 		;;
+# 	7)
+# 		ponysay -f rarity "It's Rarity Sunday! Wahaha!"
+# 		;;
+# 	esac
+# fi
 
 #VOID SERVICES
 ser() {

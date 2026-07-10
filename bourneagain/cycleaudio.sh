@@ -21,6 +21,7 @@ next_sink=${sinks[$next_index]}
 
 # Set the next sink as the default audio output
 pactl set-default-sink "$next_sink"
+friendlyname=$(pactl -f json list sinks | jq -r --arg sink "$next_sink" '.[] | select(.name == $sink) | .description')
 
 # Send a desktop notification so you know which device is active
-# notify-send -u low -t 1 "Audio Output Switched" "Now using:\n$next_sink" -i audio-speakers
+notify-send -t 3000 "Audio Output Switched" "Now using:\n$friendlyname" -i audio-speakers
