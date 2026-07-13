@@ -27,7 +27,8 @@
 		"~/.config/waybar/modules/custom/clipboard.jsonc",
 		"~/.config/waybar/modules/tray.jsonc"
 	],
-	"position": "top",
+	// "position": "top",
+	"position": "bottom",
 	"modules-left": [
 		"spacer",
 		"custom/system",

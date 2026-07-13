@@ -1,6 +1,8 @@
 vim.opt.tabstop = 4 -- Visual width of a actual tab character
 vim.opt.shiftwidth = 4 -- Size of an indent (when using >>, <<, etc.)
 vim.opt.softtabstop = 4 -- Number of spaces inserted/deleted for a tab
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("$HOME/dotfiles/nvimundo/")
 -- vim.opt.expandtab = true -- Convert all tabs into spaces
 
 vim.g.mapleader = " "
