@@ -45,6 +45,7 @@
 	],
 	"modules-center": [
 		"sway/workspaces"
+		// "sway/window"
 	],
 	"modules-right": [
 		// "custom/updates",

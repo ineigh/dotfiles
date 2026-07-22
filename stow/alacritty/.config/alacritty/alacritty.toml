@@ -9,8 +9,9 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 [window]
 dimensions = { columns = 115, lines = 40 }
 opacity = 0.7
+# opacity = 1.0
 resize_increments = true
-dynamic_title = false
+# dynamic_title = false
 
 [scrolling]
 history = 100000

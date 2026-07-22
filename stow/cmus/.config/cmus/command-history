@@ -1,3 +1,4 @@
+q
 w
 add ~/Downloads/darkzone256(2).pls
 add ~/Downloads/darkzone256(1).pls
@@ -6,7 +7,6 @@ add ~/Downloads/vaporwaves.pls
 add ~/Downloads/groovesalad256.pls
 add ~/Downloads/groovesalad2256.pls
 add ~/Downloads/cliqhop256.pls
-q
 pl-create vocaloid
 set mouse=true
 set mpris=false

@@ -1,18 +1,20 @@
 # Autostart
+exec_always sway-audio-idle-inhibit
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec pipewire
 exec swaync
-exec sway-audio-idle-inhibit
 exec copyq --start-server
 exec kdeconnectd
 exec $HOME/dotfiles/bourneagain/swayopencmus.sh
 
 # Tabs and aesthetics
 workspace_layout tabbed
+font pango:"JetBrains Mono" 10
 client.focused          #ffffff #555555 #ffffff #222222     
 client.unfocused        #333333 #222222 #ffffff #292d30
 client.focused_inactive #333333 #555555 #ffffff #222222
 focus_wrapping workspace
-output * bg $HOME/Pictures/wallpapers/themoon.png fill
+output * bg $HOME/.config/sway/wallpapers/desktop.png fill
 default_border none
 seat seat0 xcursor_theme ModernXP2 32
 
@@ -24,44 +26,63 @@ set $down h
 set $up l
 set $right k
 set $term alacritty
-set $menu rofi -show drun -theme ~/.config/rofi/launcher.rasi -hover-select
+set $floatterm alacritty -o 'window.dimensions = { columns = 110, lines = 35 }' 'font.size = 17' -T floatterm
+set $menu rofi -show drun -theme ~/.config/rofi/launchpad.rasi -hover-select -show-icons
 set $fm thunar 
 set $meta Mod4
 set $cc alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo
-set $lock swaylock -e -f -i $HOME/Pictures/wallpapers/themoonlock.png
+set $lock swaylock -e -f -i $HOME/.config/sway/wallpapers/lock.png
+set $exit tmux kill-session -t cmus && swaymsg exit
 
 # Monitors and default apps
-exec $HOME/dotfiles/bourneagain/swaycheckmonitor.sh
+exec_always $HOME/dotfiles/bourneagain/swaycheckmonitor.sh
 workspace 'Home'
+assign [app_id="firefox"] 'Home'
+assign [app_id="Equibop"] 'Home'
 exec firefox 
-exec equibop
-# You can get the names of your outputs by running: swaymsg -t get_outputs 
+exec equibop \
+  --ozone-platform=wayland \
+  --disable-background-networking \
+  --disable-component-update \
+  --disable-domain-reliability \
+  --disable-sync \
+  --disable-features=MediaRouter,OptimizationHints,Translate,AutofillServerCommunication,HardwareMediaKeyHandling,CalculateNativeWinOcclusion
 
 # Clipboard history 
 bindsym $mod+backspace exec copyq toggle
 
 # Idle
 exec swayidle -w \
-timeout 180 'brightnessctl set 50%' \
-resume 'brightnessctl set 100%' \
-timeout 300 'brightnessctl set 30%' \
-resume 'brightnessctl set 100%' \
-timeout 900 '$lock' \
-timeout 1020 'swaymsg "output * dpms off"' \
-resume 'swaymsg "output * dpms on"' \
-timeout 1620 'loginctl suspend'
+  timeout 180 '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && brightnessctl set 30%' \
+    resume 'brightnessctl set 100%' \
+  timeout 300 '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+  timeout 600 '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && loginctl suspend' \
+    before-sleep 'exec $lock' \
+  timeout 650 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && brightnessctl set 50%' \
+    resume 'brightnessctl set 100%' \
+  timeout 900 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+  timeout 1200 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && loginctl suspend' \
+    before-sleep 'exec $lock'
+
+# Alttabbing
+bindsym $mod+tab exec rofi -show window -modi window -window-format "{t}" 
 
 # Application control
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+z exec $fm
+bindsym $mod+slash exec $floatterm -e fuzzypkg
+bindsym $mod+Shift+Return exec $floatterm -e sudo xbps-install -Su && sudo xbps-remove -Oo
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
 # Exit sway
-bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'tmux kill-session -t cmus && swaymsg exit'
+# bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'tmux kill-session -t cmus && swaymsg exit'
+bindsym $mod+Shift+e exec sh -c '[ "$(printf "No\nYes" | rofi -dmenu -p "Exit Sway?" -theme-str "listview { lines: 2; columns: 1; }")" = "Yes" ] && $exit'
 
 # Moving around:
 # Move your focus around
@@ -152,22 +173,24 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+Control+space floating toggle
 floating_modifier $mod normal
 
-# Floating apps 
-assign [app_id="thunar"] workspace current
-for_window [app_id="thunar"] floating enable
-for_window [app_id="blueman"] floating enable
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="copyq"] floating enable
-for_window [app_id="qbittorrent"] floating enable
-for_window [app_id="com.network.manager"] floating enable
-for_window [title="cmus"] floating enable
-for_window [floating] resize set 1300 900 
+# Floating apps
+include $HOME/.config/sway/float
+
+# Transparency
+for_window [app_id="Thunar"] opacity set 0.95
+for_window [app_id="thunar"] opacity set 0.95
+for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] opacity set 0.95
+for_window [app_id="copyq"] opacity set 0.95
+for_window [app_id="qbittorrent"] opacity set 0.95
 
 # Move focus to the parent container
 bindsym $mod+p focus parent
 
-### Scratchpad
-bindsym $mod+Shift+Escape move scratchpad
+# Color picker
+bindsym $meta+p exec hyprpicker -a
+
+# Scratchpad
+bindsym $meta+Escape move scratchpad
 bindsym $mod+Escape scratchpad show
 
 # Resizing containers
@@ -210,7 +233,7 @@ bindsym $mod+Shift+d exec grimshot copy screen
 bindsym $mod+Shift+a exec grimshot copy active
 
 # Shutdown/Reboot/Suspend/Lock
-bindsym XF86PowerOff exec swaynag -m "What would you like to do?" -B "Shutdown" "loginctl poweroff" -B "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend && $lock" -Z "Lock" "$lock"
+bindsym XF86PowerOff exec $HOME/dotfiles/bourneagain/swayrofiprompt.sh 
 
 # CMUS shortcuts
 bindsym $meta+backspace exec $HOME/dotfiles/bourneagain/./swaycheckcmus.sh
