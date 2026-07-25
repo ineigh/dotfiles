@@ -1,6 +1,6 @@
 # Autostart
 exec_always sway-audio-idle-inhibit
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec pipewire
 exec swaync
 exec copyq --start-server
@@ -34,19 +34,18 @@ set $cc alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stere
 set $lock swaylock -e -f -i $HOME/.config/sway/wallpapers/lock.png
 set $exit tmux kill-session -t cmus && swaymsg exit
 
-# Monitors and default apps
+# Monitors, workspaces and autostart apps
 exec_always $HOME/dotfiles/bourneagain/swaycheckmonitor.sh
-workspace 'Home'
-assign [app_id="firefox"] 'Home'
-assign [app_id="Equibop"] 'Home'
+
 exec firefox 
-exec equibop \
-  --ozone-platform=wayland \
-  --disable-background-networking \
-  --disable-component-update \
-  --disable-domain-reliability \
-  --disable-sync \
-  --disable-features=MediaRouter,OptimizationHints,Translate,AutofillServerCommunication,HardwareMediaKeyHandling,CalculateNativeWinOcclusion
+exec sleep 3 && swaymsg '[app_id="firefox"] move container to workspace Home'
+exec equibop --ozone-platform=wayland
+exec sleep 5 && swaymsg '[app_id="equibop"] move container to workspace Home'
+
+exec thunar 
+exec sleep 2 && swaymsg '[app_id="thunar"] move container to workspace Shed'
+exec thunderbird
+exec sleep 5 && swaymsg '[app_id="Thunderbird"] move container to workspace Shed'
 
 # Clipboard history 
 bindsym $mod+backspace exec copyq toggle
@@ -260,4 +259,3 @@ exec {
     /usr/libexec/xdg-desktop-portal-wlr &
     /usr/libexec/xdg-desktop-portal &
 }
-

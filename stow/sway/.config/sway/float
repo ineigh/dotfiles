@@ -1,8 +1,4 @@
 # Floating apps 
-assign [app_id="Thunar"] workspace current
-for_window [app_id="Thunar"] floating enable, resize set 1600 1000
-assign [app_id="thunar"] workspace current
-for_window [app_id="thunar"] floating enable, resize set 1600 1000
 assign [app_id="org.freedesktop.impl.portal.desktop.kde"] workspace current
 for_window [app_id="org.freedesktop.impl.portal.desktop.kde"] floating enable
 for_window [app_id="blueman"] floating enable, resize set 1000 1000
@@ -15,4 +11,4 @@ for_window [app_id="ark"] floating enable
 for_window [title="cmus"] floating enable
 for_window [title="floatterm"] floating enable
 for_window [title="wdisplays"] floating enable, resize set 1600 1000
-
+for_window [title="gedit"] floating enable, resize set 1600 1000

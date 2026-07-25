@@ -3,10 +3,8 @@
 ext=$(swaymsg -t get_outputs | jq -r '.[] | select(.serial == "311NTFA5S947") | .name')
 
 if [[ -n $ext && $ext != "null" ]]; then
-	swaymsg "workspace Home"
-	swaymsg "move workspace to output $ext"
-	swaymsg "workspace Shed"
-	swaymsg "move workspace to output eDP-1"
+	swaymsg "workspace 'Home' output $ext"
+	swaymsg "workspace 'Shed' output eDP-1"
 	swaymsg "bindsym Mod1+Shift+n output $ext toggle"
 	swaymsg "bindsym Mod1+Shift+m output eDP-1 toggle"
 	swaymsg "bindsym Mod1+Control+Shift+n output $ext enable ; output eDP-1 disable"
@@ -16,6 +14,6 @@ if [[ -n $ext && $ext != "null" ]]; then
 	swaymsg "output $ext position 0 0"
 	swaymsg "output eDP-1 position 2580 120"
 else
-	swaymsg "workspace Home"
-	swaymsg "move workspace to output eDP-1"
+	swaymsg "workspace 'Home' output eDP-1"
+	swaymsg "workspace 'Shed' output eDP-1"
 fi

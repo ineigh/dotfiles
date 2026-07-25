@@ -126,6 +126,7 @@ tm() {
 
 dot() {
 	if [[ -z $1 ]]; then
+		cd $HOME/dotfiles/stow/
 		nv $HOME/dotfiles/stow/
 	else
 		if [[ ! -d $HOME/dotfiles/stow/$1 ]]; then
@@ -134,8 +135,10 @@ dot() {
 		else
 			if [[ -d $HOME/dotfiles/stow/$1/.config/$1 ]]; then
 				nv $HOME/dotfiles/stow/$1/.config/$1
+				cd $HOME/dotfiles/stow/$1/.config/$1
 			else
 				nv $HOME/dotfiles/stow/$1
+				cd $HOME/dotfiles/stow/$1
 			fi
 		fi
 	fi
