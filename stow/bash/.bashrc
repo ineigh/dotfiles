@@ -3,15 +3,14 @@ bind -f ~/.inputrc
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
-export fm=dolphin
+fm=dolphin
 
 #BASH PROMPT
-# PS1='\[\e[0;35m\]\u\[\e[0;32m\]@\[\e[0;36m\]\h\[\e[0;34m\] \[\e[38;5;117m\][\[\e[38;5;220m\]\W\[\e[38;5;117m\]]\[\e[0m\]\[\e[0;90m\] \[\e[0;33m\]\e[0m\] '
 PS1='\[\e[38;5;117m\]\u\[\e[38;5;219m\]Ω\[\e[38;5;154m\]\h\[\e[34m\] \[\e[38;5;220m\][\[\e[38;5;220m\]\W\[\e[38;5;220m\]]\[\e[90m\] \[\e[38;5;160m\]\\$\[\e[0m\] '
 
 #ALIASES
-alias nrs="sudo nixos-rebuild switch --flake ~/dotfiles/nix/#m92p"
-alias nfu="nix flake update nixpkgs --flake ~/dotfiles/nix/"
+alias nrs="sudo nixos-rebuild switch --flake path:/home/z/dotfiles/nix/#m92p"
+alias nfu="nix flake update nixpkgs --flake path:/home/z/dotfiles/nix/"
 alias nsp="nix-shell -p"
 alias ncg="sudo nix-collect-garbage -d"
 alias nv="nvim"
@@ -31,41 +30,22 @@ alias grep="grep --color=auto"
 alias hls="cat ~/.bash_history | grep"
 alias q="exit"
 
-#DAILY PONY
-if [ ! -f ~/.latdate ]; then
-	date +%D >"$HOME/.lastdate"
-fi
+# DAILY PONY
+lastdate="$HOME/.lastdate"
+currentdate="$(date +%F)"
 
-currentdate="$(date +%D)"
-lastdate="$(cat ~/.lastdate)"
-ts1="$(date -d "$currentdate" +%s)"
-ts2="$(date -d "$lastdate" +%s)"
-
-if [ "$ts1" -lt "$ts2" ]; then
-	case $(date +%u) in
-	1)
-		ponysay -f applejack "It's AJ Monday! Yeehaw!"
-		;;
-	2)
-		ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!"
-		;;
-	3)
-		ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!"
-		;;
-	4)
-		ponysay -f twilight "It's Twilight Thursday!"
-		;;
-	5)
-		ponysay -f fluttershy "It's Fluttershy Friday, yay!"
-		;;
-	6)
-		ponysay -f rainbowsleep "It's Dash Saturday! Nap time!"
-		;;
-	7)
-		ponysay -f rarity "It's Rarity Sunday! Wahaha!"
-		;;
+if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
+	case "$(date +%u)" in
+	1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
+	2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
+	3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
+	4) ponysay -f twilight "It's Twilight Thursday!" ;;
+	5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
+	6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
+	7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
 	esac
-	date +%D >"$HOME/.lastdate"
+
+	printf '%s\n' "$currentdate" >"$lastdate"
 fi
 
 #WRAPPERS
