@@ -3,11 +3,11 @@ import = [
 	"~/.config/alacritty/alabaster_dark.toml"
 ]
 
-[env]
-WINIT_X11_SCALE_FACTOR = "1.0"
+# [env]
+# WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-dimensions = { columns = 115, lines = 40 }
+dimensions = { columns = 115, lines = 35 }
 opacity = 0.7
 # opacity = 1.0
 resize_increments = true
@@ -18,10 +18,10 @@ history = 100000
 multiplier = 1
 
 [font]
-normal = { family = "JetBrainsMono", style = "Bold" }
-bold = { family = "JetBrainsMono", style = "Bold" }
-italic = { family = "JetBrainsMono", style = "Bold" }
-bold_italic = { family = "JetBrainsMono", style = "Bold" }
+normal = { family = "Iosevka", style = "Bold" }
+bold = { family = "Iosevka", style = "Bold" }
+italic = { family = "Iosevka", style = "Bold" }
+bold_italic = { family = "Iosevka", style = "Bold" }
 size = 20
 
 [bell]
