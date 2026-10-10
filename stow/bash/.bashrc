@@ -31,21 +31,21 @@ alias hls="cat ~/.bash_history | grep"
 alias q="exit"
 
 # DAILY PONY
-lastdate="$HOME/.lastdate"
-currentdate="$(date +%F)"
-
-if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
-	case "$(date +%u)" in
-	1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
-	2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
-	3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
-	4) ponysay -f twilight "It's Twilight Thursday!" ;;
-	5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
-	6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
-	7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
-	esac
-
-	printf '%s\n' "$currentdate" >"$lastdate"
+if [[ ! -z "$TMUX" ]]; then
+	lastdate="$HOME/.lastdate"
+	currentdate="$(date +%F)"
+	if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
+		case "$(date +%u)" in
+		1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
+		2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
+		3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
+		4) ponysay -f twilight "It's Twilight Thursday!" ;;
+		5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
+		6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
+		7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
+		esac
+		printf '%s\n' "$currentdate" >"$lastdate"
+	fi
 fi
 
 #WRAPPERS
@@ -162,6 +162,10 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
 
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   exec tmux
-# fi
+if [[ -z "$TMUX" ]]; then
+	if tmux has-session -t main 2>/dev/null; then
+		tmux attach-session -t main
+	else
+		tmux new-session -s main
+	fi
+fi

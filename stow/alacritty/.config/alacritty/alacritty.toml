@@ -1,6 +1,6 @@
 [general]
 import = [
-	"~/.config/alacritty/alabaster_dark.toml"
+	"~/.config/alacritty/ayu.toml"
 ]
 
 # [env]
