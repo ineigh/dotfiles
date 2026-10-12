@@ -9,15 +9,15 @@ fm=dolphin
 PS1='\[\e[38;5;117m\]\u\[\e[38;5;219m\]Ω\[\e[38;5;154m\]\h\[\e[34m\] \[\e[38;5;220m\][\[\e[38;5;220m\]\W\[\e[38;5;220m\]]\[\e[90m\] \[\e[38;5;160m\]\\$\[\e[0m\] '
 
 #ALIASES
-alias nrs="sudo nixos-rebuild switch --flake path:/home/z/dotfiles/nix/#m92p"
+alias nrs="sudo nixos-rebuild switch --flake path:/home/z/dotfiles/nix/#e14g5"
 alias nfu="nix flake update nixpkgs --flake path:/home/z/dotfiles/nix/"
+alias nfua="nix flake update --flake path:/home/z/dotfiles/nix/"
 alias nsp="nix-shell -p"
 alias ncg="sudo nix-collect-garbage -d"
+alias rc2nix="nix run github:nix-community/plasma-manager/trunk#rc2nix > ~/dotfiles/nix/plasma.nix"
 alias nv="nvim"
 alias sued="sudoedit"
 alias stow="stow -d ~/dotfiles/stow -t ~"
-alias f="fastfetch"
-alias rmus="rsync -rO --no-perms --size-only --progress"
 alias mfoura="~/dotfiles/sh/convert_mfoura.sh"
 alias ls="ls -l --color=auto"
 alias lsls="ls -l --color=auto | grep"
@@ -31,21 +31,19 @@ alias hls="cat ~/.bash_history | grep"
 alias q="exit"
 
 # DAILY PONY
-if [[ ! -z "$TMUX" ]]; then
-	lastdate="$HOME/.lastdate"
-	currentdate="$(date +%F)"
-	if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
-		case "$(date +%u)" in
-		1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
-		2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
-		3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
-		4) ponysay -f twilight "It's Twilight Thursday!" ;;
-		5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
-		6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
-		7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
-		esac
-		printf '%s\n' "$currentdate" >"$lastdate"
-	fi
+lastdate="$HOME/.lastdate"
+currentdate="$(date +%F)"
+if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
+	case "$(date +%u)" in
+	1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
+	2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
+	3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
+	4) ponysay -f twilight "It's Twilight Thursday!" ;;
+	5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
+	6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
+	7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
+	esac
+	printf '%s\n' "$currentdate" >"$lastdate"
 fi
 
 #WRAPPERS
@@ -69,26 +67,6 @@ tm() {
 	esac
 }
 
-dot() {
-	if [[ -z $1 ]]; then
-		cd ~/dotfiles/stow/ || exit
-		nv ~/dotfiles/stow/
-	else
-		if [[ ! -d ~/dotfiles/stow/$1 ]]; then
-			echo "Not in your dotfiles dude."
-			ls ~/dotfiles/stow/
-		else
-			if [[ -d ~/dotfiles/stow/$1/.config/$1 ]]; then
-				nv ~/dotfiles/stow/"$1"/.config/"$1"
-				cd ~/dotfiles/stow/"$1"/.config/"$1" || exit
-			else
-				nv ~/dotfiles/stow/"$1"
-				cd ~/dotfiles/stow/"$1" || exit
-			fi
-		fi
-	fi
-}
-
 wii() {
 	case $1 in
 	"en" | "enable")
@@ -96,6 +74,10 @@ wii() {
 		;;
 	"di" | "disable")
 		tmux kill-session -t WiiAudio
+		;;
+	*)
+		echo "Usage: wii [option]"
+		echo "en/enable - di/disable"
 		;;
 	esac
 }
@@ -162,10 +144,10 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
 
-if [[ -z "$TMUX" ]]; then
-	if tmux has-session -t main 2>/dev/null; then
-		tmux attach-session -t main
-	else
-		tmux new-session -s main
-	fi
-fi
+# if [[ -z "$TMUX" ]]; then
+# 	if tmux has-session -t main 2>/dev/null; then
+# 		tmux attach-session -t main
+# 	else
+# 		tmux new-session -s main
+# 	fi
+# fi
