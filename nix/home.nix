@@ -14,7 +14,7 @@ let
     ];
   };
 
-  # lastfmkey = builtins.readFile ./api/lastfm;
+  lastfmkey = builtins.readFile ./api/lastfm;
 in
 
 {
@@ -51,6 +51,10 @@ in
         settings = {
           autoUpdate = true;
           autoUpdateNotification = true;
+          customTitleBar = true;
+          disableSmoothScroll = true;
+          minimizeToTray = false;
+          discordBranch = "stable";
           enabledThemes = [
             "SkeuoCord"
           ];
@@ -73,7 +77,7 @@ in
               missingArt = "logo";
               showLogo = false;
               showAlbumCover = true;
-              # apiKey = lastfmkey;
+              apiKey = lastfmkey;
               username = "neighsay";
             };
           };

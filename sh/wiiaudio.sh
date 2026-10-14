@@ -1,7 +1,8 @@
 #!/bin/bash
-# UGREEN_NODE="alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.pro-input-0"
-UGREEN_NODE="alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo"
+# UGREEN_NODE="alsa_input.usb-MACROSILICON_UGREEN_HDMI_Capture_20230424-02.analog-stereo"
+UGREEN_NODE=$(pactl -f json list sources | jq -r '.[] | select(.description == "UGREEN Capture Card") | .name')
 DEADLINE=$(($(date +%s) + 300))
+echo "$UGREEN_NODE"
 
 echo "pw cli info"
 until pw-cli info 0 >/dev/null 2>&1; do

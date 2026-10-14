@@ -89,6 +89,19 @@
     printing.enable = true;
   };
 
+  systemd.services = {
+    disable-mic-led = {
+      description = "Disable microphone mute LED";
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.writeShellScript "disable-mic-led" ''
+          echo off > /sys/class/sound/ctl-led/mic/mode
+        ''}";
+      };
+    };
+  };
+
   networking = {
     hostName = "e14g5";
     networkmanager.enable = true;
@@ -119,6 +132,10 @@
     sudo.wheelNeedsPassword = false;
     rtkit.enable = true;
     pam.services = {
+      z.kwallet = {
+        enable = true;
+        package = pkgs.kdePackages.kwallet-pam;
+      };
       login.fprintAuth = true;
       sudo.fprintAuth = true;
       polkit-1.fprintAuth = true;
@@ -148,7 +165,9 @@
       with kdePackages;
       [
         # gui/desktop
-        strawberry
+        # strawberry
+        cmus
+        cmusfm
         alacritty
         gimp
         pinta
@@ -157,6 +176,7 @@
         thunderbird-latest
         vlc
         obs-studio
+        prismlauncher
 
         #kde packages
         oxygen
@@ -165,6 +185,8 @@
         ark
         okular
         ffmpegthumbs
+        partitionmanager
+        kalk
 
         # formatters
         stylua
@@ -202,8 +224,18 @@
         unrar
         pipewire
         wireplumber
+        pulseaudio
         power-profiles-daemon
+        wayland-utils
+        lswt
+        exfatprogs
+        ntfsprogs
+        gptfdisk
+        smartmontools
+        libmtp
         playerctl
+        wine
+        winetricks
       ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       kwin-x11
