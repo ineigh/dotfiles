@@ -165,7 +165,6 @@
       with kdePackages;
       [
         # gui/desktop
-        # strawberry
         cmus
         cmusfm
         alacritty
@@ -177,6 +176,8 @@
         vlc
         obs-studio
         prismlauncher
+        filezilla
+        losslesscut
 
         #kde packages
         oxygen
@@ -210,6 +211,7 @@
         stow
         bat
         tree
+        ttyper
         tmux
         wget
         neovim
@@ -236,6 +238,9 @@
         playerctl
         wine
         winetricks
+        (pkgs.python3.withPackages (ps: [
+          ps.pyside6
+        ]))
       ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       kwin-x11

@@ -1,8 +1,0 @@
-{
-  "custom/nvim": {
-    "format": "",
-    "on-click": "kitty -e nvim",
-    "tooltip": false,
-    "icon-size": 32
-  }
-}

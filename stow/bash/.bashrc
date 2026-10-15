@@ -3,18 +3,22 @@ bind -f ~/.inputrc
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
+UGREEN_NODE="$(pactl -f json list sources | jq -r '.[] | select(.name | contains("UGREEN")) | .name')"
+export UGREEN_NODE
 fm=dolphin
 
 #BASH PROMPT
 PS1='\[\e[38;5;117m\]\u\[\e[38;5;219m\]Ω\[\e[38;5;154m\]\h\[\e[34m\] \[\e[38;5;220m\][\[\e[38;5;220m\]\W\[\e[38;5;220m\]]\[\e[90m\] \[\e[38;5;160m\]\\$\[\e[0m\] '
 
 #ALIASES
+#NIX
 alias nrs="sudo nixos-rebuild switch --flake path:/home/z/dotfiles/nix/#e14g5"
 alias nfu="nix flake update nixpkgs --flake path:/home/z/dotfiles/nix/"
 alias nfua="nix flake update --flake path:/home/z/dotfiles/nix/"
 alias nsp="nix-shell -p"
 alias ncg="sudo nix-collect-garbage -d"
 alias rc2nix="nix run github:nix-community/plasma-manager/trunk#rc2nix > ~/dotfiles/nix/plasma.nix"
+#MISC
 alias nv="nvim"
 alias sued="sudoedit"
 alias stow="stow -d ~/dotfiles/stow -t ~"

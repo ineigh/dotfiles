@@ -1,8 +1,0 @@
-{
-	"custom/terminal": {
-		"format": " ",
-		"on-click": "alacritty",
-		"tooltip": false,
-		"icon-size": 50
-	}
-}

@@ -1,3 +1,0 @@
-[screencast]
-chooser = rofi
-chooser_cmd = rofi -dmenu -theme ~/.config/rofi/portal.rasi -font "Inter 11" -width 40 -lines 10
