@@ -85,7 +85,7 @@ class WiiAudioTray:
             return
 
         self.update_state()
-        self.notify("WiiAudio", "Starting audio monitoring...")
+        # self.notify("WiiAudio", "Starting audio monitoring...")
 
     def stop(self):
         if self.process is None:
@@ -99,7 +99,7 @@ class WiiAudioTray:
 
         self.process = None
         self.update_state()
-        self.notify("WiiAudio", "Audio monitoring stopped.")
+        # self.notify("WiiAudio", "Audio monitoring stopped.")
 
     def check_process(self):
         if self.process is not None and self.process.poll() is not None:

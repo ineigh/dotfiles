@@ -252,8 +252,6 @@
       "services/net.local.lowerwii.sh.desktop"._launch = "Shift+Volume Down";
       "services/net.local.mutewii.sh.desktop"._launch = "Shift+Volume Mute";
       "services/net.local.raisewii.sh.desktop"._launch = "Shift+Volume Up";
-      "services/org.kde.spectacle.desktop".CurrentMonitorScreenShot = [ ];
-      "services/org.kde.spectacle.desktop".OpenWithoutScreenshot = [ ];
       "services/org.kde.spectacle.desktop".RectangularRegionScreenShot = "Meta+Shift+S";
       "services/org.kde.spectacle.desktop"._launch = "Print";
     };
@@ -362,9 +360,9 @@
       kwinrc.Effect-overview.BorderActivate = 9;
       kwinrc.Plugins.shakecursorEnabled = false;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".padding = 4;
-      kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".padding = 4;
-      kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
       kwinrc.Xwayland.Scale = 1;
       kwinrc."org.kde.kdecoration2".theme = "Oxygen";
       kxkbrc.Layout.LayoutList = "us";

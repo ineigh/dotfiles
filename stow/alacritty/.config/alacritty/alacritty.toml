@@ -1,13 +1,13 @@
 [general]
 import = [
-	"~/.config/alacritty/ayu.toml"
+	"~/.config/alacritty/alabaster_dark.toml"
 ]
 
 # [env]
 # WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-dimensions = { columns = 100, lines = 35 }
+dimensions = { columns = 100, lines = 36 }
 opacity = 0.8
 # opacity = 1.0
 resize_increments = true
@@ -22,7 +22,7 @@ normal = { family = "JetBrains Mono", style = "Bold" }
 bold = { family = "JetBrains Mono", style = "Bold" }
 italic = { family = "JetBrains Mono", style = "Bold" }
 bold_italic = { family = "JetBrains Mono", style = "Bold" }
-size = 16
+size = 16.5
 
 [bell]
 animation = "Linear"

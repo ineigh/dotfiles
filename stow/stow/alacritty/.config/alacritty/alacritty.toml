@@ -1,0 +1,41 @@
+[general]
+import = [
+	"~/.config/alacritty/ayu.toml"
+]
+
+# [env]
+# WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+dimensions = { columns = 100, lines = 35 }
+opacity = 0.8
+# opacity = 1.0
+resize_increments = true
+# dynamic_title = false
+
+[scrolling]
+history = 100000
+multiplier = 1
+
+[font]
+normal = { family = "JetBrains Mono", style = "Bold" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Bold" }
+bold_italic = { family = "JetBrains Mono", style = "Bold" }
+size = 16
+
+[bell]
+animation = "Linear"
+duration = 100 
+color = "#000000"
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+vi_mode_style = { shape = "Block", blinking = "Always" }
+blink_interval = 450
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true

@@ -188,6 +188,7 @@
         ffmpegthumbs
         partitionmanager
         kalk
+        kamoso
 
         # formatters
         stylua
