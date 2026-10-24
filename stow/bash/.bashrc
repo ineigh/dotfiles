@@ -60,8 +60,8 @@ n() {
 	fi
 	local arg step
 	local -a steps=()
-	local has_fu=false has_ua=false
-	local has_r=false has_p=false has_sp=false
+	local has_fu=false has_fua=false
+	local has_r=false has_p=false
 
 	# No arguments: show help
 	if (($# == 0)); then
@@ -86,12 +86,12 @@ n() {
 			}
 			has_fu=true
 			;;
-		ua)
-			$has_ua && {
-				echo "Error: duplicate step 'ua'." >&2
+		fua)
+			$has_fua && {
+				echo "Error: duplicate step 'fua'." >&2
 				return 2
 			}
-			has_ua=true
+			has_fua=true
 			;;
 		cg | rc | rs)
 			;;
@@ -119,8 +119,8 @@ n() {
 	done
 
 	# 2. Check incompatible combinations
-	if $has_fu && $has_ua; then
-		echo "Error: 'fu' and 'ua' are mutually exclusive." >&2
+	if $has_fu && $has_fua; then
+		echo "Error: 'fu' and 'fua' are mutually exclusive." >&2
 		return 2
 	fi
 
@@ -138,7 +138,7 @@ n() {
 			nix flake update nixpkgs \
 				--flake path:/home/z/dotfiles/nix/ || return
 			;;
-		ua)
+		fua)
 			nix flake update \
 				--flake path:/home/z/dotfiles/nix/ || return
 			;;
