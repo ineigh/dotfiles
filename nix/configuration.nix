@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+
   ];
 
   home-manager = {
@@ -31,23 +32,32 @@
     kernelParams = [
       "quiet"
       "splash"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
     ];
+    consoleLogLevel = 3;
+    initrd.verbose = false;
     loader.limine = {
       enable = true;
-      maxGenerations = 10;
+      maxGenerations = 5;
       style = {
-        wallpapers = [ assets/limine.jpg ];
+        wallpapers = [ assets/limine.png ];
         wallpaperStyle = "centered";
       };
+      extraConfig = ''
+        	  mouse: no
+        	  '';
+      extraEntries = ''
+        	  /Windows 10
+        		protocol: efi
+        		path: uuid(155449ac-e62e-4bbb-992c-13bdf918107b):/EFI/Microsoft/Boot/bootmgfw.efi
+        		'';
     };
     plymouth = {
       enable = true;
-      theme = "spinner";
+      theme = "nixos-bgrt";
+      themePackages = [ pkgs.nixos-bgrt-plymouth ];
     };
-  };
-
-  security = {
-    polkit.enable = true;
   };
 
   services = {
@@ -59,8 +69,10 @@
     };
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
     };
     keyd = {
@@ -75,6 +87,15 @@
             };
           };
         };
+        hhkb = {
+          ids = [ "0853:0100" ];
+          settings = {
+            main = {
+              "rightmeta" = "rightalt";
+              "rightalt" = "rightmeta";
+            };
+          };
+        };
       };
     };
     libinput.enable = true;
@@ -83,9 +104,9 @@
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
     envfs.enable = true;
+    fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a;
     fprintd.enable = true;
     fprintd.tod.enable = true;
-    fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a;
     printing.enable = true;
   };
 
@@ -107,10 +128,6 @@
     networkmanager.enable = true;
   };
 
-  hardware = {
-    graphics.enable = true;
-  };
-
   time.timeZone = "America/Costa_Rica";
 
   hardware = {
@@ -126,16 +143,14 @@
         };
       };
     };
+    graphics.enable = true;
   };
 
   security = {
     sudo.wheelNeedsPassword = false;
+    polkit.enable = true;
     rtkit.enable = true;
     pam.services = {
-      z.kwallet = {
-        enable = true;
-        package = pkgs.kdePackages.kwallet-pam;
-      };
       login.fprintAuth = true;
       sudo.fprintAuth = true;
       polkit-1.fprintAuth = true;
@@ -167,6 +182,8 @@
         # gui/desktop
         cmus
         cmusfm
+        sayonara
+        strawberry
         alacritty
         gimp
         pinta
@@ -189,6 +206,7 @@
         partitionmanager
         kalk
         kamoso
+        kdenlive
 
         # formatters
         stylua
@@ -206,13 +224,14 @@
 
         # cli/utils
         ponysay
-        pfetch
+        fastfetch
         cmatrix
         jq
         stow
         bat
         tree
         ttyper
+        sshfs
         tmux
         wget
         neovim
@@ -221,6 +240,7 @@
         ffmpeg
         zip
         unzip
+        keyd
         yt-dlp
         deno
         rar
@@ -244,7 +264,6 @@
         ]))
       ];
     plasma6.excludePackages = with pkgs.kdePackages; [
-      kwin-x11
       kontact
       akonadi
       elisa
@@ -263,6 +282,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
     jetbrains-mono
+    iosevka
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji

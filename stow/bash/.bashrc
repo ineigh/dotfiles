@@ -1,24 +1,16 @@
 set -o vi
+#BASH PROMPT
+PS1='\[\e[38;5;117m\]\u\[\e[38;5;219m\]Ω\[\e[38;5;154m\]\h\[\e[34m\] \[\e[38;5;220m\][\[\e[38;5;220m\]\W\[\e[38;5;220m\]]\[\e[90m\] \[\e[38;5;160m\]\\$\[\e[0m\] '
+
+#VARIABLES AND BINDS
 bind -f ~/.inputrc
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
-UGREEN_NODE="$(pactl -f json list sources | jq -r '.[] | select(.name | contains("UGREEN")) | .name')"
 export UGREEN_NODE
 fm=dolphin
 
-#BASH PROMPT
-PS1='\[\e[38;5;117m\]\u\[\e[38;5;219m\]Ω\[\e[38;5;154m\]\h\[\e[34m\] \[\e[38;5;220m\][\[\e[38;5;220m\]\W\[\e[38;5;220m\]]\[\e[90m\] \[\e[38;5;160m\]\\$\[\e[0m\] '
-
 #ALIASES
-#NIX
-alias nrs="sudo nixos-rebuild switch --flake path:/home/z/dotfiles/nix/#e14g5"
-alias nfu="nix flake update nixpkgs --flake path:/home/z/dotfiles/nix/"
-alias nfua="nix flake update --flake path:/home/z/dotfiles/nix/"
-alias nsp="nix-shell -p"
-alias ncg="sudo nix-collect-garbage -d"
-alias rc2nix="nix run github:nix-community/plasma-manager/trunk#rc2nix > ~/dotfiles/nix/plasma.nix"
-#MISC
 alias nv="nvim"
 alias sued="sudoedit"
 alias stow="stow -d ~/dotfiles/stow -t ~"
@@ -35,22 +27,146 @@ alias hls="cat ~/.bash_history | grep"
 alias q="exit"
 
 # DAILY PONY
-lastdate="$HOME/.lastdate"
-currentdate="$(date +%F)"
-if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
-	case "$(date +%u)" in
-	1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
-	2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
-	3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
-	4) ponysay -f twilight "It's Twilight Thursday!" ;;
-	5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
-	6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
-	7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
-	esac
-	printf '%s\n' "$currentdate" >"$lastdate"
+if [[ ! -z "$TMUX" ]]; then
+	lastdate="$HOME/.lastdate"
+	currentdate="$(date +%F)"
+	if [ ! -f "$lastdate" ] || [ "$(cat "$lastdate")" != "$currentdate" ]; then
+		case "$(date +%u)" in
+		1) ponysay -f applejack "It's AJ Monday! Yeehaw!" ;;
+		2) ponysay -f trixielulamoon "It's Trixie Tuesday! Marvel upon this great and powerful day!" ;;
+		3) ponysay -f pinkiegummy "It's Pinkie Wednesday! Yippie!" ;;
+		4) ponysay -f twilight "It's Twilight Thursday!" ;;
+		5) ponysay -f fluttershy "It's Fluttershy Friday, yay!" ;;
+		6) ponysay -f rainbowsleep "It's Dash Saturday! Nap time!" ;;
+		7) ponysay -f rarity "It's Rarity Sunday! Wahaha!" ;;
+		esac
+		printf '%s\n' "$currentdate" >"$lastdate"
+	fi
 fi
 
 #WRAPPERS
+n() {
+	# 0. Check for nix-shell -p
+	if [[ "${1:-}" == sp ]]; then
+		shift
+
+		if (($# == 0)); then
+			echo "Usage: n sp PACKAGE [PACKAGE ...]" >&2
+			return 2
+		fi
+
+		nix-shell -p "$@"
+		return $?
+	fi
+	local arg step
+	local -a steps=()
+	local has_fu=false has_ua=false
+	local has_r=false has_p=false has_sp=false
+
+	# No arguments: show help
+	if (($# == 0)); then
+		n_help
+		return 0
+	fi
+
+	# 1. Parse and validate the requested steps
+	for arg in "$@"; do
+		case "$arg" in
+		h | --help)
+			if (($# != 1)); then
+				echo "Error: help cannot be combined with other steps." >&2
+				return 2
+			fi
+			n_help
+			;;
+		fu)
+			$has_fu && {
+				echo "Error: duplicate step 'fu'." >&2
+				return 2
+			}
+			has_fu=true
+			;;
+		ua)
+			$has_ua && {
+				echo "Error: duplicate step 'ua'." >&2
+				return 2
+			}
+			has_ua=true
+			;;
+		cg | rc | rs)
+			;;
+		r)
+			$has_r && {
+				echo "Error: duplicate step 'r'." >&2
+				return 2
+			}
+			has_r=true
+			;;
+		p)
+			$has_p && {
+				echo "Error: duplicate step 'p'." >&2
+				return 2
+			}
+			has_p=true
+			;;
+		*)
+			echo "Error: unknown step '$arg'." >&2
+			return 2
+			;;
+		esac
+
+		steps+=("$arg")
+	done
+
+	# 2. Check incompatible combinations
+	if $has_fu && $has_ua; then
+		echo "Error: 'fu' and 'ua' are mutually exclusive." >&2
+		return 2
+	fi
+
+	if $has_r && $has_p; then
+		echo "Error: 'r' and 'p' are mutually exclusive." >&2
+		return 2
+	fi
+
+	# 3. Execute steps in the order supplied
+	for step in "${steps[@]}"; do
+		printf '\n==> n %s\n' "$step"
+
+		case "$step" in
+		fu)
+			nix flake update nixpkgs \
+				--flake path:/home/z/dotfiles/nix/ || return
+			;;
+		ua)
+			nix flake update \
+				--flake path:/home/z/dotfiles/nix/ || return
+			;;
+		cg)
+			sudo nix-collect-garbage -d || return
+			;;
+		rc)
+			nix run github:nix-community/plasma-manager/trunk#rc2nix \
+				>~/dotfiles/nix/plasma.nix || return
+			;;
+		rs)
+			sudo nixos-rebuild switch \
+				--flake path:/home/z/dotfiles/nix/#e14g5 || return
+			;;
+		r)
+			sudo systemctl reboot || return
+			;;
+		p)
+			sudo systemctl poweroff || return
+			;;
+		sp)
+			nix-shell -p "$@"
+			return 2
+			;;
+		esac
+	done
+}
+
 tm() {
 	case $1 in
 	"ls")
@@ -71,19 +187,17 @@ tm() {
 	esac
 }
 
-wii() {
-	case $1 in
-	"en" | "enable")
-		tmux new-session -d -s 'WiiAudio' && tmux send-keys -t 'WiiAudio' "$HOME/dotfiles/sh/wiiaudio.sh" C-m
-		;;
-	"di" | "disable")
-		tmux kill-session -t WiiAudio
-		;;
-	*)
-		echo "Usage: wii [option]"
-		echo "en/enable - di/disable"
-		;;
-	esac
+dot() {
+	if [[ ! -z $1 ]]; then
+		if [[ -d ~/dotfiles/$1 ]]; then
+			nvim "$HOME/dotfiles/$1"
+		else
+			echo "That directory doesn't exist"
+			ls ~/dotfiles/
+		fi
+	else
+		nvim ~/dotfiles/
+	fi
 }
 
 dlp() {
@@ -148,10 +262,24 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
 
-# if [[ -z "$TMUX" ]]; then
-# 	if tmux has-session -t main 2>/dev/null; then
-# 		tmux attach-session -t main
-# 	else
-# 		tmux new-session -s main
-# 	fi
-# fi
+if [[ -z "$TMUX" ]]; then
+	if tmux has-session -t main 2>/dev/null; then
+		tmux attach-session -t main
+	else
+		tmux new-session -s main
+	fi
+fi
+
+n_help() {
+	printf '%s\n' \
+		'Usage: n STEP [STEP ...]' \
+		'  fu   Update nixpkgs' \
+		'  ua   Update all flake inputs' \
+		'  cg   Collect Nix garbage' \
+		'  rc   Regenerate plasma.nix' \
+		'  rs   Rebuild and switch NixOS' \
+		'  r    Reboot' \
+		'  p    Power off' \
+		'  sp   Open nix-shell with packages (standalone)' \
+		'  h    Show help'
+}

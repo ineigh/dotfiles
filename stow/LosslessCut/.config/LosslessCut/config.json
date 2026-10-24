@@ -33,6 +33,7 @@
 	"autoLoadTimecode": false,
 	"segmentsToChapters": false,
 	"simpleMode": true,
+	"outSegTemplate": "${FILENAME}-${CUT_FROM}-${CUT_TO}${SEG_SUFFIX}${EXT}",
 	"keyboardSeekAccFactor": 1.03,
 	"keyboardNormalSeekSpeed": 1,
 	"keyboardSeekSpeed2": 10,
@@ -341,6 +342,5 @@
 	"thumbnailsEnabled": false,
 	"keyframesEnabled": true,
 	"reducedMotion": "user",
-	"ffmpegHwaccel": "none",
-	"outSegTemplate": "${FILENAME}-${CUT_FROM}-${CUT_TO}${SEG_SUFFIX}${EXT}"
+	"ffmpegHwaccel": "none"
 }

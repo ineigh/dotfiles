@@ -3,6 +3,7 @@ source "$HOME/.profile"
 DEADLINE=$(($(date +%s) + 300))
 
 echo "pw cli info"
+echo $UGREEN_NODE
 until pw-cli info 0 >/dev/null 2>&1; do
 	sleep 0.5
 done
@@ -22,8 +23,3 @@ sleep 1
 pw-loopback \
 	--capture-props="node.target=$UGREEN_NODE audio.rate=48000" \
 	--playback-props="audio.rate=48000 audio.channels=2"
-
-echo $! >"$HOME"/.wiiaudiopid
-cat "$HOME"/.wiiaudiopid
-
-notify-send -a "PipeWire" -i audio-card "UGREEN Capture Card" "UGREEN capture card audio is now active!"
