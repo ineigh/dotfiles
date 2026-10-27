@@ -107,17 +107,51 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792502884,
-        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
+        "lastModified": 1792773339,
+        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
+        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1791260994,
+        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "pano-scrobbler": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1791299772,
+        "narHash": "sha256-LK7hmnuW84IDBq50EwMZ5lLdkELU0U56EH4MDRcLXPE=",
+        "owner": "kawaiiDango",
+        "repo": "pano-scrobbler-flake",
+        "rev": "0e59e5bf70ecde0b2fcd43c0514109e3bd0839d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kawaiiDango",
+        "repo": "pano-scrobbler-flake",
         "type": "github"
       }
     },
@@ -150,6 +184,7 @@
         "cachyos-kernel": "cachyos-kernel",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
+        "pano-scrobbler": "pano-scrobbler",
         "plasma-manager": "plasma-manager"
       }
     }

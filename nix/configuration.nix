@@ -2,13 +2,13 @@
   pkgs,
   cachyos-kernel,
   plasma-manager,
+  pano-scrobbler,
   ...
 }:
 
 {
   imports = [
     ./hardware-configuration.nix
-
   ];
 
   home-manager = {
@@ -36,7 +36,6 @@
       "rd.systemd.show_status=auto"
     ];
     consoleLogLevel = 3;
-    initrd.verbose = false;
     loader.limine = {
       enable = true;
       maxGenerations = 5;
@@ -180,21 +179,21 @@
       with kdePackages;
       [
         # gui/desktop
-        cmus
-        cmusfm
-        sayonara
         strawberry
+        pano-scrobbler.packages.${pkgs.stdenv.hostPlatform.system}.default
         alacritty
         gimp
         pinta
         nicotine-plus
         easytag
         thunderbird-latest
-        vlc
+        mpv
         obs-studio
         prismlauncher
         filezilla
         losslesscut
+        stremio-service
+        upscayl
 
         #kde packages
         oxygen
@@ -225,6 +224,7 @@
         # cli/utils
         ponysay
         fastfetch
+        htop
         cmatrix
         jq
         stow
@@ -249,6 +249,8 @@
         wireplumber
         pulseaudio
         power-profiles-daemon
+        posy-cursors
+        materia-kde-theme
         wayland-utils
         lswt
         exfatprogs

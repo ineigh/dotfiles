@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
+    pano-scrobbler.url = "github:kawaiiDango/pano-scrobbler-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +22,7 @@
       home-manager,
       cachyos-kernel,
       plasma-manager,
+      pano-scrobbler,
       ...
     }:
     {
@@ -34,7 +35,11 @@
         ];
 
         specialArgs = {
-          inherit cachyos-kernel plasma-manager;
+          inherit
+            cachyos-kernel
+            plasma-manager
+            pano-scrobbler
+            ;
         };
       };
     };

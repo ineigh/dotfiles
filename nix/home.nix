@@ -34,15 +34,15 @@ in
   programs = {
     neovim = {
       enable = true;
-      plugins = [
+      plugins = with pkgs.vimPlugins; [
         oblivion
-        pkgs.vimPlugins.nvim-lspconfig
-        pkgs.vimPlugins.lush-nvim
-        pkgs.vimPlugins.conform-nvim
-        pkgs.vimPlugins.blink-cmp
-        pkgs.vimPlugins.friendly-snippets
-        pkgs.vimPlugins.nvim-treesitter
-        pkgs.vimPlugins.telescope-nvim
+        nvim-lspconfig
+        lush-nvim
+        conform-nvim
+        blink-cmp
+        friendly-snippets
+        nvim-treesitter
+        telescope-nvim
       ];
     };
     equibop = {
@@ -56,10 +56,13 @@ in
           minimizeToTray = false;
           discordBranch = "stable";
           enabledThemes = [
-            "SkeuoCord"
+            "Discord Mica"
           ];
           enabledThemeLinks = [
-            "https://raw.githubusercontent.com/Marda33/SkeuoCord/9abd7c0d4966c656dfa29df53f71c492ef2640ac/SkeuoCord.theme.css"
+            # EmojiReplace
+            "https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/3b33c83ee23bd5b8eb384c99fb15a6f6d20873d6/Themes/EmojiReplace/EmojiReplace.theme.css"
+            # SkeuoCord
+            # "https://raw.githubusercontent.com/Marda33/SkeuoCord/9abd7c0d4966c656dfa29df53f71c492ef2640ac/SkeuoCord.theme.css"
           ];
           enableOnlineThemes = true;
           plugins = {

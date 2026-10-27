@@ -243,37 +243,37 @@
       kwin.view_actual_size = "Meta+0";
       kwin.view_zoom_in = "Meta++";
       kwin.view_zoom_out = "Meta+-";
-      "kwin/$InverseAction"."Cycle Overview" = "Cycle Overview Opposite";
+      "kwin/$InverseAction"."Cycle Overview Opposite" = "Cycle Overview";
       "kwin/$InverseAction"."Increase Opacity" = "Decrease Opacity";
-      "kwin/$InverseAction".MoveZoomRight = "MoveZoomLeft";
+      "kwin/$InverseAction".MoveZoomLeft = "MoveZoomRight";
       "kwin/$InverseAction".MoveZoomUp = "MoveZoomDown";
-      "kwin/$InverseAction"."Switch One Desktop Up" = "Switch One Desktop Down";
-      "kwin/$InverseAction"."Switch One Desktop to the Left" = "Switch One Desktop to the Right";
+      "kwin/$InverseAction"."Switch One Desktop Down" = "Switch One Desktop Up";
+      "kwin/$InverseAction"."Switch One Desktop to the Right" = "Switch One Desktop to the Left";
+      "kwin/$InverseAction"."Switch Window Down" = "Switch Window Up";
       "kwin/$InverseAction"."Switch Window Right" = "Switch Window Left";
-      "kwin/$InverseAction"."Switch Window Up" = "Switch Window Down";
       "kwin/$InverseAction"."Switch to Next Desktop" = "Switch to Previous Desktop";
       "kwin/$InverseAction"."Switch to Previous Screen" = "Switch to Next Screen";
       "kwin/$InverseAction"."Switch to Screen Below" = "Switch to Screen Above";
-      "kwin/$InverseAction"."Switch to Screen to the Right" = "Switch to Screen to the Left";
+      "kwin/$InverseAction"."Switch to Screen to the Left" = "Switch to Screen to the Right";
       "kwin/$InverseAction"."Walk Through Windows" = "Walk Through Windows (Reverse)";
       "kwin/$InverseAction"."Walk Through Windows Alternative (Reverse)" =
         "Walk Through Windows Alternative";
-      "kwin/$InverseAction"."Walk Through Windows of Current Application (Reverse)" =
-        "Walk Through Windows of Current Application";
-      "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative (Reverse)" =
-        "Walk Through Windows of Current Application Alternative";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application" =
+        "Walk Through Windows of Current Application (Reverse)";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative" =
+        "Walk Through Windows of Current Application Alternative (Reverse)";
       "kwin/$InverseAction"."Window Grow Horizontal" = "Window Shrink Horizontal";
       "kwin/$InverseAction"."Window Grow Vertical" = "Window Shrink Vertical";
+      "kwin/$InverseAction"."Window Lower" = "Window Raise";
       "kwin/$InverseAction"."Window One Desktop Up" = "Window One Desktop Down";
       "kwin/$InverseAction"."Window One Desktop to the Left" = "Window One Desktop to the Right";
       "kwin/$InverseAction"."Window One Screen Up" = "Window One Screen Down";
-      "kwin/$InverseAction"."Window One Screen to the Right" = "Window One Screen to the Left";
+      "kwin/$InverseAction"."Window One Screen to the Left" = "Window One Screen to the Right";
       "kwin/$InverseAction"."Window Pack Down" = "Window Pack Up";
       "kwin/$InverseAction"."Window Pack Left" = "Window Pack Right";
-      "kwin/$InverseAction"."Window Raise" = "Window Lower";
-      "kwin/$InverseAction"."Window to Next Screen" = "Window to Previous Screen";
       "kwin/$InverseAction"."Window to Previous Desktop" = "Window to Next Desktop";
-      "kwin/$InverseAction".view_zoom_out = "view_zoom_in";
+      "kwin/$InverseAction"."Window to Previous Screen" = "Window to Next Screen";
+      "kwin/$InverseAction".view_zoom_in = "view_zoom_out";
       mediacontrol.mediavolumedown = [ ];
       mediacontrol.mediavolumeup = [ ];
       mediacontrol.nextmedia = "Media Next";
@@ -391,9 +391,16 @@
         true;
       kcminputrc."Libinput/21298/4864/Clearly Superior Technologies. CST Laser Trackball".ScrollMethod =
         4;
+      kcminputrc.Mouse.cursorSize = 32;
+      kcminputrc.Mouse.cursorTheme = "Posy_Cursor_Mono";
       kded5rc.Module-browserintegrationreminder.autoload = false;
       kded5rc.Module-device_automounter.autoload = false;
       kdeglobals.General.UseSystemBell = true;
+      kdeglobals.General.XftAntialias = true;
+      kdeglobals.General.XftHintStyle = "hintslight";
+      kdeglobals.General.XftSubPixel = "none";
+      kdeglobals.General.font = "Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0";
+      kdeglobals.Icons.Theme = "breeze-dark";
       kdeglobals.KDE.AnimationDurationFactor = 0.5;
       kdeglobals.KDE.contrast = 4;
       kdeglobals.KDE.frameContrast = 0.2;
@@ -415,12 +422,12 @@
       kdeglobals.PreviewSettings.EnableRemoteFolderThumbnail = false;
       kdeglobals.PreviewSettings.MaximumRemoteSize = 0;
       kdeglobals.Sounds.Theme = "oxygen";
-      kdeglobals.WM.activeBackground = "39,44,49";
-      kdeglobals.WM.activeBlend = "252,252,252";
-      kdeglobals.WM.activeForeground = "252,252,252";
-      kdeglobals.WM.inactiveBackground = "32,36,40";
-      kdeglobals.WM.inactiveBlend = "161,169,177";
-      kdeglobals.WM.inactiveForeground = "161,169,177";
+      kdeglobals.WM.activeBackground = "39,39,39";
+      kdeglobals.WM.activeBlend = "39,39,39";
+      kdeglobals.WM.activeForeground = "223,223,223";
+      kdeglobals.WM.inactiveBackground = "30,30,30";
+      kdeglobals.WM.inactiveBlend = "30,30,30";
+      kdeglobals.WM.inactiveForeground = "139,139,139";
       kiorc.Confirmations.ConfirmDelete = true;
       kiorc.Confirmations.ConfirmEmptyTrash = true;
       kiorc.Confirmations.ConfirmTrash = false;
@@ -489,15 +496,17 @@
       kwinrc.Plugins.padding = 4;
       kwinrc.Plugins.shakecursorEnabled = false;
       kwinrc.Plugins.tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      kwinrc.Plugins.translucencyEnabled = true;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
       kwinrc.Xwayland.Scale = 1;
+      kwinrc."org.kde.kdecoration2".theme = "Breeze";
       kwinrulesrc.General.Order = "steam";
       kxkbrc.Layout.LayoutList = "us";
       kxkbrc.Layout.Use = true;
@@ -507,6 +516,7 @@
       plasmanotifyrc."Applications/losslesscut".Seen = true;
       plasmanotifyrc."Applications/org.nicotine_plus.Nicotine".Seen = true;
       plasmanotifyrc."Applications/thunderbird".Seen = true;
+      plasmarc.Theme.name = "Materia";
       plasmarc.Wallpapers.usersWallpapers = "/home/z/dotfiles/nix/assets/scoot.png";
       spectaclerc.Annotations.annotationToolType = 3;
       spectaclerc.General.clipboardGroup = "PostScreenshotCopyImage";

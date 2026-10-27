@@ -55,7 +55,7 @@ n() {
 			return 2
 		fi
 
-		nix-shell -p "$@"
+		nix-shell -p --command 'exec bash' "$@"
 		return $?
 	fi
 	local arg step
@@ -131,7 +131,7 @@ n() {
 
 	# 3. Execute steps in the order supplied
 	for step in "${steps[@]}"; do
-		printf '\n==> n %s\n' "$step"
+		printf '> n%s\n' "$step"
 
 		case "$step" in
 		fu)
@@ -160,7 +160,7 @@ n() {
 			sudo systemctl poweroff || return
 			;;
 		sp)
-			nix-shell -p "$@"
+			nix-shell --command 'source ~/.bashrc' -p "$@"
 			return 2
 			;;
 		esac
@@ -201,7 +201,7 @@ dot() {
 }
 
 dlp() {
-	sudo yt-dlp -U
+	# sudo yt-dlp -U
 
 	if [ ! -d ~/Videos/DLP ]; then
 		mkdir ~/Videos/DLP
@@ -270,6 +270,11 @@ if [[ -z "$TMUX" ]]; then
 	fi
 fi
 
+if [[ -n "${IN_NIX_SHELL:-}" ]]; then
+	PS1=" $PS1"
+fi
+
+#HELPER FUNCTIONS
 n_help() {
 	printf '%s\n' \
 		'Usage: n STEP [STEP ...]' \
