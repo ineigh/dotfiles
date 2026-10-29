@@ -1,28 +1,24 @@
 [general]
 import = [
-	"~/.config/alacritty/alabaster_dark.toml"
+	# "~/.config/alacritty/alabaster_dark.toml"
+	"~/.config/alacritty/oblivion.toml"
 ]
-
-# [env]
-# WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
 dimensions = { columns = 100, lines = 36 }
-opacity = 0.8
-# opacity = 1.0
+opacity = 0.95
 resize_increments = true
-# dynamic_title = false
 
 [scrolling]
 history = 100000
 multiplier = 1
 
 [font]
-normal = { family = "JetBrains Mono", style = "Bold" }
-bold = { family = "JetBrains Mono", style = "Bold" }
-italic = { family = "JetBrains Mono", style = "Bold" }
-bold_italic = { family = "JetBrains Mono", style = "Bold" }
-size = 16.5
+normal = { family = "Iosevka", style = "Bold" }
+bold = { family = "Iosevka", style = "Bold" }
+italic = { family = "Iosevka", style = "Bold" }
+bold_italic = { family = "Iosevka", style = "Bold" }
+size = 18
 
 [bell]
 animation = "Linear"

@@ -74,6 +74,23 @@
       };
       pulse.enable = true;
     };
+    syncthing = {
+      enable = true;
+      user = "z";
+      dataDir = "/home/z";
+      configDir = "/home/z/.config/syncthing";
+      openDefaultPorts = true;
+      guiAddress = "127.0.0.1:8384";
+      settings = {
+        options = {
+          localAnnounceEnabled = true;
+          globalAnnounceEnabled = false;
+          relaysEnabled = false;
+          natEnabled = false;
+          urAccepted = -1;
+        };
+      };
+    };
     keyd = {
       enable = true;
       keyboards = {
@@ -225,6 +242,7 @@
         ponysay
         fastfetch
         htop
+        wl-color-picker
         cmatrix
         jq
         stow

@@ -55,7 +55,7 @@ n() {
 			return 2
 		fi
 
-		nix-shell -p --command 'exec bash' "$@"
+		nix-shell -p "$@" --command 'exec bash'
 		return $?
 	fi
 	local arg step
@@ -164,6 +164,7 @@ n() {
 			return 2
 			;;
 		esac
+		status_pony rainbowshadowbolt rainbowsleep "$step"
 	done
 }
 
@@ -287,4 +288,12 @@ n_help() {
 		'  p    Power off' \
 		'  sp   Open nix-shell with packages (standalone)' \
 		'  h    Show help'
+}
+status_pony() {
+	local status=$?
+	if [[ $status -eq 0 ]]; then
+		ponysay -f "$1" "Operation $3 successful!"
+	else
+		ponysay -f "$2" "Operation $3 failed with exit code: $status"
+	fi
 }

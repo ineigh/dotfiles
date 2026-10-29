@@ -183,12 +183,24 @@
       kwin."Window Pack Left" = [ ];
       kwin."Window Pack Right" = [ ];
       kwin."Window Pack Up" = [ ];
-      kwin."Window Quick Tile Bottom" = "Meta+Down";
+      kwin."Window Quick Tile Bottom" = [
+        "Meta+J"
+        "Meta+Down"
+      ];
       kwin."Window Quick Tile Bottom Left" = [ ];
       kwin."Window Quick Tile Bottom Right" = [ ];
-      kwin."Window Quick Tile Left" = "Meta+Left";
-      kwin."Window Quick Tile Right" = "Meta+Right";
-      kwin."Window Quick Tile Top" = "Meta+Up";
+      kwin."Window Quick Tile Left" = [
+        "Meta+H"
+        "Meta+Left"
+      ];
+      kwin."Window Quick Tile Right" = [
+        "Meta+L"
+        "Meta+Right"
+      ];
+      kwin."Window Quick Tile Top" = [
+        "Meta+K"
+        "Meta+Up"
+      ];
       kwin."Window Quick Tile Top Left" = [ ];
       kwin."Window Quick Tile Top Right" = [ ];
       kwin."Window Raise" = [ ];
@@ -250,30 +262,30 @@
       "kwin/$InverseAction"."Switch One Desktop Down" = "Switch One Desktop Up";
       "kwin/$InverseAction"."Switch One Desktop to the Right" = "Switch One Desktop to the Left";
       "kwin/$InverseAction"."Switch Window Down" = "Switch Window Up";
-      "kwin/$InverseAction"."Switch Window Right" = "Switch Window Left";
+      "kwin/$InverseAction"."Switch Window Left" = "Switch Window Right";
       "kwin/$InverseAction"."Switch to Next Desktop" = "Switch to Previous Desktop";
-      "kwin/$InverseAction"."Switch to Previous Screen" = "Switch to Next Screen";
-      "kwin/$InverseAction"."Switch to Screen Below" = "Switch to Screen Above";
+      "kwin/$InverseAction"."Switch to Next Screen" = "Switch to Previous Screen";
+      "kwin/$InverseAction"."Switch to Screen Above" = "Switch to Screen Below";
       "kwin/$InverseAction"."Switch to Screen to the Left" = "Switch to Screen to the Right";
-      "kwin/$InverseAction"."Walk Through Windows" = "Walk Through Windows (Reverse)";
+      "kwin/$InverseAction"."Walk Through Windows (Reverse)" = "Walk Through Windows";
       "kwin/$InverseAction"."Walk Through Windows Alternative (Reverse)" =
         "Walk Through Windows Alternative";
-      "kwin/$InverseAction"."Walk Through Windows of Current Application" =
-        "Walk Through Windows of Current Application (Reverse)";
-      "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative" =
-        "Walk Through Windows of Current Application Alternative (Reverse)";
-      "kwin/$InverseAction"."Window Grow Horizontal" = "Window Shrink Horizontal";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application (Reverse)" =
+        "Walk Through Windows of Current Application";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative (Reverse)" =
+        "Walk Through Windows of Current Application Alternative";
       "kwin/$InverseAction"."Window Grow Vertical" = "Window Shrink Vertical";
-      "kwin/$InverseAction"."Window Lower" = "Window Raise";
       "kwin/$InverseAction"."Window One Desktop Up" = "Window One Desktop Down";
       "kwin/$InverseAction"."Window One Desktop to the Left" = "Window One Desktop to the Right";
       "kwin/$InverseAction"."Window One Screen Up" = "Window One Screen Down";
       "kwin/$InverseAction"."Window One Screen to the Left" = "Window One Screen to the Right";
       "kwin/$InverseAction"."Window Pack Down" = "Window Pack Up";
       "kwin/$InverseAction"."Window Pack Left" = "Window Pack Right";
+      "kwin/$InverseAction"."Window Raise" = "Window Lower";
+      "kwin/$InverseAction"."Window Shrink Horizontal" = "Window Grow Horizontal";
       "kwin/$InverseAction"."Window to Previous Desktop" = "Window to Next Desktop";
       "kwin/$InverseAction"."Window to Previous Screen" = "Window to Next Screen";
-      "kwin/$InverseAction".view_zoom_in = "view_zoom_out";
+      "kwin/$InverseAction".view_zoom_out = "view_zoom_in";
       mediacontrol.mediavolumedown = [ ];
       mediacontrol.mediavolumeup = [ ];
       mediacontrol.nextmedia = "Media Next";
@@ -336,22 +348,19 @@
       plasmashell."switch to previous activity" = [ ];
       plasmashell."toggle do not disturb" = [ ];
       "services/Alacritty.desktop"._launch = "Ctrl+Shift+Return";
-      "services/net.local.cmus-remote-10.desktop"._launch = "Meta+K";
-      "services/net.local.cmus-remote-2.desktop"._launch = "Meta+C";
-      "services/net.local.cmus-remote-3.desktop"._launch = "Meta+L";
-      "services/net.local.cmus-remote-4.desktop"._launch = "Meta+Z";
-      "services/net.local.cmus-remote-5.desktop"._launch = "Meta+;";
       "services/net.local.cmus-remote-6.desktop"._launch = "Meta+B";
-      "services/net.local.cmus-remote-7.desktop"._launch = "Meta+'";
-      "services/net.local.cmus-remote-8.desktop"._launch = "Meta+H";
-      "services/net.local.cmus-remote-9.desktop"._launch = "Meta+J";
-      "services/net.local.cmus-remote.desktop"._launch = "Meta+X";
-      "services/net.local.cmus-remove.desktop"._launch = "Meta+V";
       "services/net.local.cycleaudio.sh.desktop"._launch = "Meta+A";
       "services/net.local.equibop.desktop"._launch = "Meta+M";
       "services/net.local.lowerwii.sh.desktop"._launch = "Shift+Volume Down";
       "services/net.local.mutewii.sh.desktop"._launch = "Shift+Volume Mute";
       "services/net.local.raisewii.sh.desktop"._launch = "Shift+Volume Up";
+      "services/net.local.strawberry-2.desktop"._launch = "Meta+C";
+      "services/net.local.strawberry-3.desktop"._launch = "Meta+X";
+      "services/net.local.strawberry-4.desktop"._launch = "Meta+/";
+      "services/net.local.strawberry-5.desktop"._launch = "Meta+.";
+      "services/net.local.strawberry-6.desktop"._launch = "Meta+Shift+X";
+      "services/net.local.strawberry.desktop"._launch = "Meta+Z";
+      "services/org.kde.plasma.emojier.desktop"._launch = "Meta+Ctrl+Alt+Shift+Space";
       "services/org.kde.spectacle.desktop".RectangularRegionScreenShot = "Meta+Shift+S";
       "services/org.kde.spectacle.desktop"._launch = "Print";
     };
@@ -458,9 +467,9 @@
       kscreenlockerrc.Daemon.LockGrace = 30;
       kscreenlockerrc.Daemon.Timeout = 15;
       kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".Image =
-        "file:///home/z/dotfiles/nix/assets/wall.png";
+        "file:///home/z/dotfiles/nix/assets/lock.jpg";
       kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".PreviewImage =
-        "file:///home/z/dotfiles/nix/assets/wall.png";
+        "file:///home/z/dotfiles/nix/assets/lock.jpg";
       kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".SlidePaths =
         "/nix/store/nalqpvc3sn67b3xc6lsl2z1xygv9fn56-breeze-6.7.5/share/wallpapers/,/run/current-system/sw/share/wallpapers/";
       ksmserverrc.General.loginMode = "emptySession";
@@ -500,11 +509,13 @@
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      kwinrc.Windows_HDR.MaxLuminance = 280;
+      kwinrc.Windows_HDR.Reference = 280;
       kwinrc.Xwayland.Scale = 1;
       kwinrc."org.kde.kdecoration2".theme = "Breeze";
       kwinrulesrc.General.Order = "steam";
@@ -516,8 +527,9 @@
       plasmanotifyrc."Applications/losslesscut".Seen = true;
       plasmanotifyrc."Applications/org.nicotine_plus.Nicotine".Seen = true;
       plasmanotifyrc."Applications/thunderbird".Seen = true;
+      plasmanotifyrc."Applications/upscayl".Seen = true;
       plasmarc.Theme.name = "Materia";
-      plasmarc.Wallpapers.usersWallpapers = "/home/z/dotfiles/nix/assets/scoot.png";
+      plasmarc.Wallpapers.usersWallpapers = "/home/z/dotfiles/nix/assets/scoot.png,/home/z/dotfiles/nix/assets/wall.png";
       spectaclerc.Annotations.annotationToolType = 3;
       spectaclerc.General.clipboardGroup = "PostScreenshotCopyImage";
       spectaclerc.ImageSave.lastImageSaveLocation = "file:///home/z/Pictures/Screenshots/Screenshot_20261011_212403.png";
