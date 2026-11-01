@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get a list of all available audio sinks (outputs) by name
 sinks=($(pactl list short sinks | awk '{print $2}'))

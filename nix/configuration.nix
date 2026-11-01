@@ -81,6 +81,8 @@
       configDir = "/home/z/.config/syncthing";
       openDefaultPorts = true;
       guiAddress = "127.0.0.1:8384";
+      overrideDevices = false;
+      overrideFolders = false;
       settings = {
         options = {
           localAnnounceEnabled = true;
@@ -119,10 +121,13 @@
     gvfs.enable = true;
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
-    envfs.enable = true;
-    fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a;
-    fprintd.enable = true;
-    fprintd.tod.enable = true;
+    fprintd = {
+      enable = true;
+      tod = {
+        driver = pkgs.libfprint-2-tod1-goodix-550a;
+        enable = true;
+      };
+    };
     printing.enable = true;
   };
 
@@ -167,9 +172,11 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services = {
-      login.fprintAuth = true;
+      login.fprintAuth = false;
       sudo.fprintAuth = true;
       polkit-1.fprintAuth = true;
+      kde-fingerprint.fprintAuth = true;
+      kscreenlocker.fprintAuth = true;
     };
   };
 

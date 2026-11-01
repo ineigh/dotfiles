@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source "$HOME/.profile"
 CUR_VOL=$(pactl get-source-volume "$UGREEN_NODE" | grep -o '[0-9]\+%' | head -n 1 | tr -d "%")
 

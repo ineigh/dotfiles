@@ -24,7 +24,9 @@ alias rb="source ~/.bashrc"
 alias ponysay="PYTHONWARNINGS='ignore' ponysay -b round"
 alias grep="grep --color=auto"
 alias hls="cat ~/.bash_history | grep"
-alias q="exit"
+alias e="exit"
+alias q="pkill alacritty && clear -x"
+alias f="fastfetch"
 
 # DAILY PONY
 if [[ ! -z "$TMUX" ]]; then
@@ -100,14 +102,16 @@ n() {
 				echo "Error: duplicate step 'r'." >&2
 				return 2
 			}
-			has_r=true
+			ask_me "You entered 'r', are you sure you want to reboot?" &&
+				has_r=true || has_r=false
 			;;
 		p)
 			$has_p && {
 				echo "Error: duplicate step 'p'." >&2
 				return 2
 			}
-			has_p=true
+			ask_me "You entered 'p', are you sure you want to power off?" &&
+				has_p=true || has_p=false
 			;;
 		*)
 			echo "Error: unknown step '$arg'." >&2
@@ -116,6 +120,8 @@ n() {
 		esac
 
 		steps+=("$arg")
+		case "$arg" in
+		esac
 	done
 
 	# 2. Check incompatible combinations
@@ -153,19 +159,15 @@ n() {
 			sudo nixos-rebuild switch \
 				--flake path:/home/z/dotfiles/nix/#e14g5 || return
 			;;
-		r)
-			sudo systemctl reboot || return
-			;;
-		p)
-			sudo systemctl poweroff || return
-			;;
 		sp)
 			nix-shell --command 'source ~/.bashrc' -p "$@"
 			return 2
 			;;
 		esac
-		status_pony rainbowshadowbolt rainbowsleep "$step"
+		[ "$step" == "r" ] || [ "$step" == "p" ] && status_pony rainbowshadowbolt rainbowsleep "$step"
 	done
+	$has_r && sudo systemctl reboot || return
+	$has_p && sudo systemctl poweroff || return
 }
 
 tm() {
@@ -289,6 +291,7 @@ n_help() {
 		'  sp   Open nix-shell with packages (standalone)' \
 		'  h    Show help'
 }
+
 status_pony() {
 	local status=$?
 	if [[ $status -eq 0 ]]; then
@@ -296,4 +299,19 @@ status_pony() {
 	else
 		ponysay -f "$2" "Operation $3 failed with exit code: $status"
 	fi
+}
+
+ask_me() {
+	local question=$1
+	local ans
+
+	while true; do
+		read -e -r -p "$question [y/n] " ans
+
+		case "$ans" in
+		[yY]) return 0 ;;
+		[nN]) return 1 ;;
+		*) echo "Please answer yes or no." ;;
+		esac
+	done
 }

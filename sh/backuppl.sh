@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cp ~/.config/cmus/playlists/* ~/.config/cmus/backup-pl/
 

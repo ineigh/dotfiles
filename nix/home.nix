@@ -83,6 +83,8 @@ in
               apiKey = lastfmkey;
               username = "neighsay";
             };
+            ClearURLs.enabled = true;
+            ChannelTabs.enabled = true;
           };
         };
       };
