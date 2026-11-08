@@ -63,7 +63,7 @@ for folder in "$BASE_DIR"/*/; do
 	done
 done
 
-ponysay -f rarityponder "Do you want to delete the original files we've just converted?"
+ponysay -f rarityponder "Do you want to move the original files we've just converted?"
 read -r -p "(y/n): " ans
 if [[ "$ans" == "y" || "$ans" == "Y" || "$ans" == "yes" || "$ans" == "Yes" ]]; then
 	rm -rf $BASE_DIR/*

@@ -27,6 +27,7 @@ alias hls="cat ~/.bash_history | grep"
 alias e="exit"
 alias q="pkill alacritty && clear -x"
 alias f="fastfetch"
+alias lsblko="lsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS,MODEL"
 
 # DAILY PONY
 if [[ ! -z "$TMUX" ]]; then
@@ -164,10 +165,10 @@ n() {
 			return 2
 			;;
 		esac
-		[ "$step" == "r" ] || [ "$step" == "p" ] && status_pony rainbowshadowbolt rainbowsleep "$step"
+		[ "$step" != "r" ] && [ "$step" != "p" ] && status_pony rainbowshadowbolt rainbowsleep "$step"
 	done
 	$has_r && sudo systemctl reboot || return
-	$has_p && sudo systemctl poweroff || return
+	$has_p && sudo systemctl shutdown now || return
 }
 
 tm() {

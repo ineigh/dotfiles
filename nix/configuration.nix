@@ -172,7 +172,7 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services = {
-      login.fprintAuth = false;
+      login.fprintAuth = true;
       sudo.fprintAuth = true;
       polkit-1.fprintAuth = true;
       kde-fingerprint.fprintAuth = true;
@@ -316,7 +316,14 @@
     liberation_ttf
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-42.11.18"
+      ];
+    };
+  };
 
   system.stateVersion = "26.05"; # Did you read the comment?
 }

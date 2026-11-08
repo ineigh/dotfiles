@@ -1,6 +1,6 @@
 {
 	"version": 2,
-	"lastAppVersion": "3.69.0",
+	"lastAppVersion": "3.70.2",
 	"captureFormat": "jpeg",
 	"enableCustomOutDir": true,
 	"recentCustomOutDirs": [
@@ -315,6 +315,7 @@
 			"action": "toggleMuted"
 		}
 	],
+	"lastDialogDir": "/home/z/Videos/OBS",
 	"storeProjectInWorkingDir": true,
 	"enableOverwriteOutput": true,
 	"mouseWheelZoomModifierKey": "ctrl",
@@ -325,6 +326,7 @@
 	"captureFrameQuality": 0.95,
 	"captureFrameFileNameFormat": "timestamp",
 	"enableNativeHevc": true,
+	"enableUpdateCheck": false,
 	"cleanupChoices": {
 		"trashTmpFiles": true,
 		"askForCleanup": true,
@@ -333,7 +335,8 @@
 		"trashProjectFile": true
 	},
 	"allowMultipleInstances": false,
-	"darkMode": true,
+	"theme": "dark",
+	"videoFit": "contain",
 	"preferStrongColors": false,
 	"outputFileNameMinZeroPadding": 1,
 	"cutFromAdjustmentFrames": 0,

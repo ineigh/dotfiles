@@ -84,7 +84,7 @@ in
               username = "neighsay";
             };
             ClearURLs.enabled = true;
-            ChannelTabs.enabled = true;
+            ChannelTabs.enabled = false;
           };
         };
       };

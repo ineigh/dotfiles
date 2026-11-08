@@ -256,35 +256,63 @@
       kwin.view_zoom_in = "Meta++";
       kwin.view_zoom_out = "Meta+-";
       "kwin/$InverseAction"."Cycle Overview" = "Cycle Overview Opposite";
+      "kwin/$InverseAction"."Cycle Overview Opposite" = "Cycle Overview";
+      "kwin/$InverseAction"."Decrease Opacity" = "Increase Opacity";
       "kwin/$InverseAction"."Increase Opacity" = "Decrease Opacity";
       "kwin/$InverseAction".MoveZoomDown = "MoveZoomUp";
       "kwin/$InverseAction".MoveZoomLeft = "MoveZoomRight";
+      "kwin/$InverseAction".MoveZoomRight = "MoveZoomLeft";
+      "kwin/$InverseAction".MoveZoomUp = "MoveZoomDown";
+      "kwin/$InverseAction"."Switch One Desktop Down" = "Switch One Desktop Up";
       "kwin/$InverseAction"."Switch One Desktop Up" = "Switch One Desktop Down";
+      "kwin/$InverseAction"."Switch One Desktop to the Left" = "Switch One Desktop to the Right";
       "kwin/$InverseAction"."Switch One Desktop to the Right" = "Switch One Desktop to the Left";
       "kwin/$InverseAction"."Switch Window Down" = "Switch Window Up";
       "kwin/$InverseAction"."Switch Window Right" = "Switch Window Left";
+      "kwin/$InverseAction"."Switch Window Up" = "Switch Window Down";
+      "kwin/$InverseAction"."Switch to Next Desktop" = "Switch to Previous Desktop";
+      "kwin/$InverseAction"."Switch to Next Screen" = "Switch to Previous Screen";
       "kwin/$InverseAction"."Switch to Previous Desktop" = "Switch to Next Desktop";
       "kwin/$InverseAction"."Switch to Previous Screen" = "Switch to Next Screen";
+      "kwin/$InverseAction"."Switch to Screen Above" = "Switch to Screen Below";
       "kwin/$InverseAction"."Switch to Screen Below" = "Switch to Screen Above";
       "kwin/$InverseAction"."Switch to Screen to the Left" = "Switch to Screen to the Right";
+      "kwin/$InverseAction"."Switch to Screen to the Right" = "Switch to Screen to the Left";
+      "kwin/$InverseAction"."Walk Through Windows" = "Walk Through Windows (Reverse)";
       "kwin/$InverseAction"."Walk Through Windows (Reverse)" = "Walk Through Windows";
       "kwin/$InverseAction"."Walk Through Windows Alternative" =
         "Walk Through Windows Alternative (Reverse)";
+      "kwin/$InverseAction"."Walk Through Windows Alternative (Reverse)" =
+        "Walk Through Windows Alternative";
       "kwin/$InverseAction"."Walk Through Windows of Current Application" =
         "Walk Through Windows of Current Application (Reverse)";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application (Reverse)" =
+        "Walk Through Windows of Current Application";
+      "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative" =
+        "Walk Through Windows of Current Application Alternative (Reverse)";
       "kwin/$InverseAction"."Walk Through Windows of Current Application Alternative (Reverse)" =
         "Walk Through Windows of Current Application Alternative";
       "kwin/$InverseAction"."Window Grow Horizontal" = "Window Shrink Horizontal";
       "kwin/$InverseAction"."Window Grow Vertical" = "Window Shrink Vertical";
+      "kwin/$InverseAction"."Window Lower" = "Window Raise";
+      "kwin/$InverseAction"."Window One Desktop Down" = "Window One Desktop Up";
       "kwin/$InverseAction"."Window One Desktop Up" = "Window One Desktop Down";
       "kwin/$InverseAction"."Window One Desktop to the Left" = "Window One Desktop to the Right";
       "kwin/$InverseAction"."Window One Screen Up" = "Window One Screen Down";
+      "kwin/$InverseAction"."Window One Screen to the Left" = "Window One Screen to the Right";
       "kwin/$InverseAction"."Window One Screen to the Right" = "Window One Screen to the Left";
       "kwin/$InverseAction"."Window Pack Down" = "Window Pack Up";
       "kwin/$InverseAction"."Window Pack Left" = "Window Pack Right";
+      "kwin/$InverseAction"."Window Pack Right" = "Window Pack Left";
+      "kwin/$InverseAction"."Window Pack Up" = "Window Pack Down";
       "kwin/$InverseAction"."Window Raise" = "Window Lower";
+      "kwin/$InverseAction"."Window Shrink Horizontal" = "Window Grow Horizontal";
+      "kwin/$InverseAction"."Window Shrink Vertical" = "Window Grow Vertical";
       "kwin/$InverseAction"."Window to Next Desktop" = "Window to Previous Desktop";
+      "kwin/$InverseAction"."Window to Next Screen" = "Window to Previous Screen";
+      "kwin/$InverseAction"."Window to Previous Desktop" = "Window to Next Desktop";
       "kwin/$InverseAction"."Window to Previous Screen" = "Window to Next Screen";
+      "kwin/$InverseAction".view_zoom_in = "view_zoom_out";
       "kwin/$InverseAction".view_zoom_out = "view_zoom_in";
       mediacontrol.mediavolumedown = [ ];
       mediacontrol.mediavolumeup = [ ];
@@ -494,9 +522,7 @@
       kscreenlockerrc.Daemon.LockGrace = 30;
       kscreenlockerrc.Daemon.Timeout = 15;
       kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".Image =
-        "file:///home/z/dotfiles/nix/assets/lock.jpg";
-      kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".PreviewImage =
-        "file:///home/z/dotfiles/nix/assets/lock.jpg";
+        "file:///home/z/dotfiles/nix/assets/lock.png";
       kscreenlockerrc."Greeter/Wallpaper/org.kde.image/General".SlidePaths =
         "/nix/store/nalqpvc3sn67b3xc6lsl2z1xygv9fn56-breeze-6.7.5/share/wallpapers/,/run/current-system/sw/share/wallpapers/";
       ksmserverrc.General.loginMode = "emptySession";
@@ -533,15 +559,14 @@
       kwinrc.Plugins.shakecursorEnabled = false;
       kwinrc.Plugins.tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       kwinrc.Plugins.translucencyEnabled = true;
-
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/0433c1a5-c3c4-4177-b3d6-3a785d447796".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".padding =
         4;
       kwinrc."Tiling/5ec6c264-947c-4e24-9de4-72c6ec8a2c0d/79eaa198-6285-4118-b910-710ee095bfd6".tiles =
-        "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       kwinrc.Windows_HDR.MaxLuminance = 280;
       kwinrc.Windows_HDR.Reference = 280;
       kwinrc.Xwayland.Scale = 1;
@@ -566,7 +591,7 @@
       plasmanotifyrc."Applications/upscayl".Seen = true;
       plasmaparc.General.RaiseMaximumVolume = true;
       plasmarc.Theme.name = "Materia";
-      plasmarc.Wallpapers.usersWallpapers = "/home/z/dotfiles/nix/assets/scoot.png,/home/z/dotfiles/nix/assets/wall.png";
+      plasmarc.Wallpapers.usersWallpapers = "/home/z/Pictures/clop/luna_upscayl_2x_digital-art-4x.png,/home/z/dotfiles/nix/assets/wallpaper.png";
       spectaclerc.Annotations.annotationToolType = 3;
       spectaclerc.General.clipboardGroup = "PostScreenshotCopyImage";
       spectaclerc.ImageSave.lastImageSaveLocation = "file:///home/z/Pictures/Screenshots/Screenshot_20261011_212403.png";
@@ -574,6 +599,8 @@
       spectaclerc.VideoSave.translatedScreencastsFolder = "Screencasts";
       spectaclerc.ViewerWindow."2 screens: Height" = 570;
       spectaclerc.ViewerWindow."2 screens: Width" = 694;
+      systemsettingsrc."KFileDialog Settings"."Places Icons Auto-resize" = false;
+      systemsettingsrc."KFileDialog Settings"."Places Icons Static Size" = 16;
       systemsettingsrc."KFileDialog Settings".detailViewIconSize = 48;
     };
     dataFile = {
