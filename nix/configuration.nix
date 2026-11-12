@@ -43,6 +43,7 @@
         wallpapers = [ assets/limine.png ];
         wallpaperStyle = "centered";
       };
+      resolution = "2560x1440";
       extraConfig = ''
         	  mouse: no
         	  '';
@@ -172,7 +173,12 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services = {
-      login.fprintAuth = true;
+      login = {
+        fprintAuth = true;
+        kwallet = {
+          enable = true;
+        };
+      };
       sudo.fprintAuth = true;
       polkit-1.fprintAuth = true;
       kde-fingerprint.fprintAuth = true;
@@ -218,6 +224,7 @@
         losslesscut
         stremio-service
         upscayl
+        qemu_kvm
 
         #kde packages
         oxygen

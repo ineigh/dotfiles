@@ -540,7 +540,7 @@
       kwalletrc.Wallet."Close When Idle" = false;
       kwalletrc.Wallet."Close on Screensaver" = false;
       kwalletrc.Wallet."Default Wallet" = "kdewallet";
-      kwalletrc.Wallet.Enabled = false;
+      kwalletrc.Wallet.Enabled = true;
       kwalletrc.Wallet."First Use" = false;
       kwalletrc.Wallet."Idle Timeout" = 10;
       kwalletrc.Wallet."Launch Manager" = false;

@@ -28,6 +28,8 @@ alias e="exit"
 alias q="pkill alacritty && clear -x"
 alias f="fastfetch"
 alias lsblko="lsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS,MODEL"
+alias wrt="ssh root@192.168.1.1"
+alias b130="ssh z@192.168.1.156"
 
 # DAILY PONY
 if [[ ! -z "$TMUX" ]]; then
@@ -168,7 +170,7 @@ n() {
 		[ "$step" != "r" ] && [ "$step" != "p" ] && status_pony rainbowshadowbolt rainbowsleep "$step"
 	done
 	$has_r && sudo systemctl reboot || return
-	$has_p && sudo systemctl shutdown now || return
+	$has_p && shutdown now || return
 }
 
 tm() {
