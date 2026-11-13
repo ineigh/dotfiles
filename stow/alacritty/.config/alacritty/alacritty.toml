@@ -6,7 +6,7 @@ import = [
 
 [window]
 dimensions = { columns = 100, lines = 36 }
-opacity = 0.95
+opacity = 1
 resize_increments = true
 
 [scrolling]

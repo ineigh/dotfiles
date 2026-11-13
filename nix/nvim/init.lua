@@ -3,6 +3,82 @@ require("formatter")
 require("lsp")
 require("blink")
 require("treesitter")
+require("nvim-tree").setup({
+	sort = {
+		sorter = "name",
+		folders_first = true,
+	},
+	git = {
+		enable = false,
+	},
+	renderer = {
+		highlight_git = "none",
+		highlight_diagnostics = "none",
+		highlight_opened_files = "none",
+		highlight_modified = "none",
+	},
+})
+
+local function set_tree_colors()
+	local highlights = {
+		-- Background and text
+		NvimTreeNormal = {
+			fg = "#eeeeec",
+			bg = "#303030",
+		},
+		NvimTreeNormalNC = {
+			fg = "#eeeeec",
+			bg = "#303030",
+		},
+
+		-- Folders
+		NvimTreeFolderName = {
+			fg = "#4a78b4",
+		},
+		NvimTreeOpenedFolderName = {
+			fg = "#5c8bc5",
+			bold = true,
+		},
+		NvimTreeRootFolder = {
+			fg = "#82afd8",
+			bold = true,
+		},
+
+		-- Files
+		NvimTreeExecFile = {
+			fg = "#73d216",
+		},
+		NvimTreeSpecialFile = {
+			fg = "#edd400",
+		},
+
+		-- Structure
+		NvimTreeEndOfBuffer = {
+			fg = "#303030",
+		},
+		NvimTreeIndentMarker = {
+			fg = "#555753",
+		},
+		NvimTreeCursorLine = {
+			bg = "#3d3d3d",
+		},
+		NvimTreeWinSeparator = {
+			fg = "#555753",
+			bg = "#303030",
+		},
+
+		-- Symlinks
+		NvimTreeSymlink = {
+			fg = "#82afd8",
+		},
+	}
+
+	for group, colors in pairs(highlights) do
+		vim.api.nvim_set_hl(0, group, colors)
+	end
+end
+
+set_tree_colors()
 
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
@@ -36,6 +112,8 @@ vim.o.background = "dark"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
 	require("conform").format({ async = true })

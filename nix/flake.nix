@@ -14,6 +14,10 @@
       inputs.home-manager.follows = "home-manager";
     };
     cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    openrevolution = {
+      url = "path:./packages/openrevolution/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +27,7 @@
       cachyos-kernel,
       plasma-manager,
       pano-scrobbler,
+      openrevolution,
       ...
     }:
     {
@@ -39,6 +44,7 @@
             cachyos-kernel
             plasma-manager
             pano-scrobbler
+            openrevolution
             ;
         };
       };

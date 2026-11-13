@@ -43,6 +43,8 @@ in
         friendly-snippets
         nvim-treesitter
         telescope-nvim
+        nvim-tree-lua
+        nvim-web-devicons
       ];
     };
     equibop = {
